@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>PacoteWindowsBonito</AssemblyName>
+    <RootNamespace>PacoteSetup</RootNamespace>
+    <Version>1.0.0</Version>
+    <Product>Pacote Windows Bonito</Product>
+    <Company>Felipe</Company>
+    <Description>Instalador do Pacote Windows Bonito</Description>
+    <ApplicationIcon>..\..\icone\icone.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <SatelliteResourceLanguages>none</SatelliteResourceLanguages>
+    <!-- One file that opens on a PC without .NET: the setup is what installs the runtime the apps need. -->
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <DebugType>none</DebugType>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="..\..\icone\icone.ico" Link="Assets\icone.ico" />
+    <Resource Include="..\..\icone\icone.png" Link="Assets\pack.png" />
+    <Resource Include="Assets\*.png" />
+    <Resource Include="Fonts\Quicksand-Medium.ttf" />
+    <Resource Include="Fonts\Quicksand-Bold.ttf" />
+  </ItemGroup>
+</Project>
