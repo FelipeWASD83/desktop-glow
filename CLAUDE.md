@@ -38,7 +38,12 @@ commits e este arquivo em português. Telas em pt e en, seguindo o Windows (`--l
   no tamanho da que está em uso) e só falha acima de 3% de pixels diferentes. `--arrow-diff <arquivo.cur>` mede isso
   sem mexer em nada.
 - **Fechar os apps:** ilha `Ilha.exe --sair`, Fundo Vivo `FundoVivo.exe --quit` (devolve o papel de parede do
-  Windows), relógio sem comando de sair: mata o `dotnet` cuja linha de comando tem `RelogioMond.dll`.
+  Windows), relógio `dotnet RelogioMond.dll --quit` (desde a 1.5.0; versão antiga não conhece e o `dotnet` que sobrar
+  depois de 4 s é morto, achado pela linha de comando com `RelogioMond.dll`).
+- **Formato de release comum (03/11/2026):** relógio e cursores têm `versao.json` (`versao`, `repositorio`) e
+  `ferramentas\publicar-versao.ps1` que gera `<nome>-<versão>.zip`, o modelo do `clave`. O `build.ps1` lê a versão
+  do `versao.json` quando existe (`App-Version`) e recusa se discordar do csproj ou do changelog; `ilha` e
+  `fundo-vivo` ainda não têm o arquivo e caem no `<Version>` do csproj.
 
 ## Decisões que não se desfazem sem motivo
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.1 (03/11/2026)
+
+**Mudou**
+- O relógio agora é fechado pelo comando `--quit` dele (como a ilha com `--sair` e o Fundo Vivo com `--quit`), em vez de ter o processo morto. Versões antigas do relógio, que não têm o comando, ainda são encerradas à força depois de alguns segundos.
+- Traz o Relógio Mond 1.5.0 (barras brancas e suaves, minutagem clicável, troca de faixa animada) e os Cursores da Ilha 1.1.0 no formato de release que os quatro apps passaram a seguir.
+
 ## 1.2.0 (03/11/2026)
 
 **Novo**

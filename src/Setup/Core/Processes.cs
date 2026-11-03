@@ -29,14 +29,22 @@ public static class Processes
         WaitOrKill(open, 3000);
     }
 
-    /// <summary>The clock is dotnet.exe running RelogioMond.dll, started by pythonw running iniciar.pyw.</summary>
+    /// <summary>The clock is dotnet.exe running RelogioMond.dll, started by pythonw running iniciar.pyw.
+    /// RelogioMond.dll --quit (1.5.0, same name as the Fundo Vivo's) closes it like the tray's Quit; older
+    /// versions do not know it, so whatever is still running after a few seconds is killed.</summary>
     public static void CloseRelogio()
     {
         if (Paths.Sandbox) return;
         var clocks = Process.GetProcessesByName("dotnet").Where(p => CommandLine(p.Id)?.Contains("RelogioMond.dll", StringComparison.OrdinalIgnoreCase) == true).ToArray();
         var launchers = Process.GetProcessesByName("pythonw").Where(p => CommandLine(p.Id)?.Contains("iniciar.pyw", StringComparison.OrdinalIgnoreCase) == true
             && CommandLine(p.Id)?.Contains("relogio", StringComparison.OrdinalIgnoreCase) == true).ToArray();
-        WaitOrKill(clocks, 0);
+        if (clocks.Length > 0)
+        {
+            string? exe = ImagePath(clocks[0].Id);
+            var dll = System.Text.RegularExpressions.Regex.Match(CommandLine(clocks[0].Id) ?? "", "\"?([^\"]*RelogioMond\\.dll)\"?", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+            if (exe != null && dll.Success) RunAndWait(exe, $"\"{dll.Groups[1].Value}\" --quit", 6000);
+        }
+        WaitOrKill(clocks, 4000);
         WaitOrKill(launchers, 3000);
     }
 

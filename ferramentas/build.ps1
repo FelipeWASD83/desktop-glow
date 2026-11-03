@@ -44,6 +44,17 @@ function Changelog-Version([string]$path) {
     throw "No version heading in $path"
 }
 
+# The shared release format (clave, relogio-mond, ilha-cursors): versao.json with "versao" and "repositorio" at the
+# project root. A project that has it must agree with the version it keeps elsewhere (csproj / changelog); a project
+# that does not yet (ilha, fundo-vivo) falls back to that other place.
+function App-Version([string]$dir, [string]$other) {
+    $file = Join-Path $dir 'versao.json'
+    if (-not (Test-Path $file)) { return $other }
+    $v = ([IO.File]::ReadAllText($file) | ConvertFrom-Json).versao
+    if ($other -and $v -ne $other) { throw "$(Split-Path -Leaf $dir): versao.json says $v but the project says $other." }
+    return $v
+}
+
 function Expand-Clean([string]$zip, [string]$dest) {
     if (Test-Path $dest) { Remove-Item $dest -Recurse -Force }
     [IO.Compression.ZipFile]::ExtractToDirectory($zip, $dest)
@@ -66,7 +77,7 @@ $components = [ordered]@{}
 
 # ---- ilha
 $ilhaDir = Join-Path $base 'ilha'
-$ilhaVersion = Csproj-Version (Join-Path $ilhaDir 'src\Ilha\Ilha.csproj')
+$ilhaVersion = App-Version $ilhaDir (Csproj-Version (Join-Path $ilhaDir 'src\Ilha\Ilha.csproj'))
 $ilhaWork = Join-Path $build 'sources\ilha'
 $ilhaZip = Join-Path $ilhaWork "Ilha-$ilhaVersion.zip"
 if ($RebuildIlha -or -not (Test-Path $ilhaZip)) {
@@ -80,7 +91,7 @@ $components['ilha'] = [ordered]@{ version = $ilhaVersion; bytes = (Folder-Bytes 
 
 # ---- fundo vivo
 $fvDir = Join-Path $base 'fundo-vivo'
-$fvVersion = Csproj-Version (Join-Path $fvDir 'src\FundoVivo\FundoVivo.csproj')
+$fvVersion = App-Version $fvDir (Csproj-Version (Join-Path $fvDir 'src\FundoVivo\FundoVivo.csproj'))
 $fvZip = Join-Path $fvDir "build\release\fundo-vivo-$fvVersion.zip"
 if ($RebuildFundoVivo) {
     Write-Host "Fundo Vivo ${fvVersion}: building the package (this closes a Fundo Vivo running from fundo-vivo\app)..."
@@ -129,7 +140,7 @@ $components['relogio'] = [ordered]@{ version = $rVersion; bytes = (Folder-Bytes 
 # ---- cursors
 $cDir = Join-Path $base 'ilha-cursors'
 $cManifest = Join-Path $cDir 'build\manifest.json'
-$cWanted = Changelog-Version (Join-Path $cDir 'CHANGELOG.md')
+$cWanted = App-Version $cDir (Changelog-Version (Join-Path $cDir 'CHANGELOG.md'))
 $cHave = if (Test-Path $cManifest) { ([IO.File]::ReadAllText($cManifest) | ConvertFrom-Json).version } else { '' }
 if ($cHave -ne $cWanted) {
     Write-Host "Cursors: build is $cHave, changelog says $cWanted; running generate.py..."
