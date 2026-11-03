@@ -68,6 +68,8 @@ public sealed class InstallOptions
     public bool DesktopShortcuts { get; set; }
     public bool LaunchWhenDone { get; set; } = true;
     public bool InstallMissing { get; set; } = true;
+    /// <summary>The apps that start with Windows also get a logon task that opens them first, above normal priority.</summary>
+    public bool Priority { get; set; } = true;
     /// <summary>The language of the ilha and the clock: "auto" follows Windows, "pt" or "en" fix it.</summary>
     public string AppLanguage { get; set; } = "auto";
 

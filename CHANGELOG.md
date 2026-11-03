@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.0 (03/11/2026)
+
+**Novo**
+- Opção "Abrir primeiro, com prioridade" nos últimos detalhes, ligada por padrão: a ilha, o relógio e o Fundo Vivo que abrem com o Windows saem logo que você entra, na frente da fila dos outros programas de inicialização, e com prioridade acima do normal. Não pede administrador.
+- A desinstalação tira essas tarefas junto. Reinstalar mantém a escolha que já estava.
+- `--prioridade ligar` (ou `desligar`) faz o mesmo para os apps que já abrem com o Windows, onde quer que estejam instalados.
+
 ## 1.1.0 (02/11/2026)
 
 **Novo**

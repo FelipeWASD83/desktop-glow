@@ -67,6 +67,26 @@ commits e este arquivo em português. Telas em pt e en, seguindo o Windows (`--l
   alguém em andamento: não entra e só gera aviso. Comparar com a hora do commit não serve: a 1.1.3 foi commitada 1 min
   depois de compilada.
 
+## Abrir primeiro, com prioridade (1.2.0)
+
+- Pedido dele em 03/11/2026 ("definir os programas como prioridade para que iniciem mais rápido"). O que atrasa os
+  apps no logon é a fila do Run (o Windows solta os 16 programas dele aos poucos); a prioridade de CPU ajuda pouco
+  sozinha. Por isso `Core/Priority.cs` cria, para cada app com "abrir junto com o Windows", uma tarefa
+  "Pacote Windows Bonito - <app>" no Agendador: gatilho no logon do próprio usuário, **prioridade 2** (acima do normal;
+  o padrão de tarefa é 7, abaixo do normal), sem limite de tempo, sem parar na bateria. `schtasks /create /xml` com o
+  XML em UTF-16, **sem administrador** (testado em 02/11/2026 num shell de integridade média).
+- **A entrada do Run continua.** Os três apps recusam segunda cópia (mutex `Ilha.Instancia`, `RelogioMond`,
+  `FundoVivoEngine`), então a cópia que a fila abre depois fecha sozinha, e o "iniciar com o Windows" de dentro de cada
+  app segue funcionando. Descartado: `StartupDelayInMSec` (acelera os 16 programas, não os nossos) e IFEO (HKLM, pede
+  administrador, e valeria para todo `dotnet.exe`).
+- **No relógio a prioridade fica no `pythonw`**: o `dotnet` filho nasce normal, porque o Windows só passa a prioridade
+  do pai quando ela é abaixo do normal. Ele ganha a saída antecipada, não a CPU.
+- `--prioridade ligar|desligar` faz o mesmo a partir do que está no Run agora (no PC dele o relógio e o Fundo Vivo
+  abrem das pastas dos projetos). Ligado no PC dele em 03/11/2026.
+- No modo `PACOTE_HOME` as tarefas se chamam "PWB-Sandbox <app>" e são tarefas de verdade: os dois testes apagam no
+  fim, para nenhuma sobrar para o próximo logon.
+- **O ganho no logon não foi medido** (exige sair e entrar no Windows).
+
 ## Vídeos na tela de progresso (1.1.0)
 
 - Os 8 vídeos `setup-<app>-<en|pt>` do subprojeto `video/` (ler o `video/CLAUDE.md`) saem em versão leve em

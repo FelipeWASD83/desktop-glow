@@ -204,6 +204,12 @@ public sealed class Installer
         string name = Names.RunValue(c)!;
         if (on) RunEntry.Set(_reg, name, command);
         else RunEntry.RemoveIfOurs(_reg, name, Components.Folder(c));
+        // the priority task rides on "start with Windows": no task for an app that does not start with it
+        if (on && _o.Priority)
+        {
+            if (Priority.Set(name, command) is string erro) Log.Write($"{c}: priority task not made ({erro}); it still starts from Run");
+        }
+        else Priority.Remove(name);
     }
 
     void Shortcuts(ComponentId c, string target, string args, string workingDir, string icon, string description)

@@ -8,7 +8,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>PacoteWindowsBonito</AssemblyName>
     <RootNamespace>PacoteSetup</RootNamespace>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <Product>Pacote Windows Bonito</Product>
     <Company>Felipe</Company>
     <Description>Instalador do Pacote Windows Bonito</Description>

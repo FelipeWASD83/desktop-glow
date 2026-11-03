@@ -79,7 +79,11 @@ public sealed class Uninstaller
                 DeleteFolder(folder);
                 return;
         }
-        if (Names.RunValue(c) is string run) RunEntry.RemoveIfOurs(_reg, run, folder);
+        if (Names.RunValue(c) is string run)
+        {
+            RunEntry.RemoveIfOurs(_reg, run, folder);
+            Priority.Remove(run);
+        }
         if (Names.ShortcutName(c) is string lnk)
             foreach (string dir in new[] { Paths.StartMenu, Paths.Desktop })
                 Shortcut.RemoveIfOurs(Path.Combine(dir, lnk), folder);

@@ -66,6 +66,18 @@ $run = 'Software\Microsoft\Windows\CurrentVersion\Run'
 Check 'Run Ilha' ((RegValue $run 'Ilha') -eq "`"$local\Ilha\Ilha.exe`"")
 Check 'Run FundoVivo' ((RegValue $run 'FundoVivo') -eq "`"$local\FundoVivo\FundoVivo.exe`" --engine")
 Check 'no Run RelogioMond (start with Windows off)' ($null -eq (RegValue $run 'RelogioMond'))
+function TaskExists([string]$name) {
+    # "not found" comes on stderr, which 'Stop' would turn into a fatal error in PowerShell 5.1
+    $ErrorActionPreference = 'Continue'
+    schtasks /query /tn "PWB-Sandbox $name" 2>&1 | Out-Null
+    return $LASTEXITCODE -eq 0
+}
+Check 'priority tasks for the apps that start with Windows' ((TaskExists 'Ilha') -and (TaskExists 'Fundo Vivo'))
+Check 'no priority task for the clock (start with Windows off)' (-not (TaskExists 'Relogio Mond'))
+$ErrorActionPreference = 'Continue'
+$taskXml = (schtasks /query /tn 'PWB-Sandbox Ilha' /xml 2>&1) -join "`n"
+$ErrorActionPreference = 'Stop'
+Check 'priority task: above normal, at logon, the installed exe' ($taskXml -match '<Priority>2</Priority>' -and $taskXml -match '<LogonTrigger>' -and $taskXml -match [regex]::Escape("$local\Ilha\Ilha.exe"))
 Check 'white arrow applied' ((RegValue 'Control Panel\Cursors' 'Arrow') -eq "$home2\.ilha-cursors\white\arrow.cur")
 Check 'scheme name' ((RegValue 'Control Panel\Cursors' '') -eq 'Ilha branco')
 Check 'both schemes listed' (($null -ne (RegValue 'Control Panel\Cursors\Schemes' 'Ilha preto')) -and ($null -ne (RegValue 'Control Panel\Cursors\Schemes' 'Ilha branco')))
@@ -100,6 +112,7 @@ Check 'ilha removed' (-not (Test-Path "$local\Ilha"))
 Check 'fundo vivo removed' (-not (Test-Path "$local\FundoVivo"))
 Check 'clock removed, dados kept' ((Test-Path "$local\RelogioMond\dados\config.json") -and -not (Test-Path "$local\RelogioMond\app"))
 Check 'cursors removed' (-not (Test-Path "$home2\.ilha-cursors"))
+Check 'priority tasks removed' (-not (TaskExists 'Ilha') -and -not (TaskExists 'Fundo Vivo'))
 Check 'Run entries removed' (($null -eq (RegValue $run 'Ilha')) -and ($null -eq (RegValue $run 'FundoVivo')))
 Check 'pointers restored (default)' ((RegValue 'Control Panel\Cursors' 'Arrow') -eq '')
 Check 'schemes unlisted' (($null -eq (RegValue 'Control Panel\Cursors\Schemes' 'Ilha preto')) -and ($null -eq (RegValue 'Control Panel\Cursors\Schemes' 'Ilha branco')))
@@ -113,4 +126,6 @@ $lines.Add('--- setup.log')
 Get-Content (Join-Path $box 'PacoteWindowsBonito\setup.log') -Encoding UTF8 | ForEach-Object { $lines.Add($_) }
 [IO.File]::WriteAllLines($report, $lines)
 Remove-Item $regRoot -Recurse -Force -ErrorAction SilentlyContinue
+$ErrorActionPreference = 'Continue'  # schtasks says "not found" on stderr
+foreach ($n in @('Ilha', 'Relogio Mond', 'Fundo Vivo')) { schtasks /delete /tn "PWB-Sandbox $n" /f 2>$null | Out-Null }
 Write-Host "Sandbox test: $(if ($failed -eq 0) { 'all passed' } else { "$failed failed" }) (report in $report)"

@@ -30,6 +30,7 @@ public static class SelfTest
         Test("run entry: only ours is removed", RunEntryOwnership);
         Test("shortcut: written, read back, removed only when ours", () => ShortcutOwnership(temp));
         Test("paths: inside checks", PathsInside);
+        Test("priority: command split and task XML", PriorityTask);
         Test("text: every key exists in both languages", TextKeys);
 
         try { Directory.Delete(temp, true); } catch { }
@@ -183,6 +184,22 @@ public static class SelfTest
         Check(Paths.IsInside("\"C:/A/B/c.exe\"", @"C:\A\B\"), "quoted, forward slashes");
         Check(!Paths.IsInside(@"C:\A\BC\c.exe", @"C:\A\B"), "sibling with a longer name");
         Check(!Paths.IsInside(null, @"C:\A"), "null");
+    }
+
+    static void PriorityTask()
+    {
+        var a = Priority.Split("\"C:\\Program Files\\Python313\\pythonw.exe\" \"C:\\x y\\iniciar.pyw\"");
+        Check(a.Exe == @"C:\Program Files\Python313\pythonw.exe" && a.Args == "\"C:\\x y\\iniciar.pyw\"", $"quoted split: {a.Exe} | {a.Args}");
+        var b = Priority.Split("C:\\Apps\\FundoVivo.exe --engine");
+        Check(b.Exe == @"C:\Apps\FundoVivo.exe" && b.Args == "--engine", "bare split");
+        var c = Priority.Split("\"C:\\Ilha\\Ilha.exe\"");
+        Check(c.Exe == @"C:\Ilha\Ilha.exe" && c.Args == "", "no arguments");
+        string xml = Priority.Xml("\"C:\\A & B\\app.exe\" --x \"<y>\"", "test");
+        Check(xml.StartsWith("<?xml", StringComparison.Ordinal), "the declaration must be the first thing");
+        Check(xml.Contains("<Priority>2</Priority>") && xml.Contains("<LogonTrigger>") && xml.Contains("<ExecutionTimeLimit>PT0S</ExecutionTimeLimit>"), "task settings");
+        Check(xml.Contains("C:\\A &amp; B\\app.exe") && xml.Contains("--x &quot;&lt;y&gt;&quot;") && xml.Contains("<WorkingDirectory>C:\\A &amp; B</WorkingDirectory>"), "escaping and working folder");
+        var doc = new System.Xml.XmlDocument();
+        doc.LoadXml(xml);  // throws if it is not well formed
     }
 
     static void TextKeys()

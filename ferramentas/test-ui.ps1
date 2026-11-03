@@ -90,4 +90,7 @@ Check 'uninstaller closed with exit 0' ($p.HasExited -and $p.ExitCode -eq 0)
 Check 'everything removed' (-not (Test-Path "$local\Ilha") -and -not (Test-Path "$local\RelogioMond\app") -and -not (Test-Path "$box\home\.ilha-cursors"))
 
 Remove-Item $regRoot -Recurse -Force -ErrorAction SilentlyContinue
+# the sandbox logon tasks are real tasks: never leave one behind for the next sign-in
+$ErrorActionPreference = 'Continue'  # schtasks says "not found" on stderr
+foreach ($n in @('Ilha', 'Relogio Mond', 'Fundo Vivo')) { schtasks /delete /tn "PWB-Sandbox $n" /f 2>$null | Out-Null }
 Write-Host $(if ($failed -eq 0) { 'UI test: all passed' } else { "UI test: $failed failed" })

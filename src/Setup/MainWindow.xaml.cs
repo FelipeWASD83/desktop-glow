@@ -150,6 +150,9 @@ public partial class MainWindow : Window, IProgressSink
             var reg = new UserRegistry();
             if (Cursors.InUse(reg, Paths.Cursors))
                 _o.CursorScheme = (reg.Get(Cursors.CursorsKey, "Arrow") as string)?.Contains(@"\white\", StringComparison.OrdinalIgnoreCase) == true ? "white" : "black";
+            // a reinstall keeps the choice: with apps already installed, priority is on only if one of their tasks exists
+            if (_state.Components.Count > 0 && Priority.RunNames.Any(n => reg.Get(RunEntry.Key, n) is string))
+                _o.Priority = Priority.RunNames.Any(Priority.Exists);
             if (reg.Get(RunEntry.Key, "FundoVivo") is string fv && !RunEntry.PointsInto(fv, Paths.FundoVivo) && _state.Has(ComponentId.FundoVivo)) _o.FundoVivoStartup = false;
         }
         catch (Exception e) { Log.Write("prefill: " + e.Message); }
@@ -517,6 +520,7 @@ public partial class MainWindow : Window, IProgressSink
         general.Children.Add(Row(Text.T("final.startMenu"), null, Switch(_o.StartMenu, v => _o.StartMenu = v)));
         general.Children.Add(Row(Text.T("final.desktop"), null, Switch(_o.DesktopShortcuts, v => _o.DesktopShortcuts = v)));
         general.Children.Add(Row(Text.T("final.launch"), null, Switch(_o.LaunchWhenDone, v => _o.LaunchWhenDone = v)));
+        general.Children.Add(Row(Text.T("final.priority"), Text.T("final.prioritySub"), Switch(_o.Priority, v => _o.Priority = v)));
         general.Children.Add(Row(Text.T("final.lang"), null,
             Segment(new[] { (Text.T("lang.auto"), "auto"), ("PT", "pt"), ("EN", "en") }, _o.AppLanguage, v => _o.AppLanguage = v)));
         _missingSub = new TextBlock { Style = Res("Small"), Margin = new Thickness(0, 3, 0, 0) };
