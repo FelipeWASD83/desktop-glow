@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.0 (03/11/2026)
+
+**Mudou**
+- O pacote agora se chama **Desktop Glow** (era Pacote Windows Bonito). O setup baixado é sempre `DesktopGlow-Setup.exe`, e em Configurações > Aplicativos ele aparece como Desktop Glow.
+- Com o Windows em inglês, o setup mostra os nomes dos apps em inglês (Island, Mond Clock, Living Wallpaper, Island Cursors), inclusive nos atalhos do Menu Iniciar e da área de trabalho. Reinstalar no outro idioma troca os atalhos, sem deixar os antigos.
+- Os quatro apps entram no setup pelo pacote de release de cada um, o mesmo que o botão de atualizar de cada app baixa.
+- Descrições dos apps atualizadas: placar do jogo ao vivo e clima na ilha, barras do som no relógio, os dez fundos próprios do Fundo Vivo e a transformação dos cursores.
+
+**Corrigido**
+- Uma instalação feita com o nome antigo é trazida para o nome novo sozinha ao abrir o setup: a entrada em Configurações > Aplicativos, o desinstalador e as tarefas de "Abrir primeiro, com prioridade" passam para Desktop Glow, sem duplicar nada. `--migrate` faz só isso.
+
 ## 1.2.2 (03/11/2026)
 
 **Mudou**

@@ -1,6 +1,6 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:ui="clr-namespace:PacoteSetup.Ui">
+                    xmlns:ui="clr-namespace:DesktopGlowSetup.Ui">
 
     <!-- The ilha's palette: true black, near-black surfaces, white ink, iOS green/orange/red for states. -->
     <SolidColorBrush x:Key="Paper" Color="#000000"/>

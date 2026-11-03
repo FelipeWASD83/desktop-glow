@@ -1,6 +1,6 @@
-using PacoteSetup.Core;
+using DesktopGlowSetup.Core;
 
-namespace PacoteSetup;
+namespace DesktopGlowSetup;
 
 /// <summary>Install and uninstall with no window; progress goes to the log.</summary>
 public static class Silent
@@ -24,7 +24,9 @@ public static class Silent
         if (payload == null) { Log.Write("silent install: no payload in " + self); return 4; }
         var options = optionsFile != null ? Json.Read<InstallOptions>(optionsFile) : new InstallOptions();
         if (options == null) { Log.Write("silent install: could not read " + optionsFile); return 3; }
-        var installer = new Installer(payload, options, new UserRegistry(), new LogSink());
+        var reg = new UserRegistry();
+        if (Legacy.Present(reg)) Legacy.Migrate(reg, payload);
+        var installer = new Installer(payload, options, reg, new LogSink());
         installer.Run();
         foreach (var (c, e) in installer.Errors) Log.Write($"silent install: {c} failed: {e}");
         return installer.Errors.Count == 0 ? 0 : 1;

@@ -2,7 +2,7 @@ using System.IO.Compression;
 using System.Text;
 using System.Text.Json;
 
-namespace PacoteSetup.Core;
+namespace DesktopGlowSetup.Core;
 
 public sealed class PayloadComponent
 {
@@ -23,7 +23,7 @@ public sealed class PayloadManifest
 /// </summary>
 public sealed class Payload
 {
-    public const string Magic = "PWBPAY01";
+    public const string Magic = "GLOWPAY1";
     const int TrailerSize = 16;
 
     public string File { get; }

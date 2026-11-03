@@ -1,6 +1,6 @@
 using System.Globalization;
 
-namespace PacoteSetup.Core;
+namespace DesktopGlowSetup.Core;
 
 /// <summary>Every on-screen text in Portuguese and English. Follows the Windows language unless --lang says otherwise.</summary>
 public static class Text
@@ -24,19 +24,19 @@ public static class Text
 
     static readonly Dictionary<string, (string Pt, string En)> Strings = new()
     {
-        ["app.ilha"] = ("Ilha", "Ilha"),
-        ["app.relogio"] = ("Relógio Mond", "Relógio Mond"),
-        ["app.fundovivo"] = ("Fundo Vivo", "Fundo Vivo"),
-        ["app.cursors"] = ("Cursores da Ilha", "Ilha Cursors"),
+        ["app.ilha"] = ("Ilha", "Island"),
+        ["app.relogio"] = ("Relógio Mond", "Mond Clock"),
+        ["app.fundovivo"] = ("Fundo Vivo", "Living Wallpaper"),
+        ["app.cursors"] = ("Cursores da Ilha", "Island Cursors"),
 
-        ["desc.ilha"] = ("A Dynamic Island no topo da tela: música, timer, gravador, avisos e atalhos.",
-            "A Dynamic Island at the top of the screen: music, timer, recorder, alerts and shortcuts."),
-        ["desc.relogio"] = ("Dia, data, hora, clima e a música tocando, no meio da área de trabalho.",
-            "Day, date, time, weather and the song playing, right on the desktop."),
-        ["desc.fundovivo"] = ("Papel de parede animado e leve: vídeo, imagem, página web e cenas.",
-            "A light animated wallpaper: video, picture, web page and scenes."),
-        ["desc.cursors"] = ("Ponteiros preto ou branco, com contorno e animações no jeito da ilha.",
-            "Black or white pointers with an outline and animations in the island's style."),
+        ["desc.ilha"] = ("A Dynamic Island no topo da tela: música, placar do jogo ao vivo, timer, clima e avisos.",
+            "A Dynamic Island at the top of the screen: music, live game score, timer, weather and alerts."),
+        ["desc.relogio"] = ("Dia, data, hora, clima e a música tocando com as barras do som, no meio da área de trabalho.",
+            "Day, date, time, weather and the song playing with its sound bars, right on the desktop."),
+        ["desc.fundovivo"] = ("Papel de parede animado e leve, um por monitor: vídeo, imagem, página web e dez fundos próprios.",
+            "A light animated wallpaper, one per monitor: video, picture, web page and ten of its own."),
+        ["desc.cursors"] = ("Ponteiros preto ou branco, com contorno, e cada um se transforma no outro com a mola da ilha.",
+            "Black or white pointers with an outline, each one morphing into the next with the island's spring."),
 
         ["prereq.DesktopRuntime"] = (".NET 10", ".NET 10"),
         ["prereq.Python"] = ("Python", "Python"),
@@ -53,9 +53,9 @@ public static class Text
         ["win.minimize"] = ("Minimizar", "Minimize"),
         ["win.close"] = ("Fechar", "Close"),
 
-        ["welcome.title"] = ("Pacote Windows Bonito", "Pacote Windows Bonito"),
+        ["welcome.title"] = ("Desktop Glow", "Desktop Glow"),
         ["welcome.sub"] = ("A ilha, o relógio, os cursores e o fundo animado, instalados de uma vez.",
-            "The island, the clock, the cursors and the live wallpaper, installed in one go."),
+            "The island, the clock, the cursors and the living wallpaper, installed in one go."),
         ["welcome.foot"] = ("Versão {0}  ·  instala só para você, sem pedir administrador",
             "Version {0}  ·  installs for you only, no administrator needed"),
 
@@ -96,9 +96,9 @@ public static class Text
         ["scheme.none"] = ("Só na lista", "Just add them"),
         ["scheme.noneSub"] = ("Não troca o ponteiro agora", "Keeps your pointer for now"),
         ["opt.fundoNote"] = ("Ao terminar, a biblioteca do Fundo Vivo abre para você escolher o fundo de cada monitor.",
-            "When it's done, the Fundo Vivo library opens so you can pick a wallpaper for each monitor."),
+            "When it's done, the Living Wallpaper library opens so you can pick a wallpaper for each monitor."),
         ["opt.fundoNoteNoLaunch"] = ("Para escolher o fundo de cada monitor, abra o Fundo Vivo depois de instalar.",
-            "To pick a wallpaper for each monitor, open Fundo Vivo after installing."),
+            "To pick a wallpaper for each monitor, open Living Wallpaper after installing."),
 
         ["final.title"] = ("Últimos detalhes", "Last details"),
         ["final.sub"] = ("Confira e instale.", "Check and install."),
@@ -137,14 +137,14 @@ public static class Text
         ["state.removed"] = ("Removido", "Removed"),
 
         ["done.title"] = ("Tudo pronto", "All done"),
-        ["done.sub"] = ("Para desinstalar depois: Configurações > Aplicativos > Pacote Windows Bonito.",
-            "To uninstall later: Settings > Apps > Pacote Windows Bonito."),
+        ["done.sub"] = ("Para desinstalar depois: Configurações > Aplicativos > Desktop Glow.",
+            "To uninstall later: Settings > Apps > Desktop Glow."),
         ["done.errorTitle"] = ("Quase tudo", "Almost everything"),
         ["done.errorSub"] = ("Alguma coisa não instalou. O motivo está ao lado do nome, e o registro tem os detalhes.",
             "Something did not install. The reason is next to its name, and the log has the details."),
         ["error.short"] = ("Falhou", "Failed"),
         ["error.cursorReload"] = ("O Windows não trocou o ponteiro. Escolha \"Ilha preto\" ou \"Ilha branco\" em Configurações > Mouse > Ponteiros.",
-            "Windows did not switch the pointer. Pick \"Ilha preto\" or \"Ilha branco\" in Settings > Mouse > Pointers."),
+            "Windows did not switch the pointer. Pick \"Ilha preto\" (black) or \"Ilha branco\" (white) in Settings > Mouse > Pointers."),
         ["error.missing"] = ("Falta {0}", "{0} is missing"),
 
         ["uninstall.title"] = ("Desinstalar", "Uninstall"),

@@ -1,6 +1,6 @@
 using Microsoft.Win32;
 
-namespace PacoteSetup.Core;
+namespace DesktopGlowSetup.Core;
 
 public readonly record struct RegValue(object Data, RegistryValueKind Kind);
 
@@ -17,7 +17,7 @@ public interface IUserRegistry
 public sealed class UserRegistry : IUserRegistry
 {
     // In sandbox mode every key lives under this one, so a test install can be read and wiped in one place.
-    public const string SandboxRoot = @"Software\PacoteWindowsBonito-Sandbox\";
+    public const string SandboxRoot = @"Software\DesktopGlow-Sandbox\";
     static string Real(string path) => Paths.Sandbox ? SandboxRoot + path : path;
 
     public Dictionary<string, RegValue> ReadAll(string path)

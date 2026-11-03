@@ -2,7 +2,7 @@ using System.Diagnostics;
 using System.Security;
 using System.Text;
 
-namespace PacoteSetup.Core;
+namespace DesktopGlowSetup.Core;
 
 /// <summary>
 /// "Open first, with priority": a Task Scheduler task per app that starts it at the person's logon, ahead of the
@@ -17,13 +17,14 @@ public static class Priority
     // the apps that start with Windows, by their Run value name
     public static readonly string[] RunNames = { "Ilha", "RelogioMond", "FundoVivo" };
 
-    public static string TaskName(string runName) =>
-        (Paths.Sandbox ? "PWB-Sandbox " : "Pacote Windows Bonito - ") + runName switch
-        {
-            "RelogioMond" => "Relogio Mond",
-            "FundoVivo" => "Fundo Vivo",
-            _ => runName,
-        };
+    public static string TaskName(string runName) => (Paths.Sandbox ? "Desktop Glow Sandbox - " : "Desktop Glow - ") + Label(runName);
+
+    public static string Label(string runName) => runName switch
+    {
+        "RelogioMond" => "Relogio Mond",
+        "FundoVivo" => "Fundo Vivo",
+        _ => runName,
+    };
 
     /// <summary>Splits a Run command line into the program and the rest of the line, kept as written.</summary>
     public static (string Exe, string Args) Split(string command)
@@ -50,7 +51,7 @@ public static class Priority
             <?xml version="1.0" encoding="UTF-16"?>
             <Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
               <RegistrationInfo>
-                <Author>Pacote Windows Bonito</Author>
+                <Author>Desktop Glow</Author>
                 <Description>{E(description)}</Description>
               </RegistrationInfo>
               <Triggers>
@@ -110,12 +111,18 @@ public static class Priority
 
     public static void Remove(string runName)
     {
-        if (!Exists(runName)) return;
-        var (code, output) = Schtasks($"/delete /tn \"{TaskName(runName)}\" /f");
-        Log.Write($"priority task {TaskName(runName)} removed: {(code == 0 ? "ok" : output)}");
+        if (Exists(runName)) DeleteTask(TaskName(runName));
     }
 
-    public static bool Exists(string runName) => Schtasks($"/query /tn \"{TaskName(runName)}\"").Code == 0;
+    public static bool Exists(string runName) => TaskExists(TaskName(runName));
+
+    public static bool TaskExists(string task) => Schtasks($"/query /tn \"{task}\"").Code == 0;
+
+    public static void DeleteTask(string task)
+    {
+        var (code, output) = Schtasks($"/delete /tn \"{task}\" /f");
+        Log.Write($"priority task {task} removed: {(code == 0 ? "ok" : output)}");
+    }
 
     /// <summary>
     /// --prioridade ligar|desligar: the same for whatever is in Run right now, wherever the apps live (on his PC the

@@ -2,7 +2,7 @@ using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 
-namespace PacoteSetup.Core;
+namespace DesktopGlowSetup.Core;
 
 /// <summary>.lnk files through the shell's own IShellLink, no WScript.</summary>
 public static class Shortcut

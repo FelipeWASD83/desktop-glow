@@ -2,7 +2,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace PacoteSetup.Ui;
+namespace DesktopGlowSetup.Ui;
 
 /// <summary>A progress ring like the ilha's timer ring. Indeterminate = a quarter arc that spins.</summary>
 public sealed class Ring : FrameworkElement

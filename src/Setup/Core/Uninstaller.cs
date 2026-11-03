@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace PacoteSetup.Core;
+namespace DesktopGlowSetup.Core;
 
 /// <summary>
 /// Takes away what this pack installed, and only that: Run entries and shortcuts are removed only when they point
@@ -84,7 +84,7 @@ public sealed class Uninstaller
             RunEntry.RemoveIfOurs(_reg, run, folder);
             Priority.Remove(run);
         }
-        if (Names.ShortcutName(c) is string lnk)
+        foreach (string lnk in Names.ShortcutNames(c))
             foreach (string dir in new[] { Paths.StartMenu, Paths.Desktop })
                 Shortcut.RemoveIfOurs(Path.Combine(dir, lnk), folder);
 

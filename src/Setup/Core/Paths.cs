@@ -1,13 +1,13 @@
-namespace PacoteSetup.Core;
+namespace DesktopGlowSetup.Core;
 
 /// <summary>
-/// Every place the setup writes to. PACOTE_HOME moves all of them (and the registry, see <see cref="UserRegistry"/>)
+/// Every place the setup writes to. DESKTOPGLOW_HOME moves all of them (and the registry, see <see cref="UserRegistry"/>)
 /// into one folder, and in that mode nothing is closed, launched or reloaded: it is how the install is tested
 /// without touching the PC.
 /// </summary>
 public static class Paths
 {
-    static readonly string? Home = Environment.GetEnvironmentVariable("PACOTE_HOME");
+    static readonly string? Home = Environment.GetEnvironmentVariable("DESKTOPGLOW_HOME");
     public static bool Sandbox => !string.IsNullOrEmpty(Home);
 
     static string Pick(string sandboxName, Environment.SpecialFolder real) =>
@@ -28,11 +28,11 @@ public static class Paths
     public static string Cursors => Path.Combine(UserProfile, ".ilha-cursors");
     public static string IlhaConfig => Path.Combine(UserProfile, ".ilha", "config.json");
 
-    public static string Pack => Path.Combine(Programs, "PacoteWindowsBonito");
+    public static string Pack => Path.Combine(Programs, "DesktopGlow");
     public static string Uninstaller => Path.Combine(Pack, "Uninstall.exe");
     public static string StateFile => Path.Combine(Pack, "installed.json");
 
-    public static string LogFile => Path.Combine(Sandbox ? Home! : Path.GetTempPath(), "PacoteWindowsBonito", "setup.log");
+    public static string LogFile => Path.Combine(Sandbox ? Home! : Path.GetTempPath(), "DesktopGlow", "setup.log");
 
     public static string Ensure(string dir)
     {

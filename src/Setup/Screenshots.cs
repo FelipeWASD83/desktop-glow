@@ -2,9 +2,9 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
-using PacoteSetup.Core;
+using DesktopGlowSetup.Core;
 
-namespace PacoteSetup;
+namespace DesktopGlowSetup;
 
 /// <summary>--screenshot: every screen rendered to a PNG from a window placed outside all monitors.</summary>
 public static class Screenshots

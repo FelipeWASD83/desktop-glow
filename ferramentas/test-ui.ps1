@@ -1,5 +1,5 @@
-# Clicks through the real setup window with UI Automation: window outside every monitor, PACOTE_HOME sandbox in
-# build\sandbox-ui, registry under HKCU\Software\PacoteWindowsBonito-Sandbox. Turns the Fundo Vivo card off, picks the
+# Clicks through the real setup window with UI Automation: window outside every monitor, DESKTOPGLOW_HOME sandbox in
+# build\sandbox-ui, registry under HKCU\Software\DesktopGlow-Sandbox. Turns the Fundo Vivo card off, picks the
 # white cursors, installs, and checks what landed. Then the same for the uninstaller window.
 # Run it from a regular terminal (not the Claude app's shell).
 #
@@ -7,12 +7,12 @@
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName UIAutomationClient, UIAutomationTypes
 $root = Split-Path -Parent $PSScriptRoot
-$exe = Get-ChildItem (Join-Path $root 'dist') -Filter 'PacoteWindowsBonito-Setup-*.exe' | Sort-Object LastWriteTime -Descending | Select-Object -First 1 -ExpandProperty FullName
+$exe = Get-ChildItem (Join-Path $root 'dist') -Filter 'DesktopGlow-Setup*.exe' | Sort-Object LastWriteTime -Descending | Select-Object -First 1 -ExpandProperty FullName
 $box = Join-Path $root 'build\sandbox-ui'
-$regRoot = 'HKCU:\Software\PacoteWindowsBonito-Sandbox'
+$regRoot = 'HKCU:\Software\DesktopGlow-Sandbox'
 if (Test-Path $box) { Remove-Item $box -Recurse -Force }
 if (Test-Path $regRoot) { Remove-Item $regRoot -Recurse -Force }
-$env:PACOTE_HOME = $box
+$env:DESKTOPGLOW_HOME = $box
 $A = [Windows.Automation.AutomationElement]
 $T = [Windows.Automation.TreeScope]
 $failed = 0
@@ -59,7 +59,12 @@ $win = Find-Window $p.Id
 Click $win $start
 # the cards are toggle buttons named after their app (WPF reports them as Button)
 $fv = Find-Named $win $fundoTitle ([Windows.Automation.ControlType]::Button)
-$fv.GetCurrentPattern([Windows.Automation.TogglePattern]::Pattern).Toggle()
+# the cards slide in after the page: a toggle sent during that animation was lost once (03/11/2026)
+$toggle = $fv.GetCurrentPattern([Windows.Automation.TogglePattern]::Pattern)
+for ($i = 0; $i -lt 10 -and $toggle.Current.ToggleState -ne 'Off'; $i++) {
+    Start-Sleep -Milliseconds 400
+    if ($toggle.Current.ToggleState -ne 'Off') { $toggle.Toggle() }
+}
 Start-Sleep -Milliseconds 300
 Check 'Fundo Vivo card off' ($fv.GetCurrentPattern([Windows.Automation.TogglePattern]::Pattern).Current.ToggleState -eq 'Off')
 Click $win 'Continuar'
@@ -80,7 +85,7 @@ $arrow = (Get-Item -LiteralPath "$regRoot\Control Panel\Cursors").GetValue('Arro
 Check 'white scheme applied' ($arrow -like '*\white\arrow.cur')
 
 # ---- the uninstaller window
-$un = "$local\PacoteWindowsBonito\Uninstall.exe"
+$un = "$local\DesktopGlow\Uninstall.exe"
 $p = Start-Process $un -ArgumentList '--uninstall', '--offscreen', '--lang', 'pt' -PassThru
 $win = Find-Window $p.Id
 Click $win 'Desinstalar'
@@ -92,5 +97,5 @@ Check 'everything removed' (-not (Test-Path "$local\Ilha") -and -not (Test-Path 
 Remove-Item $regRoot -Recurse -Force -ErrorAction SilentlyContinue
 # the sandbox logon tasks are real tasks: never leave one behind for the next sign-in
 $ErrorActionPreference = 'Continue'  # schtasks says "not found" on stderr
-foreach ($n in @('Ilha', 'Relogio Mond', 'Fundo Vivo')) { schtasks /delete /tn "PWB-Sandbox $n" /f 2>$null | Out-Null }
+foreach ($n in @('Ilha', 'Relogio Mond', 'Fundo Vivo')) { schtasks /delete /tn "Desktop Glow Sandbox - $n" /f 2>$null | Out-Null }
 Write-Host $(if ($failed -eq 0) { 'UI test: all passed' } else { "UI test: $failed failed" })

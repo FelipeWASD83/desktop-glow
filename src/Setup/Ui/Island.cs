@@ -5,7 +5,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 
-namespace PacoteSetup.Ui;
+namespace DesktopGlowSetup.Ui;
 
 /// <summary>
 /// The window's own Dynamic Island: a black pill with a lit rim at the top that changes size on a spring and swaps

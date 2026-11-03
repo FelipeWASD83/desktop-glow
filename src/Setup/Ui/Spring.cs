@@ -1,4 +1,4 @@
-namespace PacoteSetup.Ui;
+namespace DesktopGlowSetup.Ui;
 
 /// <summary>
 /// A damped spring, the motion of the ilha's pill: a damping ratio of ~0.68 overshoots a little and settles, the way

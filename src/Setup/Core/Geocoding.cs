@@ -2,7 +2,7 @@ using System.Globalization;
 using System.Net.Http;
 using System.Text.Json;
 
-namespace PacoteSetup.Core;
+namespace DesktopGlowSetup.Core;
 
 public sealed record City(string Name, string Region, string Country, double Latitude, double Longitude)
 {

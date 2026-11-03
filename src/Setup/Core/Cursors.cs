@@ -2,7 +2,7 @@ using System.Runtime.InteropServices;
 using System.Text.Json;
 using Microsoft.Win32;
 
-namespace PacoteSetup.Core;
+namespace DesktopGlowSetup.Core;
 
 public sealed class CursorScheme
 {

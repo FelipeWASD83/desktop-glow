@@ -2,9 +2,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using PacoteSetup.Core;
+using DesktopGlowSetup.Core;
 
-namespace PacoteSetup.Ui;
+namespace DesktopGlowSetup.Ui;
 
 /// <summary>
 /// The app videos playing on the progress screen, one after the other in a loop, muted until the sound pill is

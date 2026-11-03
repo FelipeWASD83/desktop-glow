@@ -2,7 +2,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 
-namespace PacoteSetup.Core;
+namespace DesktopGlowSetup.Core;
 
 public static class Json
 {

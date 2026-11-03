@@ -1,12 +1,12 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace PacoteSetup.Core;
+namespace DesktopGlowSetup.Core;
 
 /// <summary>Finding, closing and starting the apps. Nothing here runs in sandbox mode.</summary>
 public static class Processes
 {
-    /// <summary>Asks the ilha to quit (Ilha.exe --sair, like its instalar.ps1), then forces whatever is left.</summary>
+    /// <summary>Asks the ilha to quit (Ilha.exe --sair: 4.0.2 also takes --quit, but an older ilha being updated only knows --sair), then forces whatever is left.</summary>
     public static void CloseIlha()
     {
         if (Paths.Sandbox) return;

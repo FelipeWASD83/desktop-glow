@@ -2,7 +2,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace PacoteSetup.Ui;
+namespace DesktopGlowSetup.Ui;
 
 /// <summary>Half the real height as the corner radius: a true pill (WPF draws a too-big radius as stretched ellipses).</summary>
 public sealed class PillRadius : IValueConverter

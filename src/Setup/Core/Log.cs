@@ -1,4 +1,4 @@
-namespace PacoteSetup.Core;
+namespace DesktopGlowSetup.Core;
 
 public static class Log
 {

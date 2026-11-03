@@ -11,13 +11,13 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using PacoteSetup.Core;
-using PacoteSetup.Ui;
+using DesktopGlowSetup.Core;
+using DesktopGlowSetup.Ui;
 using Path = System.IO.Path;
 using Shapes = System.Windows.Shapes;
-using Cursors = PacoteSetup.Core.Cursors;
+using Cursors = DesktopGlowSetup.Core.Cursors;
 
-namespace PacoteSetup;
+namespace DesktopGlowSetup;
 
 public enum Mode { Install, Uninstall, Broken }
 
@@ -108,7 +108,7 @@ public partial class MainWindow : Window, IProgressSink
         if (_payload == null) return;
         try
         {
-            var videos = _payload.ExtractVideos(_o.Selected.Select(Components.Icon), Text.Lang, Path.Combine(Path.GetTempPath(), "PacoteWindowsBonito", "videos"));
+            var videos = _payload.ExtractVideos(_o.Selected.Select(Components.Icon), Text.Lang, Path.Combine(Path.GetTempPath(), "DesktopGlow", "videos"));
             if (videos.Count == 0) return;
             _video.Visibility = Visibility.Visible;
             if (play) _video.Play(videos); else _video.ShowPoster(videos);

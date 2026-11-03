@@ -1,9 +1,9 @@
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using PacoteSetup.Core;
+using DesktopGlowSetup.Core;
 
-namespace PacoteSetup;
+namespace DesktopGlowSetup;
 
 /// <summary>
 /// Command line:
@@ -12,10 +12,11 @@ namespace PacoteSetup;
 ///   --lang pt|en                    force the language
 ///   --ping                          exit 0 once WPF has loaded (the build's Smart App Control check)
 ///   --check-payload                 exit 0 if the apps are glued to this file, 4 if not
+///   --migrate                       move an install made as "Pacote Windows Bonito" (until 1.2.2) to the new names
 ///   --prioridade ligar|desligar      logon tasks with priority for the apps now in "start with Windows", wherever they are
 ///   --arrow-diff &lt;file.cur&gt;         exit code = per mille of pixels where the arrow in use differs from the file
 ///   --self-test &lt;report&gt;           logic tests with a fake registry and a temp folder
-///   --install-silent &lt;options.json&gt; install with no window (use with PACOTE_HOME to test in a folder)
+///   --install-silent &lt;options.json&gt; install with no window (use with DESKTOPGLOW_HOME to test in a folder)
 ///   --uninstall-silent              remove everything installed, no window
 ///   --screenshot &lt;folder&gt;           render every screen to PNGs, with no window on the screen
 ///   --offscreen                     open the window outside every monitor (UI Automation tests)
@@ -57,11 +58,29 @@ public partial class App : Application
             Shutdown((int)Math.Round(off * 1000));
             return;
         }
-        if (Has("--self-test")) { Shutdown(SelfTest.Run(Arg("--self-test") ?? Path.Combine(Path.GetTempPath(), "pacote-selftest.txt"))); return; }
+        if (Has("--self-test")) { Shutdown(SelfTest.Run(Arg("--self-test") ?? Path.Combine(Path.GetTempPath(), "desktopglow-selftest.txt"))); return; }
         if (Has("--install-silent")) { Shutdown(Silent.Install(self, Arg("--install-silent"))); return; }
         if (Has("--uninstall-silent")) { Shutdown(Silent.Uninstall()); return; }
 
         var payload = Payload.Open(self);
+        if (Has("--migrate"))
+        {
+            var reg = new UserRegistry();
+            if (Legacy.Present(reg)) Legacy.Migrate(reg, payload);
+            else Log.Write("legacy: nothing from Pacote Windows Bonito on this PC");
+            Shutdown(0);
+            return;
+        }
+        if (Arg("--screenshot") == null)
+        {
+            // an install from the time the pack was called Pacote Windows Bonito, before the window reads the state
+            try
+            {
+                var reg = new UserRegistry();
+                if (Legacy.Present(reg)) Legacy.Migrate(reg, payload);
+            }
+            catch (Exception ex) { Log.Write("legacy: " + ex); }
+        }
         Mode mode = Has("--uninstall") ? Mode.Uninstall : payload != null ? Mode.Install : File.Exists(Paths.StateFile) ? Mode.Uninstall : Mode.Broken;
 
         if (Arg("--screenshot") is string folder)

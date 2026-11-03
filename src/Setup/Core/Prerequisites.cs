@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using Microsoft.Win32;
 
-namespace PacoteSetup.Core;
+namespace DesktopGlowSetup.Core;
 
 public enum Prerequisite { DesktopRuntime, Python, WebView2 }
 

@@ -2,7 +2,7 @@ using System.IO.Compression;
 using System.Text.Json.Nodes;
 using Microsoft.Win32;
 
-namespace PacoteSetup.Core;
+namespace DesktopGlowSetup.Core;
 
 public enum StepState { Waiting, Running, Done, Failed, Skipped }
 
@@ -16,8 +16,8 @@ public interface IProgressSink
 /// <summary>Names that appear on the PC: shortcuts and Run entries (the same names the apps' own tools use).</summary>
 public static class Names
 {
-    public const string UninstallKey = @"Software\Microsoft\Windows\CurrentVersion\Uninstall\PacoteWindowsBonito";
-    public const string DisplayName = "Pacote Windows Bonito";
+    public const string UninstallKey = @"Software\Microsoft\Windows\CurrentVersion\Uninstall\DesktopGlow";
+    public const string DisplayName = "Desktop Glow";
 
     public static string? RunValue(ComponentId c) => c switch
     {
@@ -27,13 +27,20 @@ public static class Names
         _ => null,
     };
 
-    public static string? ShortcutName(ComponentId c) => c switch
+    /// <summary>The shortcut in the language of the setup's screens (the apps' names are translated in English).</summary>
+    public static string? ShortcutName(ComponentId c) => ShortcutName(c, Text.English);
+
+    public static string? ShortcutName(ComponentId c, bool english) => c switch
     {
-        ComponentId.Ilha => "Ilha.lnk",
-        ComponentId.Relogio => "Relógio Mond.lnk",
-        ComponentId.FundoVivo => "Fundo Vivo.lnk",
+        ComponentId.Ilha => english ? "Island.lnk" : "Ilha.lnk",
+        ComponentId.Relogio => english ? "Mond Clock.lnk" : "Relógio Mond.lnk",
+        ComponentId.FundoVivo => english ? "Living Wallpaper.lnk" : "Fundo Vivo.lnk",
         _ => null,
     };
+
+    /// <summary>Both languages: a reinstall in the other one, or the uninstaller, must find the shortcut either way.</summary>
+    public static IEnumerable<string> ShortcutNames(ComponentId c) =>
+        new[] { ShortcutName(c, false), ShortcutName(c, true) }.OfType<string>().Distinct();
 }
 
 public sealed class Installer
@@ -217,6 +224,8 @@ public sealed class Installer
         string name = Names.ShortcutName(c)!;
         foreach (var (folder, wanted) in new[] { (Paths.StartMenu, _o.StartMenu), (Paths.Desktop, _o.DesktopShortcuts) })
         {
+            foreach (string other in Names.ShortcutNames(c).Where(n => n != name))
+                Shortcut.RemoveIfOurs(Path.Combine(folder, other), Components.Folder(c));
             string lnk = Path.Combine(folder, name);
             if (wanted) Shortcut.Create(lnk, target, args, workingDir, icon, description);
             else Shortcut.RemoveIfOurs(lnk, Components.Folder(c));

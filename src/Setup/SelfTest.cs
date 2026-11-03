@@ -2,9 +2,9 @@ using System.IO.Compression;
 using System.Text;
 using System.Text.Json.Nodes;
 using Microsoft.Win32;
-using PacoteSetup.Core;
+using DesktopGlowSetup.Core;
 
-namespace PacoteSetup;
+namespace DesktopGlowSetup;
 
 /// <summary>--self-test: the parts that touch the PC, run against a dictionary registry and a temp folder.</summary>
 public static class SelfTest
@@ -13,7 +13,7 @@ public static class SelfTest
     {
         var lines = new List<string>();
         int failed = 0;
-        string temp = Path.Combine(Path.GetTempPath(), "pacote-selftest-" + Guid.NewGuid().ToString("N")[..8]);
+        string temp = Path.Combine(Path.GetTempPath(), "desktopglow-selftest-" + Guid.NewGuid().ToString("N")[..8]);
         Directory.CreateDirectory(temp);
 
         void Test(string name, Action body)
@@ -32,11 +32,24 @@ public static class SelfTest
         Test("paths: inside checks", PathsInside);
         Test("priority: command split and task XML", PriorityTask);
         Test("text: every key exists in both languages", TextKeys);
+        Test("shortcut names: one per language, both removable", ShortcutNamesBothLanguages);
 
         try { Directory.Delete(temp, true); } catch { }
         lines.Add(failed == 0 ? "all passed" : $"{failed} failed");
         File.WriteAllText(report, string.Join(Environment.NewLine, lines) + Environment.NewLine, new UTF8Encoding(false));
         return failed == 0 ? 0 : 1;
+    }
+
+    static void ShortcutNamesBothLanguages()
+    {
+        foreach (var c in new[] { ComponentId.Ilha, ComponentId.Relogio, ComponentId.FundoVivo })
+        {
+            string pt = Names.ShortcutName(c, false)!, en = Names.ShortcutName(c, true)!;
+            Check(pt != en, $"{c}: same shortcut name in both languages");
+            Check(Names.ShortcutNames(c).Count() == 2, $"{c}: uninstall does not look for both names");
+        }
+        Check(Names.ShortcutName(ComponentId.FundoVivo, true) == "Living Wallpaper.lnk", "English name of the Fundo Vivo shortcut");
+        Check(Names.ShortcutNames(ComponentId.Cursors).Any() == false, "cursors have no shortcut");
     }
 
     static void Check(bool condition, string what)

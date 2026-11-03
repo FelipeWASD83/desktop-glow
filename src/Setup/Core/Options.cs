@@ -1,4 +1,4 @@
-namespace PacoteSetup.Core;
+namespace DesktopGlowSetup.Core;
 
 public enum ComponentId { Ilha, Relogio, FundoVivo, Cursors }
 
@@ -110,5 +110,5 @@ public sealed class InstalledState
 
     public static InstalledState Load() => Json.Read<InstalledState>(Paths.StateFile) ?? new InstalledState();
     public void Save() => Json.Write(Paths.StateFile, this);
-    public bool Has(ComponentId c) => Components.ContainsKey(PacoteSetup.Core.Components.Key(c));
+    public bool Has(ComponentId c) => Components.ContainsKey(DesktopGlowSetup.Core.Components.Key(c));
 }

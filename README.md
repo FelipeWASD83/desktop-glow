@@ -1,17 +1,20 @@
-# Pacote Windows Bonito
+# Desktop Glow
 
-Um instalador só para quatro apps que deixam o Windows com a cara da ilha:
+Um instalador só para quatro apps que deixam o Windows com a cara da ilha (até a 1.2.2 se chamava Pacote Windows
+Bonito). Site: [desktopglow.com](https://desktopglow.com).
 
 | App | O que é |
 |---|---|
-| [Ilha](https://github.com/FelipeWASD83/ilha) | A Dynamic Island do iPhone no topo da tela: música, timer, gravador, avisos e atalhos |
-| [Relógio Mond](https://github.com/FelipeWASD83/relogio-mond) | Dia, data, hora, clima e a música tocando, no meio da área de trabalho |
-| [Fundo Vivo](https://github.com/FelipeWASD83/fundo-vivo) | Papel de parede animado e leve (vídeo, imagem, página web e cenas) |
-| [Cursores da Ilha](https://github.com/FelipeWASD83/ilha-cursors) | Ponteiros preto ou branco, com contorno e animações |
+| [Ilha](https://github.com/FelipeWASD83/ilha) (Island) | A Dynamic Island do iPhone no topo da tela: música, placar do jogo ao vivo, timer, clima, foco e avisos |
+| [Relógio Mond](https://github.com/FelipeWASD83/relogio-mond) (Mond Clock) | Dia, data, hora, clima e a música tocando com as barras do som, no meio da área de trabalho |
+| [Fundo Vivo](https://github.com/FelipeWASD83/fundo-vivo) (Living Wallpaper) | Papel de parede animado e leve, um por monitor (vídeo, imagem, página web e dez fundos próprios) |
+| [Cursores da Ilha](https://github.com/FelipeWASD83/ilha-cursors) (Island Cursors) | Ponteiros preto ou branco, com contorno, que se transformam um no outro |
 
 ## Como usar
 
-Abra o `PacoteWindowsBonito-Setup-<versão>.exe` e siga as telas:
+Baixe o `DesktopGlow-Setup.exe` (no site ou nas [releases](https://github.com/FelipeWASD83/desktop-glow/releases/latest)),
+abra e siga as telas. Elas seguem o idioma do Windows (português ou inglês); em inglês os apps aparecem com os nomes em
+inglês, inclusive nos atalhos.
 
 1. **O que instalar:** clique nos cartões para ligar ou desligar cada app.
 2. **Do seu jeito:** abrir com o Windows, ilha flutuando ou colada no topo, relógio em 24 h ou 12 h, clima e a
@@ -28,7 +31,7 @@ Rodar o setup de novo atualiza o que já está instalado e começa das escolhas 
 
 ## Desinstalar
 
-**Configurações > Aplicativos > Pacote Windows Bonito > Desinstalar.** Dá para escolher o que tirar. Os ponteiros
+**Configurações > Aplicativos > Desktop Glow > Desinstalar.** Dá para escolher o que tirar. Os ponteiros
 voltam a ser os de antes, e as configurações de cada app ficam guardadas caso você instale de novo.
 
 ## Precisa de
@@ -45,9 +48,9 @@ voltam a ser os de antes, e as configurações de cada app ficam guardadas caso 
 powershell -ExecutionPolicy Bypass -File ferramentas\build.ps1
 ```
 
-Junta os quatro apps a partir das pastas vizinhas (`ilha`, `relogio-mond`, `fundo-vivo`, `ilha-cursors`), compila a
-janela e gera `dist\PacoteWindowsBonito-Setup-<versão>.exe` com o `SHA256.txt`. Precisa do .NET SDK 10 e do Python
-com Pillow. Detalhes em `CLAUDE.md`.
+Junta os quatro apps pelo pacote de release de cada um (o `ferramentas\publicar-versao.ps1 -SoGerar` das pastas vizinhas
+`ilha`, `relogio-mond`, `fundo-vivo` e `ilha-cursors`), compila a janela e gera `dist\DesktopGlow-Setup.exe` com o
+`SHA256.txt`. Precisa do .NET SDK 10 e do Python com Pillow. Detalhes em `CLAUDE.md`.
 
 ## Vídeos
 
