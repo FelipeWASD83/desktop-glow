@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.2 (03/11/2026)
+
+**Mudou**
+- Traz a Ilha 4.0.2 (o aviso "Copiado" deixa de mostrar uma em cada seis chaves aleatórias, e a ilha também fecha pelo comando `--quit`) e o Fundo Vivo 2.9.1.
+
 ## 1.2.1 (03/11/2026)
 
 **Mudou**

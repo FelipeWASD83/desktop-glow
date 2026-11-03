@@ -42,8 +42,9 @@ commits e este arquivo em português. Telas em pt e en, seguindo o Windows (`--l
   depois de 4 s é morto, achado pela linha de comando com `RelogioMond.dll`).
 - **Formato de release comum (03/11/2026):** relógio e cursores têm `versao.json` (`versao`, `repositorio`) e
   `ferramentas\publicar-versao.ps1` que gera `<nome>-<versão>.zip`, o modelo do `clave`. O `build.ps1` lê a versão
-  do `versao.json` quando existe (`App-Version`) e recusa se discordar do csproj ou do changelog; `ilha` e
-  `fundo-vivo` ainda não têm o arquivo e caem no `<Version>` do csproj.
+  do `versao.json` quando existe (`App-Version`) e recusa se discordar do csproj ou do changelog. A `ilha` tem
+  desde a 4.0.2 (também aceita `--quit`, o zip dela continua `Ilha-X.Y.Z.zip`); o `fundo-vivo` é de outra sessão e,
+  sem o arquivo, cai no `<Version>` do csproj.
 
 ## Decisões que não se desfazem sem motivo
 
