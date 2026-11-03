@@ -1,0 +1,38 @@
+{
+  "titulo": "setup-cursores-en",
+  "app": "cursores",
+  "lingua": "en",
+  "estilo": "produto",
+  "bpm": 110,
+  "formatos": [
+    "16x9"
+  ],
+  "capa": 1.4,
+  "legenda": false,
+  "voz": {
+    "nome": "en-US-AvaMultilingualNeural",
+    "velocidade": "+0%"
+  },
+  "trilha": {
+    "volume": 0.32,
+    "sobVoz": 0
+  },
+  "cenas": [
+    {
+      "id": "cursores-nome",
+      "segundos": 2.6
+    },
+    {
+      "id": "cursor-esquemas",
+      "segundos": 2.8
+    },
+    {
+      "id": "cursor-morfo",
+      "segundos": 3.2
+    },
+    {
+      "id": "fim-cursores",
+      "segundos": 2.6
+    }
+  ]
+}

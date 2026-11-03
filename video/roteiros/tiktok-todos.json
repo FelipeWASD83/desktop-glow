@@ -1,0 +1,46 @@
+{
+  "titulo": "tiktok-todos",
+  "app": "todos",
+  "lingua": "en",
+  "estilo": "produto",
+  "bpm": 110,
+  "formatos": [
+    "9x16"
+  ],
+  "capa": 1.6,
+  "legenda": false,
+  "voz": {
+    "nome": "en-US-AvaMultilingualNeural",
+    "velocidade": "+0%"
+  },
+  "trilha": {
+    "volume": 0.32,
+    "sobVoz": 0
+  },
+  "cenas": [
+    {
+      "id": "gancho-todos",
+      "segundos": 2.8
+    },
+    {
+      "id": "ilha-musica",
+      "segundos": 3.0
+    },
+    {
+      "id": "relogio-mostrador",
+      "segundos": 3.0
+    },
+    {
+      "id": "fundo-galeria",
+      "segundos": 3.2
+    },
+    {
+      "id": "cursor-morfo",
+      "segundos": 3.0
+    },
+    {
+      "id": "fecho-todos",
+      "segundos": 3.8
+    }
+  ]
+}

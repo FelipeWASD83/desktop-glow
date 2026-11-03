@@ -104,10 +104,18 @@ $components['fundovivo'] = [ordered]@{ version = $fvVersion; bytes = (Folder-Byt
 $rDir = Join-Path $base 'relogio-mond'
 $rVersion = ([IO.File]::ReadAllText((Join-Path $rDir 'versao.json')) | ConvertFrom-Json).versao
 $dll = Get-Item (Join-Path $rDir 'app\RelogioMond.dll')
+# The DLL must be at least as new as the last commit of src\. Edits not committed yet are someone's work in
+# progress (02/11/2026: a session was changing Nativo.cs mid-build): they do not ship, and only a warning says so.
+# So the newest source file that matches the commit (not one being edited) must be older than the DLL.
+$editing = @(& git -C $rDir status --porcelain -- src | ForEach-Object { (Join-Path $rDir $_.Substring(3).Trim('"')).Replace('/', '\') })
 $newestSource = Get-ChildItem (Join-Path $rDir 'src') -Recurse -File -Include *.cs, *.xaml, *.csproj |
-    Where-Object { $_.FullName -notmatch '\\(bin|obj)\\' } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+    Where-Object { $_.FullName -notmatch '\\(bin|obj)\\' -and $editing -notcontains $_.FullName } |
+    Sort-Object LastWriteTime -Descending | Select-Object -First 1
 if ($newestSource.LastWriteTime -gt $dll.LastWriteTime) {
     throw "relogio-mond\app is older than $($newestSource.Name): open the clock once (iniciar.pyw recompiles it) and build again."
+}
+if ($editing.Count -gt 0) {
+    Write-Warning "relogio-mond has uncommitted changes in src ($($editing.Count) file(s)): the package takes app\ as built from the last commit, not them."
 }
 $rDest = Join-Path $payload 'relogio'
 New-Item -ItemType Directory -Force (Join-Path $rDest 'icone') | Out-Null
@@ -133,6 +141,18 @@ New-Item -ItemType Directory -Force $cDest | Out-Null
 foreach ($v in @('black', 'white')) { Copy-Item (Join-Path $cDir "build\$v") (Join-Path $cDest $v) -Recurse }
 Copy-Item $cManifest $cDest
 $components['cursors'] = [ordered]@{ version = $cWanted; bytes = (Folder-Bytes $cDest) }
+
+# ---- the app videos the progress screen plays (video\ferramentas\todos.py writes them)
+$vSrc = Join-Path $root 'video\saida\setup'
+$vFiles = @(Get-ChildItem $vSrc -File -ErrorAction SilentlyContinue | Where-Object { $_.Extension -in '.mp4', '.jpg' })
+if ($vFiles.Count -gt 0) {
+    $vDest = Join-Path $payload 'videos'
+    New-Item -ItemType Directory -Force $vDest | Out-Null
+    $vFiles | Copy-Item -Destination $vDest
+    Write-Host ("Videos: {0} files, {1:N1} MB" -f $vFiles.Count, (($vFiles | Measure-Object Length -Sum).Sum / 1MB))
+} else {
+    Write-Warning 'No setup videos in video\saida\setup: the progress screen will show the list only. Run python video\ferramentas\todos.py first.'
+}
 
 # ---- manifest and zip
 $manifest = [ordered]@{ pack = $packVersion; components = $components } | ConvertTo-Json -Depth 4

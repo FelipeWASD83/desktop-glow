@@ -1,0 +1,62 @@
+{
+  "titulo": "youtube-todos",
+  "app": "todos",
+  "lingua": "en",
+  "estilo": "produto",
+  "bpm": 110,
+  "formatos": [
+    "16x9"
+  ],
+  "capa": 2.0,
+  "legenda": false,
+  "voz": {
+    "nome": "en-US-AvaMultilingualNeural",
+    "velocidade": "+0%"
+  },
+  "trilha": {
+    "volume": 0.32,
+    "sobVoz": 0
+  },
+  "cenas": [
+    {
+      "id": "gancho-todos",
+      "segundos": 3.4
+    },
+    {
+      "id": "ilha-musica",
+      "segundos": 3.2
+    },
+    {
+      "id": "ilha-alertas",
+      "segundos": 3.0
+    },
+    {
+      "id": "relogio-mostrador",
+      "segundos": 3.2
+    },
+    {
+      "id": "relogio-musica",
+      "segundos": 2.8
+    },
+    {
+      "id": "fundo-galeria",
+      "segundos": 3.2
+    },
+    {
+      "id": "fundo-monitores",
+      "segundos": 3.0
+    },
+    {
+      "id": "cursor-esquemas",
+      "segundos": 2.6
+    },
+    {
+      "id": "cursor-morfo",
+      "segundos": 3.0
+    },
+    {
+      "id": "fecho-todos",
+      "segundos": 4.0
+    }
+  ]
+}

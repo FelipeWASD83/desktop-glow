@@ -41,6 +41,7 @@ public partial class MainWindow : Window, IProgressSink
     readonly HashSet<ComponentId> _toRemove = new();
     PageId _page;
     bool _running, _finished, _failed;
+    VideoPanel _video = null!;
 
     // pieces that change after they are built
     StackPanel _prereqChips = null!, _summary = null!, _cityResults = null!;
@@ -101,8 +102,23 @@ public partial class MainWindow : Window, IProgressSink
         base.OnClosing(e);
     }
 
+    /// <summary>The selected apps' videos in the screen's language; they keep playing on the "all done" screen.</summary>
+    void StartVideos(bool play)
+    {
+        if (_payload == null) return;
+        try
+        {
+            var videos = _payload.ExtractVideos(_o.Selected.Select(Components.Icon), Text.Lang, Path.Combine(Path.GetTempPath(), "PacoteWindowsBonito", "videos"));
+            if (videos.Count == 0) return;
+            _video.Visibility = Visibility.Visible;
+            if (play) _video.Play(videos); else _video.ShowPoster(videos);
+        }
+        catch (Exception e) { Log.Write("videos: " + e.Message); }
+    }
+
     protected override void OnClosed(EventArgs e)
     {
+        _video?.Stop();
         base.OnClosed(e);
         if (ShutdownOnClose) Application.Current.Shutdown(_failed ? 1 : 0);
     }
@@ -571,7 +587,16 @@ public partial class MainWindow : Window, IProgressSink
             _rows[c] = row;
             rows.Children.Add(row.Root);
         }
-        stack.Children.Add(new Border { Style = Res("Section"), Child = rows, Margin = new Thickness(0, 22, 0, 0), Padding = new Thickness(22, 8, 22, 8) });
+        // the app videos on the left, the list on the right; with no video the list takes the whole width
+        var middle = new Grid { Margin = new Thickness(0, 22, 0, 0) };
+        middle.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+        middle.ColumnDefinitions.Add(new ColumnDefinition());
+        _video = new VideoPanel { Width = 464, Height = 261, Margin = new Thickness(0, 0, 18, 0), VerticalAlignment = VerticalAlignment.Top, Visibility = Visibility.Collapsed };
+        middle.Children.Add(_video);
+        var list = new Border { Style = Res("Section"), Child = rows, Padding = new Thickness(22, 8, 22, 8), VerticalAlignment = VerticalAlignment.Top };
+        Grid.SetColumn(list, 1);
+        middle.Children.Add(list);
+        stack.Children.Add(middle);
 
         _barTrack = new Grid { Height = 8, Margin = new Thickness(0, 22, 0, 0) };
         _barTrack.Children.Add(new Border { CornerRadius = new CornerRadius(4), Background = Brush("Well") });
@@ -615,6 +640,7 @@ public partial class MainWindow : Window, IProgressSink
         foreach (var (c, row) in _rows) row.Set(_o.Wants(c) ? StepState.Waiting : StepState.Skipped, null, uninstall: false);
         ShowPage(PageId.Progress, true);
         IsleProgress(_o.Selected.First(), animate: true);
+        StartVideos(play: true);
         var options = _o;
         var payload = _payload;
         Task.Run(() =>
@@ -711,6 +737,7 @@ public partial class MainWindow : Window, IProgressSink
                 _progressTitle.Text = Text.T("progress.title");
                 Rows(StepState.Done, StepState.Running, StepState.Waiting, StepState.Waiting);
                 ShowPage(PageId.Progress, true, false);
+                StartVideos(play: false);
                 IsleProgress(ComponentId.Relogio, animate: false);
                 ApplyOverall(0.46, Text.T("progress.installing", Text.T("app.relogio")), animate: false);
                 break;

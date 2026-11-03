@@ -1,0 +1,42 @@
+{
+  "titulo": "tiktok-cursores",
+  "app": "cursores",
+  "lingua": "en",
+  "estilo": "produto",
+  "bpm": 110,
+  "formatos": [
+    "9x16"
+  ],
+  "capa": 1.6,
+  "legenda": false,
+  "voz": {
+    "nome": "en-US-AvaMultilingualNeural",
+    "velocidade": "+0%"
+  },
+  "trilha": {
+    "volume": 0.32,
+    "sobVoz": 0
+  },
+  "cenas": [
+    {
+      "id": "cursores-gancho",
+      "segundos": 2.8
+    },
+    {
+      "id": "cursor-esquemas",
+      "segundos": 3.0
+    },
+    {
+      "id": "cursor-morfo",
+      "segundos": 3.6
+    },
+    {
+      "id": "cursor-ocupado",
+      "segundos": 3.2
+    },
+    {
+      "id": "fecho-cursores",
+      "segundos": 3.4
+    }
+  ]
+}

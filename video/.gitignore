@@ -1,0 +1,11 @@
+# Gerados pelos scripts de ferramentas/ (npm run narrar, sons, quadros, entregar) e o que o npm baixa.
+node_modules/
+.venv/
+saida/
+quadros/
+public/narracao/
+public/sons/
+__pycache__/
+
+# real pictures of the apps (ferramentas/capturas.py) and the Anurati, which is personal-use only
+public/gerado/

@@ -74,6 +74,28 @@ public sealed class Payload
         return new ZipArchive(new SubStream(fs, ExeLength, ZipLength, leaveOpen: false), ZipArchiveMode.Read);
     }
 
+    /// <summary>
+    /// The app videos of the setup (videos/&lt;app&gt;-&lt;lang&gt;.mp4 and .jpg in the zip) for these apps and language,
+    /// written to a temp folder; apps whose video is missing are skipped.
+    /// </summary>
+    public List<(string Video, string Poster)> ExtractVideos(IEnumerable<string> apps, string language, string folder)
+    {
+        var found = new List<(string, string)>();
+        Directory.CreateDirectory(folder);
+        using var zip = OpenZip();
+        foreach (string app in apps)
+        {
+            var video = zip.GetEntry($"videos/{app}-{language}.mp4") ?? zip.GetEntry($"videos\\{app}-{language}.mp4");
+            if (video == null) continue;
+            var poster = zip.GetEntry($"videos/{app}-{language}.jpg") ?? zip.GetEntry($"videos\\{app}-{language}.jpg");
+            string mp4 = Path.Combine(folder, $"{app}-{language}.mp4"), jpg = Path.Combine(folder, $"{app}-{language}.jpg");
+            if (!System.IO.File.Exists(mp4) || new FileInfo(mp4).Length != video.Length) video.ExtractToFile(mp4, overwrite: true);
+            if (poster != null && (!System.IO.File.Exists(jpg) || new FileInfo(jpg).Length != poster.Length)) poster.ExtractToFile(jpg, overwrite: true);
+            found.Add((mp4, jpg));
+        }
+        return found;
+    }
+
     /// <summary>Writes the executable part alone, the same bytes Smart App Control already accepted.</summary>
     public void WriteExecutable(string target)
     {

@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.0 (02/11/2026)
+
+**Novo**
+- A tela de instalação toca o vídeo de cada app escolhido, um depois do outro, no idioma da tela. Continua tocando na tela de "Tudo pronto" até fechar, porque a instalação costuma levar poucos segundos.
+- O vídeo começa mudo; o botãozinho de som no canto liga e desliga.
+- Os vídeos de propaganda dos apps (TikTok e YouTube) moram na pasta `video/` do projeto.
+
 ## 1.0.1 (02/11/2026)
 
 **Corrigido**

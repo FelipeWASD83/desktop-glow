@@ -132,6 +132,8 @@ public static class SelfTest
             using (var w = new StreamWriter(e.Open())) w.Write("{\"pack\":\"9.9.9\",\"components\":{\"ilha\":{\"version\":\"2.0.1\",\"bytes\":123}}}");
             var f = zip.CreateEntry("ilha/sub/hello.txt");
             using (var w = new StreamWriter(f.Open())) w.Write("hello");
+            foreach (string n in new[] { "videos/ilha-en.mp4", "videos/ilha-en.jpg", "videos/ilha-pt.mp4" })
+                using (var w = new StreamWriter(zip.CreateEntry(n).Open())) w.Write(n);
         }
         string glued = Path.Combine(temp, "glued.exe");
         Payload.Combine(exe, zipFile, glued);
@@ -140,6 +142,8 @@ public static class SelfTest
         using (var z = p.OpenZip())
         using (var r = new StreamReader(z.GetEntry("ilha/sub/hello.txt")!.Open()))
             Check(r.ReadToEnd() == "hello", "entry content");
+        var videos = p.ExtractVideos(new[] { "ilha", "relogio" }, "en", Path.Combine(temp, "videos"));
+        Check(videos.Count == 1 && File.ReadAllText(videos[0].Video) == "videos/ilha-en.mp4" && File.Exists(videos[0].Poster), "videos: the English ilha video only");
         string cut = Path.Combine(temp, "cut.exe");
         p.WriteExecutable(cut);
         Check(File.ReadAllBytes(cut).AsSpan().SequenceEqual(exeBytes), "the cut exe differs from the original");

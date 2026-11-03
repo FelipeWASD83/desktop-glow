@@ -1,0 +1,42 @@
+{
+  "titulo": "tiktok-relogio",
+  "app": "relogio",
+  "lingua": "en",
+  "estilo": "produto",
+  "bpm": 110,
+  "formatos": [
+    "9x16"
+  ],
+  "capa": 1.8,
+  "legenda": false,
+  "voz": {
+    "nome": "en-US-AvaMultilingualNeural",
+    "velocidade": "+0%"
+  },
+  "trilha": {
+    "volume": 0.32,
+    "sobVoz": 0
+  },
+  "cenas": [
+    {
+      "id": "relogio-gancho",
+      "segundos": 3.0
+    },
+    {
+      "id": "relogio-mostrador",
+      "segundos": 3.4
+    },
+    {
+      "id": "relogio-musica",
+      "segundos": 3.4
+    },
+    {
+      "id": "relogio-detalhes",
+      "segundos": 3.6
+    },
+    {
+      "id": "fecho-relogio",
+      "segundos": 3.4
+    }
+  ]
+}

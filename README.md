@@ -18,7 +18,8 @@ Abra o `PacoteWindowsBonito-Setup-<versão>.exe` e siga as telas:
    cidade dele, esquema de cursor (preto, branco ou só deixar na lista de Ponteiros).
 3. **Últimos detalhes:** atalhos no Menu Iniciar e na área de trabalho, abrir os apps ao terminar, idioma da ilha e do
    relógio. Se faltar alguma coisa no PC (.NET 10, Python, WebView2), o setup avisa e instala pelo winget.
-4. **Instalar.**
+4. **Instalar.** Enquanto instala (e depois, na tela de "Tudo pronto"), passa um vídeo curto de cada app escolhido,
+   mudo; o botão no canto do vídeo liga o som.
 
 Tudo é instalado só para o seu usuário, sem pedir administrador (só o instalador do .NET ou do Python, se precisar,
 pode pedir). Os apps vão para `%LOCALAPPDATA%\Programs` e os cursores para `%USERPROFILE%\.ilha-cursors`.
@@ -47,6 +48,11 @@ powershell -ExecutionPolicy Bypass -File ferramentas\build.ps1
 Junta os quatro apps a partir das pastas vizinhas (`ilha`, `relogio-mond`, `fundo-vivo`, `ilha-cursors`), compila a
 janela e gera `dist\PacoteWindowsBonito-Setup-<versão>.exe` com o `SHA256.txt`. Precisa do .NET SDK 10 e do Python
 com Pillow. Detalhes em `CLAUDE.md`.
+
+## Vídeos
+
+Os vídeos de propaganda (TikTok e YouTube) e os que o setup toca são feitos em código, com Remotion, na pasta
+[`video/`](video/CLAUDE.md).
 
 ## Licença
 

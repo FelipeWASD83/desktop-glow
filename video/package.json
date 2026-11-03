@@ -1,0 +1,25 @@
+{
+  "name": "pacote-windows-bonito-video",
+  "private": true,
+  "description": "Os vídeos de propaganda do Pacote Windows Bonito, em Remotion (modelo da skill video-motion).",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "narrar": "python ferramentas/narrar.py",
+    "sons": "python ferramentas/sons.py",
+    "quadros": "python ferramentas/quadros.py",
+    "entregar": "python ferramentas/entregar.py",
+    "conferir": "python ferramentas/conferir.py",
+    "testar": "node --test \"testes/*.test.mjs\" && python -m unittest discover -s testes -p \"test_*.py\""
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.534",
+    "@remotion/google-fonts": "4.0.534",
+    "@remotion/media": "4.0.534",
+    "@remotion/motion-blur": "4.0.534",
+    "@remotion/noise": "4.0.534",
+    "@remotion/paths": "4.0.534",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "remotion": "4.0.534"
+  }
+}

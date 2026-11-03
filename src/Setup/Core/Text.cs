@@ -158,6 +158,7 @@ public static class Text
         ["island.selected"] = ("{0} de 4", "{0} of 4"),
         ["island.options"] = ("Opções", "Options"),
         ["island.ready"] = ("Pronto para instalar", "Ready to install"),
+        ["video.sound"] = ("Ligar ou desligar o som", "Sound on or off"),
         ["island.copying"] = ("Copiando os arquivos", "Copying files"),
         ["island.removing"] = ("Tirando do PC", "Removing"),
         ["island.uninstall"] = ("Desinstalar", "Uninstall"),

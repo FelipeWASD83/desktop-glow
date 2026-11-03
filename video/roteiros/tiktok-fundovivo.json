@@ -1,0 +1,46 @@
+{
+  "titulo": "tiktok-fundovivo",
+  "app": "fundovivo",
+  "lingua": "en",
+  "estilo": "produto",
+  "bpm": 110,
+  "formatos": [
+    "9x16"
+  ],
+  "capa": 1.8,
+  "legenda": false,
+  "voz": {
+    "nome": "en-US-AvaMultilingualNeural",
+    "velocidade": "+0%"
+  },
+  "trilha": {
+    "volume": 0.32,
+    "sobVoz": 0
+  },
+  "cenas": [
+    {
+      "id": "fundovivo-gancho",
+      "segundos": 3.0
+    },
+    {
+      "id": "fundo-galeria",
+      "segundos": 3.4
+    },
+    {
+      "id": "fundo-monitores",
+      "segundos": 3.2
+    },
+    {
+      "id": "fundo-pausa",
+      "segundos": 3.6
+    },
+    {
+      "id": "fundo-numeros",
+      "segundos": 3.2
+    },
+    {
+      "id": "fecho-fundovivo",
+      "segundos": 3.4
+    }
+  ]
+}

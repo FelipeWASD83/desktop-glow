@@ -1,0 +1,54 @@
+{
+  "titulo": "tiktok-ilha",
+  "app": "ilha",
+  "lingua": "en",
+  "estilo": "produto",
+  "bpm": 110,
+  "formatos": [
+    "9x16"
+  ],
+  "capa": 3.0,
+  "legenda": false,
+  "voz": {
+    "nome": "en-US-AvaMultilingualNeural",
+    "velocidade": "+0%"
+  },
+  "trilha": {
+    "volume": 0.32,
+    "sobVoz": 0
+  },
+  "cenas": [
+    {
+      "id": "ilha-gancho",
+      "segundos": 3.4
+    },
+    {
+      "id": "ilha-musica",
+      "segundos": 3.2
+    },
+    {
+      "id": "ilha-timer",
+      "segundos": 3.0
+    },
+    {
+      "id": "ilha-gravar",
+      "segundos": 2.8
+    },
+    {
+      "id": "ilha-alertas",
+      "segundos": 3.4
+    },
+    {
+      "id": "ilha-menu",
+      "segundos": 3.0
+    },
+    {
+      "id": "ilha-numeros",
+      "segundos": 3.0
+    },
+    {
+      "id": "fecho-ilha",
+      "segundos": 3.4
+    }
+  ]
+}

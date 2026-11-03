@@ -63,7 +63,20 @@ commits e este arquivo em português. Telas em pt e en, seguindo o Windows (`--l
 - O setup não tem atalho próprio nem atualizador dentro: não é um app que fica no PC. Cada app atualiza sozinho pelo
   dele; para atualizar o pacote, roda-se o setup novo.
 - **O relógio vai como está em `relogio-mond\app`** (a DLL que já roda no PC dele, que o SAC aceitou); o build recusa
-  se algum `.cs` for mais novo que a DLL.
+  se algum `.cs` igual ao commit for mais novo que a DLL. Arquivo em edição (aparece no `git status`) é trabalho de
+  alguém em andamento: não entra e só gera aviso. Comparar com a hora do commit não serve: a 1.1.3 foi commitada 1 min
+  depois de compilada.
+
+## Vídeos na tela de progresso (1.1.0)
+
+- Os 8 vídeos `setup-<app>-<en|pt>` do subprojeto `video/` (ler o `video/CLAUDE.md`) saem em versão leve em
+  `video/saida/setup/<app>-<lingua>.mp4` (720p, ~1 MB) com o `.jpg`; o `build.ps1` põe em `videos/` no zip. Sem eles,
+  o setup avisa no build e a tela de progresso fica só com a lista.
+- Ao instalar, `Payload.ExtractVideos` tira os dos apps escolhidos, no idioma da tela, para
+  `%TEMP%\PacoteWindowsBonito\videos`, e o `Ui/VideoPanel.cs` toca em sequência num `MediaElement` mudo (botão de som
+  no canto). **A instalação leva 1 a 2 s no PC dele**, por isso o vídeo continua na tela de "Tudo pronto".
+- O `MediaElement` do WPF usa o Windows Media Player do sistema: no Windows N ele falha e fica a capa parada. No
+  `--screenshot` aparece a capa, porque vídeo tocando não sai no `RenderTargetBitmap`.
 
 ## Testar sem mexer no PC
 
