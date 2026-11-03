@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1 (02/11/2026)
+
+**Corrigido**
+- Instalar os cursores dava "Falhou" mesmo com o ponteiro trocado. Neste Windows o pedido de recarregar os ponteiros responde que falhou até quando funciona; agora o setup confere a seta que está em uso e só acusa erro se ela não for a escolhida.
+
 ## 1.0.0 (02/11/2026)
 
 **Novo**

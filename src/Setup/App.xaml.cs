@@ -12,6 +12,7 @@ namespace PacoteSetup;
 ///   --lang pt|en                    force the language
 ///   --ping                          exit 0 once WPF has loaded (the build's Smart App Control check)
 ///   --check-payload                 exit 0 if the apps are glued to this file, 4 if not
+///   --arrow-diff &lt;file.cur&gt;         exit code = per mille of pixels where the arrow in use differs from the file
 ///   --self-test &lt;report&gt;           logic tests with a fake registry and a temp folder
 ///   --install-silent &lt;options.json&gt; install with no window (use with PACOTE_HOME to test in a folder)
 ///   --uninstall-silent              remove everything installed, no window
@@ -42,6 +43,14 @@ public partial class App : Application
             return;
         }
         if (Has("--check-payload")) { Shutdown(Payload.Open(self) != null ? 0 : 4); return; }
+        if (Arg("--arrow-diff") is string cursorFile)
+        {
+            // per mille of pixels where the arrow in use differs from the file: 0 means that file is the pointer now
+            double off = Cursors.ArrowDifference(cursorFile);
+            Log.Write($"arrow-diff {cursorFile}: {off:P1}");
+            Shutdown((int)Math.Round(off * 1000));
+            return;
+        }
         if (Has("--self-test")) { Shutdown(SelfTest.Run(Arg("--self-test") ?? Path.Combine(Path.GetTempPath(), "pacote-selftest.txt"))); return; }
         if (Has("--install-silent")) { Shutdown(Silent.Install(self, Arg("--install-silent"))); return; }
         if (Has("--uninstall-silent")) { Shutdown(Silent.Uninstall()); return; }

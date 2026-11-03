@@ -73,7 +73,7 @@ public sealed class Uninstaller
                 if (manifest != null)
                 {
                     // Pointers someone picked after installing ours are left alone; only ours are given back.
-                    if (Cursors.InUse(_reg, folder)) Cursors.Uninstall(_reg, manifest, Cursors.BackupFile(folder), Cursors.ReloadSystemCursors);
+                    if (Cursors.InUse(_reg, folder)) Cursors.Uninstall(_reg, manifest, Cursors.BackupFile(folder), () => Cursors.ReloadSystemCursors(null));
                     else foreach (var s in manifest.Schemes.Values) _reg.Delete(Cursors.SchemesKey, s.Name);
                 }
                 DeleteFolder(folder);

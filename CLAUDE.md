@@ -32,6 +32,11 @@ commits e este arquivo em português. Telas em pt e en, seguindo o Windows (`--l
 - **Cursores:** `Core/Cursors.cs` é o `install.py` em C#: mesmo `backup.json` (`{nome: [dado, tipo]}`, feito uma vez,
   no primeiro install), mesmos nomes de esquema, `SPI_SETCURSORS` no fim. O `manifest.json` do build vai junto para a
   pasta, porque o desinstalador precisa dele.
+- **`SPI_SETCURSORS` responde FALSE com erro 0 mesmo quando funciona** (Windows 11 26300, 02/11/2026: o primeiro teste
+  dele deu "Falhou" e a seta em uso era a nossa pixel por pixel; o `install.py` do `ilha-cursors` faz a mesma chamada e
+  também acusaria). Desde a 1.0.1 um FALSE é conferido com `Cursors.ArrowDifference` (a seta em uso contra o arquivo,
+  no tamanho da que está em uso) e só falha acima de 3% de pixels diferentes. `--arrow-diff <arquivo.cur>` mede isso
+  sem mexer em nada.
 - **Fechar os apps:** ilha `Ilha.exe --sair`, Fundo Vivo `FundoVivo.exe --quit` (devolve o papel de parede do
   Windows), relógio sem comando de sair: mata o `dotnet` cuja linha de comando tem `RelogioMond.dll`.
 

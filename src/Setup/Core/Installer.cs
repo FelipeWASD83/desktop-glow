@@ -193,7 +193,10 @@ public sealed class Installer
         Cursors.SaveBackup(_reg, manifest, Cursors.BackupFile(Paths.Cursors));
         Cursors.Register(_reg, manifest, Paths.Cursors);
         if (_o.CursorScheme is "black" or "white")
-            Cursors.Apply(_reg, manifest, _o.CursorScheme, Paths.Cursors, Cursors.ReloadSystemCursors);
+        {
+            string arrow = Path.Combine(Paths.Cursors, _o.CursorScheme, manifest.Schemes[_o.CursorScheme].Files["Arrow"]);
+            Cursors.Apply(_reg, manifest, _o.CursorScheme, Paths.Cursors, () => Cursors.ReloadSystemCursors(arrow));
+        }
     }
 
     void Startup(ComponentId c, bool on, string command)

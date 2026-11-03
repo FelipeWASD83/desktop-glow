@@ -140,6 +140,8 @@ public static class Text
         ["done.errorSub"] = ("Alguma coisa não instalou. O motivo está ao lado do nome, e o registro tem os detalhes.",
             "Something did not install. The reason is next to its name, and the log has the details."),
         ["error.short"] = ("Falhou", "Failed"),
+        ["error.cursorReload"] = ("O Windows não trocou o ponteiro. Escolha \"Ilha preto\" ou \"Ilha branco\" em Configurações > Mouse > Ponteiros.",
+            "Windows did not switch the pointer. Pick \"Ilha preto\" or \"Ilha branco\" in Settings > Mouse > Pointers."),
         ["error.missing"] = ("Falta {0}", "{0} is missing"),
 
         ["uninstall.title"] = ("Desinstalar", "Uninstall"),
