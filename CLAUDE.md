@@ -43,8 +43,8 @@ commits e este arquivo em português. Telas em pt e en, seguindo o Windows (`--l
 - **Formato de release comum (03/11/2026):** relógio e cursores têm `versao.json` (`versao`, `repositorio`) e
   `ferramentas\publicar-versao.ps1` que gera `<nome>-<versão>.zip`, o modelo do `clave`. O `build.ps1` lê a versão
   do `versao.json` quando existe (`App-Version`) e recusa se discordar do csproj ou do changelog. A `ilha` tem
-  desde a 4.0.2 (também aceita `--quit`, o zip dela continua `Ilha-X.Y.Z.zip`); o `fundo-vivo` é de outra sessão e,
-  sem o arquivo, cai no `<Version>` do csproj.
+  desde a 4.0.2 (também aceita `--quit`, o zip dela continua `Ilha-X.Y.Z.zip`) e o `fundo-vivo` desde a 2.9.1
+  (`build\release\fundo-vivo-X.Y.Z.zip` sem os `.pdb`, só `--quit`). Os quatro seguem o formato.
 
 ## Decisões que não se desfazem sem motivo
 
