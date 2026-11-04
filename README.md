@@ -55,8 +55,8 @@ Junta os quatro apps pelo pacote de release de cada um (o `ferramentas\publicar-
 ## Vídeos e site
 
 Os vídeos de propaganda (TikTok e YouTube) e os que o setup toca são feitos em código, com Remotion, na pasta
-[`video/`](video/CLAUDE.md), narrados em inglês e em português. O site de [desktopglow.com](https://desktopglow.com) é
-estático e mora em `site/` (detalhes em `CLAUDE.md`).
+[`video/`](video/CLAUDE.md), narrados em inglês e em português. O site de [desktopglow.com](https://desktopglow.com) fica em
+outro repositório.
 
 ## Licença
 

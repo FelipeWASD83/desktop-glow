@@ -3,5 +3,3 @@ dist/
 bin/
 obj/
 *.user
-site/public/media/
-.wrangler/

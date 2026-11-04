@@ -123,36 +123,13 @@ em 03/11/2026): Island, Mond Clock, Living Wallpaper, Island Cursors, inclusive 
 - O `MediaElement` do WPF usa o Windows Media Player do sistema: no Windows N ele falha e fica a capa parada. No
   `--screenshot` aparece a capa, porque vídeo tocando não sai no `RenderTargetBitmap`.
 
-## Site (desktopglow.com, 03/11/2026)
+## Site (desktopglow.com)
 
-- `site/public/` é o site inteiro, estático: `index.html`, `style.css`, `app.js`, as fontes Quicksand e os ícones dos
-  apps. Página em inglês, com o português no `app.js` (`PT`); abre na língua do navegador (`navigator.language`, que no
-  Windows segue o sistema) e o botão PT/EN da pílula troca e lembra no `localStorage`. **Os nomes dos apps são em
-  inglês na página em inglês.** Sem otimizar para celular (decisão dele: os apps são de Windows); conferido em 3440 x
-  1440 e 1080 x 1920.
-- Direção "vitrine da ilha": hero claro com o vídeo emoldurado (Lusion), uma seção por app com o vídeo dela (ritmo da
-  Apple), fundos alternando preto e `#f2f2f7` até o rodapé. A assinatura é o menu: uma pílula preta como a ilha que
-  cresce com mola e mostra "Download" depois do topo.
-- **Baixar:** `releases/latest/download/DesktopGlow-Setup.exe` do GitHub (o Cloudflare não serve arquivo acima de 25 MiB,
-  e o setup tem ~107 MB). Por isso o nome do exe é fixo. A versão e o tamanho na página vêm da API do GitHub
-  (`releases/latest`), com o texto do HTML como reserva.
-- **Vídeos:** `site/public/media/` fica fora do git e sai do `python site/ferramentas/midia.py` (hero em 1600 px, os
-  oito do setup como estão). Tocam mudos só enquanto aparecem na tela; o botão de som deixa um com som por vez.
-- **Publicar:** Worker `desktopglow` com os dois domínios próprios (`site/wrangler.jsonc`); o DNS e o certificado o
-  Cloudflare cria no primeiro deploy (a zona não pode ter A/CNAME próprio para esses nomes). Comando, da pasta
-  `desktop-glow`: `npx wrangler@4 deploy --config site/wrangler.jsonc`. **Deploy só quando ele mandar.**
-  **No ar desde 03/11/2026**, publicado a pedido dele (os dois domínios responderam na hora; o certificado do `www`
-  levou poucos minutos). O `npx` pergunta antes de baixar o wrangler: no terminal, `npx --yes wrangler@4 ...`.
-- A consulta de versão na API do GitHub tem limite de 60 por hora por IP sem login: estourou no PC dele durante os
-  testes (403 no console). Quem visita não costuma chegar nisso, e o texto do HTML entra no lugar; ao publicar versão
-  nova do setup, atualizar esse texto (`index.html` e o `release` do `app.js`) junto.
-- **Doação:** GitHub Sponsors (`github.com/sponsors/FelipeWASD83`), que ele ativou em 03/11/2026 e estava esperando a
-  aprovação do GitHub; até ela sair, o link não abre. Botão no rodapé do site e `.github/FUNDING.yml` (o botão
-  "Sponsor" do repositório). Antes disso ele tinha descartado PayPal (não tem) e o Pix só serviria para o Brasil.
-- **Sem link para repositório** (pedido dele em 03/11/2026): o GitHub só aparece no baixar (asset da release) e no
-  GitHub Sponsors. O rodapé leva os contatos do Felipe Sites, os mesmos do rodapé de felipesites.com.br: o site, o
-  Instagram @felipesites, felipe.sites0@gmail.com e o WhatsApp. Mudou contato lá, muda aqui.
-- Prévia: entrada `desktop-glow-site` do `launch.json` (porta 3471).
+O site mora no projeto **`desktop-glow-site`** (pasta irmã, repositório privado), desde 03/11/2026; antes ficava em
+`site/` aqui. O que este projeto deve a ele: o exe da release se chama sempre `DesktopGlow-Setup.exe` (o botão de
+baixar aponta para `releases/latest/download/DesktopGlow-Setup.exe`), **este repositório continua público** (release
+de repositório privado não abre para quem visita) e os vídeos saem de `video/saida/` (o `ferramentas/midia.py` de
+lá copia). Ao publicar versão nova do setup, atualizar o texto de versão e tamanho do site junto.
 
 ## Testar sem mexer no PC
 
