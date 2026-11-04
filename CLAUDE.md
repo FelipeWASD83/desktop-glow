@@ -149,6 +149,9 @@ em 03/11/2026): Island, Mond Clock, Living Wallpaper, Island Cursors, inclusive 
 - **Doação:** GitHub Sponsors (`github.com/sponsors/FelipeWASD83`), que ele ativou em 03/11/2026 e estava esperando a
   aprovação do GitHub; até ela sair, o link não abre. Botão no rodapé do site e `.github/FUNDING.yml` (o botão
   "Sponsor" do repositório). Antes disso ele tinha descartado PayPal (não tem) e o Pix só serviria para o Brasil.
+- **Sem link para repositório** (pedido dele em 03/11/2026): o GitHub só aparece no baixar (asset da release) e no
+  GitHub Sponsors. O rodapé leva os contatos do Felipe Sites, os mesmos do rodapé de felipesites.com.br: o site, o
+  Instagram @felipesites, felipe.sites0@gmail.com e o WhatsApp. Mudou contato lá, muda aqui.
 - Prévia: entrada `desktop-glow-site` do `launch.json` (porta 3471).
 
 ## Testar sem mexer no PC
