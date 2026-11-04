@@ -60,6 +60,16 @@ Código e comentários em inglês; este arquivo, os textos em pt e os commits em
   `--vivo-still ... 0 som`. O carrossel mostra os dez numa volta inteira.
 - A biblioteca do Fundo Vivo só existe em português: só entra no `setup-fundovivo-pt`.
 
+## Recortes e narração avulsa (04/11/2026)
+
+- `src/recortes.tsx` é um segundo ponto de entrada do Remotion, que os vídeos não importam: uma composição por estado da
+  ilha e do relógio, em fundo transparente, para os PNGs do After Effects dele (`..\ferramentas\pngs.py`). Precisa do
+  `import React`, ao contrário dos outros arquivos.
+- `ferramentas/tts_reels.py` gera a narração do Reels dele (o roteiro em `tts/roteiro-reels.txt`) nas três vozes pt-BR
+  do Edge e, com `--kokoro`, no Kokoro local (`.venv-kokoro`, modelo em `tts/kokoro/`, os dois fora do git; licença
+  Apache), em WAV 48 kHz, 24 bits, -16 LUFS, em `saida/tts/`. "Link na bio" saía "Bill" em quatro vozes: o texto diz
+  "Link no perfil".
+
 ## Comandos
 
 ```powershell

@@ -9,3 +9,5 @@ __pycache__/
 
 # real pictures of the apps (ferramentas/capturas.py) and the Anurati, which is personal-use only
 public/gerado/
+.venv-kokoro/
+tts/kokoro/

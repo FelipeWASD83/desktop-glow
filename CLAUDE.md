@@ -157,7 +157,19 @@ A página de privacidade do site lista com quem cada um dos quatro apps e o inst
 
 - Gerar o setup: `powershell -ExecutionPolicy Bypass -File ferramentas\build.ps1` (`-Rebuild ilha,relogio,cursors,fundovivo`)
   → `dist\DesktopGlow-Setup.exe` (nome fixo, é o que o site baixa da release mais nova) e `dist\SHA256.txt`. `build\` e `dist\` ficam fora do git.
-- Ícone do setup e as figuras dos cartões dos cursores: `python ferramentas\make_icon.py` (lê os `.cur` do
-  `ilha-cursors\build`; o Pillow perde o alfa do `.cur`, por isso o leitor próprio).
+- **Logos (04/11/2026, pedido dele: "melhorar as logos, principalmente a do relógio"; desenho novo, não mais detalhe):**
+  a família do Desktop Glow mora em `_organizacao\atalhos\desenhar_icones.py` (`glow_tile`, `island`, `mond_clock`,
+  `living_wallpaper`, `island_cursors`, `desktop_glow`) e o `gerar_icones.py` (pelo Edge, num terminal normal) escreve o
+  `.ico` e o PNG de 512 em `icone/` de cada projeto, inclusive aqui e no `ilha-cursors`. Daqui eles são copiados à mão
+  para `src\Setup\Assets\<app>.png`, `video\public\icones\` e o `img\` do `desktop-glow-site`. O relógio é a lua
+  crescente com os ponteiros (Mond é lua em alemão), sem o visualizador.
+- `python ferramentas\make_icon.py` só recorta as duas setas do `ilha-cursors` para a escolha de esquema
+  (`arrow-black.png`, `arrow-white.png`); o ícone do setup e o cartão dos cursores vêm das logos acima.
+- **PNGs para o After Effects dele:** `python ferramentas\pngs.py [logos ilha fundo cursores setup]`, num terminal
+  normal, grava `pngs\` (fora do git): as cinco logos em 1024, cada estado da ilha em 4x e o relógio (fundo
+  transparente, recortados; saem do `video\src\recortes.tsx`), os dez fundos do Fundo Vivo em 3840 x 2160 e a
+  biblioteca, os ponteiros no maior tamanho com as sequências dos animados (cada quadro uma vez: os que se transformam
+  seguram o último quadro por 24 h no `.ani`) e as telas do setup. A parte da ilha troca o `src\roteiro.json`: nunca
+  junto com o `todos.py`.
 - Compilar só a janela: `dotnet build src\Setup -c Release`.
 - Versão: `<Version>` no `src\Setup\Setup.csproj` e o topo do `CHANGELOG.md`, juntos.

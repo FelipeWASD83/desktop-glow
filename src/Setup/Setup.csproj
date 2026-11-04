@@ -8,7 +8,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>DesktopGlow</AssemblyName>
     <RootNamespace>DesktopGlowSetup</RootNamespace>
-    <Version>1.3.0</Version>
+    <Version>1.4.0</Version>
     <Product>Desktop Glow</Product>
     <Company>Felipe</Company>
     <Description>Instalador do Desktop Glow</Description>

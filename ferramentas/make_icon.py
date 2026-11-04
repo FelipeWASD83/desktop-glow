@@ -1,6 +1,10 @@
-"""Draws the setup's icon: a dark tile with the island pill on top and an arrow landing in a tray.
+"""Cuts the two arrows of ilha-cursors for the setup's scheme picker (src/Setup/Assets/arrow-black.png, arrow-white.png).
 
-    python ferramentas/make_icon.py      # writes icone/icone.png (512) and icone/icone.ico (16 to 256)
+Since 04/11/2026 the icons themselves (the pack's icone/, and the app cards in src/Setup/Assets) come from the Desktop
+Glow family in _organizacao/atalhos/desenhar_icones.py + gerar_icones.py; the old tile() and cursors_tile() drawings
+below are no longer written.
+
+    python ferramentas/make_icon.py
 """
 import struct
 from pathlib import Path
@@ -101,16 +105,10 @@ def main() -> None:
     OUT.mkdir(exist_ok=True)
     assets = ROOT / "src" / "Setup" / "Assets"
     assets.mkdir(parents=True, exist_ok=True)
-    cursors_tile().save(assets / "cursores.png")
     for variant in ("black", "white"):
         arrow = read_cur(ROOT.parent / "ilha-cursors" / "build" / variant / "arrow.cur")
         arrow.crop(arrow.getbbox()).save(assets / f"arrow-{variant}.png")
-    big = tile(512)
-    big.save(OUT / "icone.png")
-    sizes = [16, 24, 32, 48, 64, 128, 256]
-    frames = [tile(n) for n in sizes]
-    frames[-1].save(OUT / "icone.ico", sizes=[(n, n) for n in sizes], append_images=frames[:-1])
-    print("icone.png e icone.ico prontos em", OUT)
+    print("arrow-black.png e arrow-white.png prontos em", assets)
 
 
 if __name__ == "__main__":

@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.4.0 (04/11/2026)
+
+**Novo**
+- O Fundo Vivo 2.10.0 vem em inglês quando o Windows está em inglês (como Living Wallpaper) e em português no resto.
+- Logos novas nos quatro apps e no próprio setup: a ilha com a bolinha de atividade, a lua com os ponteiros do relógio, as faixas de luz do Fundo Vivo, a seta dos cursores e o brilho do Desktop Glow.
+
+**Mudou**
+- Traz a Ilha 4.0.4 e o Relógio Mond 1.5.1, com os ícones novos.
+- Os vídeos da tela de instalação foram refeitos com as logos novas.
+
 ## 1.3.0 (03/11/2026)
 
 **Novo**
