@@ -130,6 +130,8 @@ O site mora no projeto **`desktop-glow-site`** (pasta irmã, repositório privad
 baixar aponta para `releases/latest/download/DesktopGlow-Setup.exe`), **este repositório continua público** (release
 de repositório privado não abre para quem visita) e os vídeos saem de `video/saida/` (o `ferramentas/midia.py` de
 lá copia). Ao publicar versão nova do setup, atualizar o texto de versão e tamanho do site junto.
+A página de privacidade do site lista com quem cada um dos quatro apps e o instalador conversam pela internet:
+**app que passar a mandar algo novo pela rede (ou parar) obriga a atualizar `privacy.html` de lá.**
 
 ## Testar sem mexer no PC
 
