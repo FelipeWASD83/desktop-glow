@@ -141,6 +141,11 @@ em 03/11/2026): Island, Mond Clock, Living Wallpaper, Island Cursors, inclusive 
 - **Publicar:** Worker `desktopglow` com os dois domínios próprios (`site/wrangler.jsonc`); o DNS e o certificado o
   Cloudflare cria no primeiro deploy (a zona não pode ter A/CNAME próprio para esses nomes). Comando, da pasta
   `desktop-glow`: `npx wrangler@4 deploy --config site/wrangler.jsonc`. **Deploy só quando ele mandar.**
+  **No ar desde 03/11/2026**, publicado a pedido dele (os dois domínios responderam na hora; o certificado do `www`
+  levou poucos minutos). O `npx` pergunta antes de baixar o wrangler: no terminal, `npx --yes wrangler@4 ...`.
+- A consulta de versão na API do GitHub tem limite de 60 por hora por IP sem login: estourou no PC dele durante os
+  testes (403 no console). Quem visita não costuma chegar nisso, e o texto do HTML entra no lugar; ao publicar versão
+  nova do setup, atualizar esse texto (`index.html` e o `release` do `app.js`) junto.
 - **Doação:** GitHub Sponsors (`github.com/sponsors/FelipeWASD83`), que ele ativou em 03/11/2026 e estava esperando a
   aprovação do GitHub; até ela sair, o link não abre. Botão no rodapé do site e `.github/FUNDING.yml` (o botão
   "Sponsor" do repositório). Antes disso ele tinha descartado PayPal (não tem) e o Pix só serviria para o Brasil.

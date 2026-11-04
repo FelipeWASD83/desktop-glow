@@ -69,7 +69,7 @@
   };
   const EN_LABELS = {sound: 'Sound on or off', title: document.title};
 
-  const release = {v: '1.3.0', mb: '107'};
+  const release = {v: '1.3.0', mb: '110'};
   const nodes = [...document.querySelectorAll('[data-t]')];
   const original = new Map(nodes.map((n) => [n, n.dataset.html !== undefined ? n.innerHTML : n.textContent]));
   let lang = 'en';
