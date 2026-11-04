@@ -11,44 +11,52 @@
   "legenda": false,
   "voz": {
     "nome": "en-US-AvaMultilingualNeural",
-    "velocidade": "+0%"
+    "velocidade": "+4%"
   },
   "trilha": {
-    "volume": 0.32,
+    "volume": 0,
     "sobVoz": 0
   },
   "cenas": [
     {
       "id": "ilha-gancho",
-      "segundos": 3.4
+      "segundos": 3.2,
+      "fala": "Windows never had a Dynamic Island. Until now."
     },
     {
       "id": "ilha-musica",
-      "segundos": 3.2
+      "segundos": 3.2,
+      "fala": "Your music, live, with the cover, the controls and a visualizer."
     },
     {
-      "id": "ilha-timer",
-      "segundos": 3.0
+      "id": "ilha-placar",
+      "segundos": 3.4,
+      "fala": "In a competitive game, the pill becomes the live score."
     },
     {
-      "id": "ilha-gravar",
-      "segundos": 2.8
+      "id": "ilha-downloads",
+      "segundos": 3.4,
+      "fala": "Steam downloads, at a glance."
     },
     {
-      "id": "ilha-alertas",
-      "segundos": 3.4
+      "id": "ilha-clima",
+      "segundos": 2.6,
+      "fala": "It even tells you when the sky changes."
     },
     {
       "id": "ilha-menu",
-      "segundos": 3.0
+      "segundos": 3.0,
+      "fala": "Open it, and everything running waits at its side."
     },
     {
       "id": "ilha-numeros",
-      "segundos": 3.0
+      "segundos": 3.0,
+      "fala": "Two hundred and fifty frames per second, with almost no CPU."
     },
     {
       "id": "fecho-ilha",
-      "segundos": 3.4
+      "segundos": 3.4,
+      "fala": "Island. Free, in Desktop Glow."
     }
   ]
 }

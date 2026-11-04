@@ -7,32 +7,36 @@
   "formatos": [
     "16x9"
   ],
-  "capa": 1.4,
+  "capa": 2.0,
   "legenda": false,
   "voz": {
     "nome": "en-US-AvaMultilingualNeural",
-    "velocidade": "+0%"
+    "velocidade": "+4%"
   },
   "trilha": {
-    "volume": 0.32,
+    "volume": 0,
     "sobVoz": 0
   },
   "cenas": [
     {
       "id": "fundovivo-nome",
-      "segundos": 2.6
+      "segundos": 2.8,
+      "fala": "Living Wallpaper. Live wallpapers that stay light."
     },
     {
       "id": "fundo-galeria",
-      "segundos": 3.0
+      "segundos": 3.6,
+      "fala": "Ten wallpapers of its own, plus your videos, pictures and web pages."
     },
     {
       "id": "fundo-pausa",
-      "segundos": 3.2
+      "segundos": 3.6,
+      "fala": "And it pauses when a game takes over."
     },
     {
       "id": "fim-fundovivo",
-      "segundos": 2.6
+      "segundos": 3.0,
+      "fala": "Free, in Desktop Glow."
     }
   ]
 }

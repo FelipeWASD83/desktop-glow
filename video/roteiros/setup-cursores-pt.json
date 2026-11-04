@@ -7,32 +7,36 @@
   "formatos": [
     "16x9"
   ],
-  "capa": 1.4,
+  "capa": 2.0,
   "legenda": false,
   "voz": {
-    "nome": "en-US-AvaMultilingualNeural",
-    "velocidade": "+0%"
+    "nome": "pt-BR-ThalitaMultilingualNeural",
+    "velocidade": "+6%"
   },
   "trilha": {
-    "volume": 0.32,
+    "volume": 0,
     "sobVoz": 0
   },
   "cenas": [
     {
       "id": "cursores-nome",
-      "segundos": 2.6
+      "segundos": 2.8,
+      "fala": "Cursores da Ilha. Ponteiros que combinam com a ilha."
     },
     {
       "id": "cursor-esquemas",
-      "segundos": 2.8
+      "segundos": 2.6,
+      "fala": "Preto ou branco, com contorno na cor oposta."
     },
     {
       "id": "cursor-morfo",
-      "segundos": 3.2
+      "segundos": 3.0,
+      "fala": "E cada ponteiro se transforma no próximo."
     },
     {
       "id": "fim-cursores",
-      "segundos": 2.6
+      "segundos": 3.0,
+      "fala": "De graça, no Desktop Glow."
     }
   ]
 }

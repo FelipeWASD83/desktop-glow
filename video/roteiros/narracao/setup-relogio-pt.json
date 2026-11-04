@@ -1,0 +1,226 @@
+{
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "cenas": {
+  "relogio-nome": {
+   "fala": "Relógio Mond. Um relógio de área de trabalho no estilo Mond.",
+   "arquivo": "narracao/setup-relogio-pt/relogio-nome.mp3",
+   "duracao": 4.272,
+   "assinatura": "1e144e464263c3f4",
+   "palavras": [
+    {
+     "t": 0.059,
+     "d": 0.613,
+     "texto": "Relógio"
+    },
+    {
+     "t": 0.672,
+     "d": 0.436,
+     "texto": "Mond"
+    },
+    {
+     "t": 1.439,
+     "d": 0.153,
+     "texto": "Um"
+    },
+    {
+     "t": 1.592,
+     "d": 0.519,
+     "texto": "relógio"
+    },
+    {
+     "t": 2.111,
+     "d": 0.118,
+     "texto": "de"
+    },
+    {
+     "t": 2.229,
+     "d": 0.2,
+     "texto": "área"
+    },
+    {
+     "t": 2.429,
+     "d": 0.094,
+     "texto": "de"
+    },
+    {
+     "t": 2.524,
+     "d": 0.472,
+     "texto": "trabalho"
+    },
+    {
+     "t": 2.995,
+     "d": 0.13,
+     "texto": "no"
+    },
+    {
+     "t": 3.125,
+     "d": 0.436,
+     "texto": "estilo"
+    },
+    {
+     "t": 3.561,
+     "d": 0.389,
+     "texto": "Mond"
+    }
+   ],
+   "marcas": {}
+  },
+  "relogio-mostrador": {
+   "fala": "Dia, data, hora e clima, direto na área de trabalho.",
+   "arquivo": "narracao/setup-relogio-pt/relogio-mostrador.mp3",
+   "duracao": 3.96,
+   "assinatura": "8b226f4bbe6f5da2",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.483,
+     "texto": "Dia"
+    },
+    {
+     "t": 0.767,
+     "d": 0.46,
+     "texto": "data"
+    },
+    {
+     "t": 1.439,
+     "d": 0.236,
+     "texto": "hora"
+    },
+    {
+     "t": 1.675,
+     "d": 0.047,
+     "texto": "e"
+    },
+    {
+     "t": 1.722,
+     "d": 0.354,
+     "texto": "clima"
+    },
+    {
+     "t": 2.277,
+     "d": 0.424,
+     "texto": "direto"
+    },
+    {
+     "t": 2.701,
+     "d": 0.083,
+     "texto": "na"
+    },
+    {
+     "t": 2.784,
+     "d": 0.295,
+     "texto": "área"
+    },
+    {
+     "t": 3.079,
+     "d": 0.106,
+     "texto": "de"
+    },
+    {
+     "t": 3.185,
+     "d": 0.448,
+     "texto": "trabalho"
+    }
+   ],
+   "marcas": {}
+  },
+  "relogio-musica": {
+   "fala": "E o que está tocando, com barras que seguem o som.",
+   "arquivo": "narracao/setup-relogio-pt/relogio-musica.mp3",
+   "duracao": 3.024,
+   "assinatura": "eda7c93e1284b7e2",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.083,
+     "texto": "E"
+    },
+    {
+     "t": 0.13,
+     "d": 0.047,
+     "texto": "o"
+    },
+    {
+     "t": 0.178,
+     "d": 0.059,
+     "texto": "que"
+    },
+    {
+     "t": 0.237,
+     "d": 0.2,
+     "texto": "está"
+    },
+    {
+     "t": 0.437,
+     "d": 0.554,
+     "texto": "tocando"
+    },
+    {
+     "t": 1.121,
+     "d": 0.2,
+     "texto": "com"
+    },
+    {
+     "t": 1.321,
+     "d": 0.377,
+     "texto": "barras"
+    },
+    {
+     "t": 1.699,
+     "d": 0.118,
+     "texto": "que"
+    },
+    {
+     "t": 1.817,
+     "d": 0.46,
+     "texto": "seguem"
+    },
+    {
+     "t": 2.277,
+     "d": 0.047,
+     "texto": "o"
+    },
+    {
+     "t": 2.324,
+     "d": 0.377,
+     "texto": "som"
+    }
+   ],
+   "marcas": {}
+  },
+  "fim-relogio": {
+   "fala": "De graça, no Desktop Glow.",
+   "arquivo": "narracao/setup-relogio-pt/fim-relogio.mp3",
+   "duracao": 2.472,
+   "assinatura": "07884749f3c35bfd",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.2,
+     "texto": "De"
+    },
+    {
+     "t": 0.248,
+     "d": 0.495,
+     "texto": "graça"
+    },
+    {
+     "t": 0.968,
+     "d": 0.118,
+     "texto": "no"
+    },
+    {
+     "t": 1.086,
+     "d": 0.731,
+     "texto": "Desktop"
+    },
+    {
+     "t": 1.817,
+     "d": 0.33,
+     "texto": "Glow"
+    }
+   ],
+   "marcas": {}
+  }
+ }
+}

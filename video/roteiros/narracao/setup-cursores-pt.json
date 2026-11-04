@@ -1,0 +1,186 @@
+{
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "cenas": {
+  "cursores-nome": {
+   "fala": "Cursores da Ilha. Ponteiros que combinam com a ilha.",
+   "arquivo": "narracao/setup-cursores-pt/cursores-nome.mp3",
+   "duracao": 3.648,
+   "assinatura": "4a878841f9dfd0f5",
+   "palavras": [
+    {
+     "t": 0.047,
+     "d": 0.613,
+     "texto": "Cursores"
+    },
+    {
+     "t": 0.66,
+     "d": 0.212,
+     "texto": "da"
+    },
+    {
+     "t": 0.873,
+     "d": 0.307,
+     "texto": "Ilha"
+    },
+    {
+     "t": 1.498,
+     "d": 0.601,
+     "texto": "Ponteiros"
+    },
+    {
+     "t": 2.099,
+     "d": 0.118,
+     "texto": "que"
+    },
+    {
+     "t": 2.217,
+     "d": 0.554,
+     "texto": "combinam"
+    },
+    {
+     "t": 2.771,
+     "d": 0.141,
+     "texto": "com"
+    },
+    {
+     "t": 2.913,
+     "d": 0.118,
+     "texto": "a"
+    },
+    {
+     "t": 3.031,
+     "d": 0.283,
+     "texto": "ilha"
+    }
+   ],
+   "marcas": {}
+  },
+  "cursor-esquemas": {
+   "fala": "Preto ou branco, com contorno na cor oposta.",
+   "arquivo": "narracao/setup-cursores-pt/cursor-esquemas.mp3",
+   "duracao": 2.976,
+   "assinatura": "2b00537368a299fe",
+   "palavras": [
+    {
+     "t": 0.047,
+     "d": 0.307,
+     "texto": "Preto"
+    },
+    {
+     "t": 0.354,
+     "d": 0.118,
+     "texto": "ou"
+    },
+    {
+     "t": 0.472,
+     "d": 0.436,
+     "texto": "branco"
+    },
+    {
+     "t": 1.038,
+     "d": 0.141,
+     "texto": "com"
+    },
+    {
+     "t": 1.179,
+     "d": 0.531,
+     "texto": "contorno"
+    },
+    {
+     "t": 1.71,
+     "d": 0.165,
+     "texto": "na"
+    },
+    {
+     "t": 1.875,
+     "d": 0.212,
+     "texto": "cor"
+    },
+    {
+     "t": 2.087,
+     "d": 0.554,
+     "texto": "oposta"
+    }
+   ],
+   "marcas": {}
+  },
+  "cursor-morfo": {
+   "fala": "E cada ponteiro se transforma no próximo.",
+   "arquivo": "narracao/setup-cursores-pt/cursor-morfo.mp3",
+   "duracao": 2.664,
+   "assinatura": "789e0edfd0177f1b",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.106,
+     "texto": "E"
+    },
+    {
+     "t": 0.154,
+     "d": 0.283,
+     "texto": "cada"
+    },
+    {
+     "t": 0.437,
+     "d": 0.554,
+     "texto": "ponteiro"
+    },
+    {
+     "t": 0.991,
+     "d": 0.153,
+     "texto": "se"
+    },
+    {
+     "t": 1.145,
+     "d": 0.59,
+     "texto": "transforma"
+    },
+    {
+     "t": 1.734,
+     "d": 0.094,
+     "texto": "no"
+    },
+    {
+     "t": 1.829,
+     "d": 0.507,
+     "texto": "próximo"
+    }
+   ],
+   "marcas": {}
+  },
+  "fim-cursores": {
+   "fala": "De graça, no Desktop Glow.",
+   "arquivo": "narracao/setup-cursores-pt/fim-cursores.mp3",
+   "duracao": 2.472,
+   "assinatura": "07884749f3c35bfd",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.2,
+     "texto": "De"
+    },
+    {
+     "t": 0.248,
+     "d": 0.495,
+     "texto": "graça"
+    },
+    {
+     "t": 0.968,
+     "d": 0.118,
+     "texto": "no"
+    },
+    {
+     "t": 1.086,
+     "d": 0.731,
+     "texto": "Desktop"
+    },
+    {
+     "t": 1.817,
+     "d": 0.33,
+     "texto": "Glow"
+    }
+   ],
+   "marcas": {}
+  }
+ }
+}

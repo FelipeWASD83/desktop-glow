@@ -1,6 +1,7 @@
 // The ilha's feature scenes: a close-up of the top of a screen in 3D with the pill going through its real states.
 import {useCurrentFrame} from 'remotion';
-import {Bateria, Camera, Caps, Central, Gravando, MusicaCompacta, MusicaExpandida, TimerCompacto, TimerExpandido} from '../app/Ilha';
+import {Bateria, Bolinha, Camera, Caps, Central, Clima, Download, Gravando, MusicaCompacta, MusicaExpandida, PlacarCompacto, PlacarExpandido, TimerCompacto, TimerExpandido} from '../app/Ilha';
+import type {Fundo} from '../app/Desktop';
 import type {Estado} from '../app/Ilha';
 import {TopoDaTela} from '../app/Tela';
 import {Contador} from '../componentes/Efeitos';
@@ -20,12 +21,12 @@ const useAngulo = (de: number, ate: number) => {
   return {x: chave(f, [[entra, 9], [sai, 4]]), y: chave(f, [[entra, de], [sai, ate]])};
 };
 
-const Painel: React.FC<{estados: Estado[]; fundo?: 'fireflies' | 'snowfall' | 'rainy-night' | 'pulse'; de?: number; ate?: number}> = ({estados, fundo = 'fireflies', de = -18, ate = -6}) => {
+const Painel: React.FC<{estados: Estado[]; fundo?: Fundo; de?: number; ate?: number; aoLado?: React.ReactNode; escala?: number}> = ({estados, fundo = 'fireflies', de = -18, ate = -6, aoLado, escala}) => {
   const {v} = useLado();
   const angulo = useAngulo(v ? de * 0.6 : de, v ? ate * 0.6 : ate);
   return (
     <NaCaixa>
-      <TopoDaTela largura={v ? 1000 : 1040} altura={v ? 820 : 640} fundo={fundo} estados={estados} escalaIlha={v ? 2.5 : 2.35} angulo={angulo} />
+      <TopoDaTela largura={v ? 1000 : 1040} altura={v ? 820 : 640} fundo={fundo} estados={estados} escalaIlha={escala ?? (v ? 2.5 : 2.35)} angulo={angulo} aoLado={aoLado} />
     </NaCaixa>
   );
 };
@@ -79,7 +80,18 @@ export const IlhaMenu: React.FC = () => {
   // the volume block is dragged up while the menu is open
   const volume = chave(f, [[entra + 40, 0.35], [entra + 70, 0.8]]);
   const estados: Estado[] = [OCIOSA(0), {q: entra + 10, w: 470, h: 230, r: 38, conteudo: <Central volume={volume} />}];
-  return <Layout app="ilha" titulo={T('ilha.menu')} visual={<Painel estados={estados} fundo="snowfall" de={-16} ate={-8} />} />;
+  const {v} = useLado();
+  // the menu (470) plus a ball (10 + 46) has to fit the panel (1000 standing, 1040 lying) with some margin
+  const e = v ? 1.72 : 1.78;
+  // since 4.0 each activity running sits next to the menu as a ball of its own
+  const bolinhas = (
+    <>
+      <Bolinha tipo="musica" escala={e} inicio={entra + 22} />
+      <Bolinha tipo="timer" escala={e} inicio={entra + 27} />
+      <Bolinha tipo="download" escala={e} inicio={entra + 32} />
+    </>
+  );
+  return <Layout app="ilha" titulo={T('ilha.menu')} sub={T('ilha.menu.sub')} visual={<Painel estados={estados} fundo="night-tide" de={-10} ate={-4} aoLado={bolinhas} escala={e} />} />;
 };
 
 export const IlhaNumeros: React.FC = () => {
@@ -113,4 +125,38 @@ export const IlhaNumeros: React.FC = () => {
       }
     />
   );
+};
+
+export const IlhaPlacar: React.FC = () => {
+  const {entra} = useCena();
+  const f = useCurrentFrame();
+  // a round is won during the scene: 8 becomes 9, and the clock keeps running
+  const rodada = entra + 70;
+  const nos = f >= rodada ? 9 : 8;
+  const s = Math.max(0, 84 - Math.floor((f - entra) / 30));
+  const relogio = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+  const estados: Estado[] = [
+    OCIOSA(0),
+    {q: entra + 8, w: 250, h: 38, conteudo: <PlacarCompacto nos={nos} eles={7} relogio={relogio} />},
+    {q: entra + 52, w: 390, h: 170, r: 38, conteudo: <PlacarExpandido nos={nos} eles={7} relogio={relogio} abates={f >= rodada ? 15 : 14} />},
+  ];
+  return <Layout app="ilha" titulo={T('ilha.placar')} sub={T('ilha.placar.sub')} visual={<Painel estados={estados} fundo="sparks" de={-16} ate={-6} />} />;
+};
+
+export const IlhaDownloads: React.FC = () => {
+  const {entra} = useCena();
+  const f = useCurrentFrame();
+  const valor = chave(f, [[entra + 6, 0.42], [entra + 96, 1]], 'suave');
+  const estados: Estado[] = [
+    OCIOSA(0),
+    {q: entra + 6, w: 262, h: 38, conteudo: <Download valor={valor} />},
+    {q: entra + 44, w: 370, h: 96, r: 34, conteudo: <Download valor={valor} largo />},
+  ];
+  return <Layout app="ilha" titulo={T('ilha.downloads')} sub={T('ilha.downloads.sub')} visual={<Painel estados={estados} fundo="northern-lights" de={16} ate={6} />} />;
+};
+
+export const IlhaClima: React.FC = () => {
+  const {entra} = useCena();
+  const estados: Estado[] = [OCIOSA(0), {q: entra + 10, w: 272, h: 44, r: 22, conteudo: <Clima />}];
+  return <Layout app="ilha" titulo={T('ilha.clima')} sub={T('ilha.clima.sub')} visual={<Painel estados={estados} fundo="rainy-night" de={-12} ate={-20} />} />;
 };

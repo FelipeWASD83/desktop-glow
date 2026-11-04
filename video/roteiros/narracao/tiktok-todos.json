@@ -1,0 +1,339 @@
+{
+ "voz": "en-US-AvaMultilingualNeural",
+ "cenas": {
+  "gancho-todos": {
+   "fala": "Make Windows look like this.",
+   "arquivo": "narracao/tiktok-todos/gancho-todos.mp3",
+   "duracao": 1.968,
+   "assinatura": "5ebecaa6eda0dcfd",
+   "palavras": [
+    {
+     "t": 0.084,
+     "d": 0.192,
+     "texto": "Make"
+    },
+    {
+     "t": 0.288,
+     "d": 0.517,
+     "texto": "Windows"
+    },
+    {
+     "t": 0.817,
+     "d": 0.156,
+     "texto": "look"
+    },
+    {
+     "t": 0.974,
+     "d": 0.192,
+     "texto": "like"
+    },
+    {
+     "t": 1.178,
+     "d": 0.445,
+     "texto": "this"
+    }
+   ],
+   "marcas": {}
+  },
+  "ilha-placar": {
+   "fala": "In a competitive game, the pill becomes the live score.",
+   "arquivo": "narracao/tiktok-todos/ilha-placar.mp3",
+   "duracao": 3.576,
+   "assinatura": "6bad9509d3ae61a6",
+   "palavras": [
+    {
+     "t": 0.084,
+     "d": 0.084,
+     "texto": "In"
+    },
+    {
+     "t": 0.18,
+     "d": 0.048,
+     "texto": "a"
+    },
+    {
+     "t": 0.24,
+     "d": 0.481,
+     "texto": "competitive"
+    },
+    {
+     "t": 0.733,
+     "d": 0.337,
+     "texto": "game"
+    },
+    {
+     "t": 1.502,
+     "d": 0.096,
+     "texto": "the"
+    },
+    {
+     "t": 1.611,
+     "d": 0.337,
+     "texto": "pill"
+    },
+    {
+     "t": 1.959,
+     "d": 0.397,
+     "texto": "becomes"
+    },
+    {
+     "t": 2.356,
+     "d": 0.096,
+     "texto": "the"
+    },
+    {
+     "t": 2.464,
+     "d": 0.3,
+     "texto": "live"
+    },
+    {
+     "t": 2.776,
+     "d": 0.457,
+     "texto": "score"
+    }
+   ],
+   "marcas": {}
+  },
+  "relogio-musica": {
+   "fala": "And what is playing now, with bars that follow the sound.",
+   "arquivo": "narracao/tiktok-todos/relogio-musica.mp3",
+   "duracao": 2.976,
+   "assinatura": "e2ed765dbc86aa11",
+   "palavras": [
+    {
+     "t": 0.084,
+     "d": 0.144,
+     "texto": "And"
+    },
+    {
+     "t": 0.24,
+     "d": 0.12,
+     "texto": "what"
+    },
+    {
+     "t": 0.373,
+     "d": 0.12,
+     "texto": "is"
+    },
+    {
+     "t": 0.505,
+     "d": 0.3,
+     "texto": "playing"
+    },
+    {
+     "t": 0.817,
+     "d": 0.276,
+     "texto": "now"
+    },
+    {
+     "t": 1.118,
+     "d": 0.18,
+     "texto": "with"
+    },
+    {
+     "t": 1.298,
+     "d": 0.361,
+     "texto": "bars"
+    },
+    {
+     "t": 1.671,
+     "d": 0.144,
+     "texto": "that"
+    },
+    {
+     "t": 1.815,
+     "d": 0.252,
+     "texto": "follow"
+    },
+    {
+     "t": 2.079,
+     "d": 0.084,
+     "texto": "the"
+    },
+    {
+     "t": 2.163,
+     "d": 0.469,
+     "texto": "sound"
+    }
+   ],
+   "marcas": {}
+  },
+  "fundo-galeria": {
+   "fala": "Ten wallpapers of its own, plus your videos, pictures and web pages.",
+   "arquivo": "narracao/tiktok-todos/fundo-galeria.mp3",
+   "duracao": 4.704,
+   "assinatura": "f1d05953dea8ec25",
+   "palavras": [
+    {
+     "t": 0.096,
+     "d": 0.252,
+     "texto": "Ten"
+    },
+    {
+     "t": 0.349,
+     "d": 0.529,
+     "texto": "wallpapers"
+    },
+    {
+     "t": 0.889,
+     "d": 0.06,
+     "texto": "of"
+    },
+    {
+     "t": 0.95,
+     "d": 0.108,
+     "texto": "its"
+    },
+    {
+     "t": 1.07,
+     "d": 0.337,
+     "texto": "own"
+    },
+    {
+     "t": 1.562,
+     "d": 0.24,
+     "texto": "plus"
+    },
+    {
+     "t": 1.815,
+     "d": 0.108,
+     "texto": "your"
+    },
+    {
+     "t": 1.935,
+     "d": 0.541,
+     "texto": "videos"
+    },
+    {
+     "t": 2.837,
+     "d": 0.541,
+     "texto": "pictures"
+    },
+    {
+     "t": 3.389,
+     "d": 0.168,
+     "texto": "and"
+    },
+    {
+     "t": 3.558,
+     "d": 0.192,
+     "texto": "web"
+    },
+    {
+     "t": 3.762,
+     "d": 0.589,
+     "texto": "pages"
+    }
+   ],
+   "marcas": {}
+  },
+  "cursor-morfo": {
+   "fala": "And every pointer morphs into the next.",
+   "arquivo": "narracao/tiktok-todos/cursor-morfo.mp3",
+   "duracao": 2.448,
+   "assinatura": "373174fc520833db",
+   "palavras": [
+    {
+     "t": 0.072,
+     "d": 0.18,
+     "texto": "And"
+    },
+    {
+     "t": 0.397,
+     "d": 0.24,
+     "texto": "every"
+    },
+    {
+     "t": 0.637,
+     "d": 0.349,
+     "texto": "pointer"
+    },
+    {
+     "t": 0.998,
+     "d": 0.385,
+     "texto": "morphs"
+    },
+    {
+     "t": 1.394,
+     "d": 0.168,
+     "texto": "into"
+    },
+    {
+     "t": 1.575,
+     "d": 0.072,
+     "texto": "the"
+    },
+    {
+     "t": 1.659,
+     "d": 0.421,
+     "texto": "next"
+    }
+   ],
+   "marcas": {}
+  },
+  "fecho-todos": {
+   "fala": "Desktop Glow. One installer, four apps, free. Desktop Glow dot com.",
+   "arquivo": "narracao/tiktok-todos/fecho-todos.mp3",
+   "duracao": 5.376,
+   "assinatura": "5958ca7073f5490f",
+   "palavras": [
+    {
+     "t": 0.072,
+     "d": 0.457,
+     "texto": "Desktop"
+    },
+    {
+     "t": 0.529,
+     "d": 0.445,
+     "texto": "Glow"
+    },
+    {
+     "t": 1.346,
+     "d": 0.18,
+     "texto": "One"
+    },
+    {
+     "t": 1.538,
+     "d": 0.553,
+     "texto": "installer"
+    },
+    {
+     "t": 2.26,
+     "d": 0.192,
+     "texto": "four"
+    },
+    {
+     "t": 2.464,
+     "d": 0.361,
+     "texto": "apps"
+    },
+    {
+     "t": 2.873,
+     "d": 0.361,
+     "texto": "free"
+    },
+    {
+     "t": 3.558,
+     "d": 0.553,
+     "texto": "Desktop"
+    },
+    {
+     "t": 4.123,
+     "d": 0.24,
+     "texto": "Glow"
+    },
+    {
+     "t": 4.375,
+     "d": 0.325,
+     "texto": "dot"
+    },
+    {
+     "t": 4.712,
+     "d": 0.3,
+     "texto": "com."
+    }
+   ],
+   "marcas": {}
+  }
+ }
+}

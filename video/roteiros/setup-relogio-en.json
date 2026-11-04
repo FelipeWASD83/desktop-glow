@@ -7,32 +7,36 @@
   "formatos": [
     "16x9"
   ],
-  "capa": 1.4,
+  "capa": 2.0,
   "legenda": false,
   "voz": {
     "nome": "en-US-AvaMultilingualNeural",
-    "velocidade": "+0%"
+    "velocidade": "+4%"
   },
   "trilha": {
-    "volume": 0.32,
+    "volume": 0,
     "sobVoz": 0
   },
   "cenas": [
     {
       "id": "relogio-nome",
-      "segundos": 2.6
+      "segundos": 2.8,
+      "fala": "Mond Clock. A desktop clock in the Mond style."
     },
     {
       "id": "relogio-mostrador",
-      "segundos": 3.0
+      "segundos": 3.2,
+      "fala": "Day, date, time and weather, right on your desktop."
     },
     {
       "id": "relogio-musica",
-      "segundos": 3.0
+      "segundos": 3.0,
+      "fala": "And what is playing now, with bars that follow the sound."
     },
     {
       "id": "fim-relogio",
-      "segundos": 2.6
+      "segundos": 3.0,
+      "fala": "Free, in Desktop Glow."
     }
   ]
 }

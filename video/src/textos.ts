@@ -9,11 +9,12 @@ export const VERTICAL_DO_ROTEIRO = (roteiro as {formatos: string[]}).formatos[0]
 
 type Par = {en: string; pt: string};
 const T_: Record<string, Par> = {
-  'nome.ilha': {en: 'Ilha', pt: 'Ilha'},
-  'nome.relogio': {en: 'Relógio Mond', pt: 'Relógio Mond'},
-  'nome.fundovivo': {en: 'Fundo Vivo', pt: 'Fundo Vivo'},
-  'nome.cursores': {en: 'Ilha Cursors', pt: 'Cursores da Ilha'},
-  'nome.pacote': {en: 'Pacote Windows Bonito', pt: 'Pacote Windows Bonito'},
+  // in English the apps have English names (his call, 03/11/2026), the same the setup and the site use
+  'nome.ilha': {en: 'Island', pt: 'Ilha'},
+  'nome.relogio': {en: 'Mond Clock', pt: 'Relógio Mond'},
+  'nome.fundovivo': {en: 'Living Wallpaper', pt: 'Fundo Vivo'},
+  'nome.cursores': {en: 'Island Cursors', pt: 'Cursores da Ilha'},
+  'nome.pacote': {en: 'Desktop Glow', pt: 'Desktop Glow'},
 
   'sub.ilha': {en: 'The Dynamic Island,\nnow on Windows.', pt: 'A Dynamic Island,\nagora no Windows.'},
   'sub.relogio': {en: 'A desktop clock\nin Mond style.', pt: 'Um relógio de área de\ntrabalho no estilo Mond.'},
@@ -36,6 +37,13 @@ const T_: Record<string, Par> = {
   'ilha.alertas': {en: 'Only the alerts\n*that matter.*', pt: 'Só os avisos\n*que importam.*'},
   'ilha.alertas.sub': {en: 'Battery, Caps Lock,\ncamera and mic.', pt: 'Bateria, Caps Lock,\ncâmera e microfone.'},
   'ilha.menu': {en: 'A control center\n*on top.*', pt: 'Central de controle\n*no topo.*'},
+  'ilha.menu.sub': {en: 'Everything running\nwaits at its side.', pt: 'Tudo o que está rodando\nfica ao lado.'},
+  'ilha.placar': {en: 'The score,\n*live.*', pt: 'O placar,\n*ao vivo.*'},
+  'ilha.placar.sub': {en: 'Competitive games on the pill:\nscore, clock and your numbers.', pt: 'Jogo competitivo na pílula:\nplacar, relógio e seus números.'},
+  'ilha.downloads': {en: 'Steam downloads\n*at a glance.*', pt: 'Downloads da Steam\n*de relance.*'},
+  'ilha.downloads.sub': {en: 'Updates and Workshop items,\nwith the percentage.', pt: 'Atualizações e itens da Oficina,\ncom a porcentagem.'},
+  'ilha.clima': {en: 'Knows when\n*the sky changes.*', pt: 'Avisa quando\n*o tempo muda.*'},
+  'ilha.clima.sub': {en: 'Weather for your city,\nfrom Open-Meteo.', pt: 'O clima da sua cidade,\npelo Open-Meteo.'},
   'ilha.numeros': {en: '*250 fps.*\nAlmost zero CPU.', pt: '*250 fps.*\nCPU quase parada.'},
   'ilha.numeros.sub': {en: 'Animated by the\nWindows compositor.', pt: 'Animada pelo\ncompositor do Windows.'},
 
@@ -47,7 +55,8 @@ const T_: Record<string, Par> = {
   'relogio.detalhe3': {en: 'English and Portuguese', pt: 'Português e inglês'},
   'relogio.detalhes': {en: 'Made to stay\n*out of the way.*', pt: 'Feito para não\n*atrapalhar.*'},
 
-  'fundo.galeria': {en: 'Video, picture, web\nand *its own format.*', pt: 'Vídeo, imagem, web\ne *formato próprio.*'},
+  'fundo.galeria': {en: 'Ten of its own,\n*plus yours.*', pt: 'Dez próprios,\n*e os seus.*'},
+  'fundo.galeria.sub': {en: 'Video, picture and web pages too.', pt: 'Vídeo, imagem e página web também.'},
   'fundo.monitores': {en: 'One wallpaper\n*per monitor.*', pt: 'Um fundo\n*por monitor.*'},
   'fundo.pausa': {en: 'Pauses when\n*a game* takes over.', pt: 'Pausa quando\n*um jogo* toma a tela.'},
   'fundo.pausado': {en: 'Paused', pt: 'Pausado'},
@@ -65,12 +74,12 @@ const T_: Record<string, Par> = {
 
   'fecho.todos': {en: '*One installer.*\nFour apps.', pt: '*Um instalador.*\nQuatro apps.'},
   'fecho.gratis': {en: 'Free and open source', pt: 'Grátis e de código aberto'},
-  'fecho.parte': {en: 'Free, in Pacote Windows Bonito', pt: 'Grátis, no Pacote Windows Bonito'},
-  'fecho.url': {en: 'github.com/FelipeWASD83/pacote-windows-bonito', pt: 'github.com/FelipeWASD83/pacote-windows-bonito'},
+  'fecho.parte': {en: 'Free, in Desktop Glow', pt: 'Grátis, no Desktop Glow'},
+  'fecho.url': {en: 'desktopglow.com', pt: 'desktopglow.com'},
 
   // what the made-up screens say
   'tela.musica': {en: 'Night Drive', pt: 'Night Drive'},
-  'tela.artista': {en: 'Pacote Windows', pt: 'Pacote Windows'},
+  'tela.artista': {en: 'Desktop Glow', pt: 'Desktop Glow'},
   'tela.fone': {en: 'Headphones', pt: 'Fone'},
   'tela.caps': {en: 'Caps Lock on', pt: 'Caps Lock ligado'},
   'tela.camera': {en: 'Camera on', pt: 'Câmera ligada'},
@@ -83,6 +92,9 @@ const T_: Record<string, Par> = {
   'tela.gravar': {en: 'Record', pt: 'Gravar'},
   'tela.nota': {en: 'Note', pt: 'Nota'},
   'tela.cpu': {en: 'CPU', pt: 'CPU'},
+  'tela.partida': {en: 'Ranked 5v5', pt: 'Competitivo 5v5'},
+  'tela.download': {en: 'Update', pt: 'Atualização'},
+  'tela.chuva': {en: 'Rain starting', pt: 'Começou a chover'},
 };
 
 export const T = (chave: string): string => {

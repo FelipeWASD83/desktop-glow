@@ -52,10 +52,11 @@ Junta os quatro apps pelo pacote de release de cada um (o `ferramentas\publicar-
 `ilha`, `relogio-mond`, `fundo-vivo` e `ilha-cursors`), compila a janela e gera `dist\DesktopGlow-Setup.exe` com o
 `SHA256.txt`. Precisa do .NET SDK 10 e do Python com Pillow. Detalhes em `CLAUDE.md`.
 
-## Vídeos
+## Vídeos e site
 
 Os vídeos de propaganda (TikTok e YouTube) e os que o setup toca são feitos em código, com Remotion, na pasta
-[`video/`](video/CLAUDE.md).
+[`video/`](video/CLAUDE.md), narrados em inglês e em português. O site de [desktopglow.com](https://desktopglow.com) é
+estático e mora em `site/` (detalhes em `CLAUDE.md`).
 
 ## Licença
 

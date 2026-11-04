@@ -1,0 +1,72 @@
+{
+  "titulo": "youtube-todos-pt",
+  "app": "todos",
+  "lingua": "pt",
+  "estilo": "produto",
+  "bpm": 110,
+  "formatos": [
+    "16x9"
+  ],
+  "capa": 2.0,
+  "legenda": false,
+  "voz": {
+    "nome": "pt-BR-ThalitaMultilingualNeural",
+    "velocidade": "+6%"
+  },
+  "trilha": {
+    "volume": 0,
+    "sobVoz": 0
+  },
+  "cenas": [
+    {
+      "id": "gancho-todos",
+      "segundos": 3.0,
+      "fala": "Deixe o Windows assim."
+    },
+    {
+      "id": "ilha-musica",
+      "segundos": 3.2,
+      "fala": "Sua música ao vivo, com a capa, os controles e o visualizador."
+    },
+    {
+      "id": "ilha-placar",
+      "segundos": 3.4,
+      "fala": "No jogo competitivo, a pílula vira o placar ao vivo."
+    },
+    {
+      "id": "relogio-mostrador",
+      "segundos": 3.2,
+      "fala": "Dia, data, hora e clima, direto na área de trabalho."
+    },
+    {
+      "id": "relogio-musica",
+      "segundos": 3.0,
+      "fala": "E o que está tocando, com barras que seguem o som."
+    },
+    {
+      "id": "fundo-galeria",
+      "segundos": 3.6,
+      "fala": "Dez fundos próprios, e mais os seus vídeos, imagens e páginas."
+    },
+    {
+      "id": "fundo-monitores",
+      "segundos": 3.0,
+      "fala": "Um fundo para cada monitor."
+    },
+    {
+      "id": "cursor-esquemas",
+      "segundos": 2.6,
+      "fala": "Preto ou branco, com contorno na cor oposta."
+    },
+    {
+      "id": "cursor-morfo",
+      "segundos": 3.0,
+      "fala": "E cada ponteiro se transforma no próximo."
+    },
+    {
+      "id": "fecho-todos",
+      "segundos": 4.0,
+      "fala": "Desktop Glow. Um instalador, quatro apps, de graça. Desktop Glow ponto com."
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+ "voz": "en-US-AvaMultilingualNeural",
+ "cenas": {
+  "cursores-nome": {
+   "fala": "Island Cursors. Pointers that match the island.",
+   "arquivo": "narracao/setup-cursores-en/cursores-nome.mp3",
+   "duracao": 3.432,
+   "assinatura": "9b9b5c9c3c5e271a",
+   "palavras": [
+    {
+     "t": 0.096,
+     "d": 0.325,
+     "texto": "Island"
+    },
+    {
+     "t": 0.421,
+     "d": 0.637,
+     "texto": "Cursors"
+    },
+    {
+     "t": 1.454,
+     "d": 0.541,
+     "texto": "Pointers"
+    },
+    {
+     "t": 1.995,
+     "d": 0.156,
+     "texto": "that"
+    },
+    {
+     "t": 2.163,
+     "d": 0.385,
+     "texto": "match"
+    },
+    {
+     "t": 2.548,
+     "d": 0.084,
+     "texto": "the"
+    },
+    {
+     "t": 2.644,
+     "d": 0.457,
+     "texto": "island"
+    }
+   ],
+   "marcas": {}
+  },
+  "cursor-esquemas": {
+   "fala": "Black or white, outlined in the opposite color.",
+   "arquivo": "narracao/setup-cursores-en/cursor-esquemas.mp3",
+   "duracao": 3.528,
+   "assinatura": "9b13193fa6b377aa",
+   "palavras": [
+    {
+     "t": 0.096,
+     "d": 0.361,
+     "texto": "Black"
+    },
+    {
+     "t": 0.529,
+     "d": 0.228,
+     "texto": "or"
+    },
+    {
+     "t": 0.769,
+     "d": 0.385,
+     "texto": "white"
+    },
+    {
+     "t": 1.659,
+     "d": 0.469,
+     "texto": "outlined"
+    },
+    {
+     "t": 2.139,
+     "d": 0.096,
+     "texto": "in"
+    },
+    {
+     "t": 2.248,
+     "d": 0.096,
+     "texto": "the"
+    },
+    {
+     "t": 2.392,
+     "d": 0.373,
+     "texto": "opposite"
+    },
+    {
+     "t": 2.776,
+     "d": 0.397,
+     "texto": "color"
+    }
+   ],
+   "marcas": {}
+  },
+  "cursor-morfo": {
+   "fala": "And every pointer morphs into the next.",
+   "arquivo": "narracao/setup-cursores-en/cursor-morfo.mp3",
+   "duracao": 2.448,
+   "assinatura": "373174fc520833db",
+   "palavras": [
+    {
+     "t": 0.072,
+     "d": 0.18,
+     "texto": "And"
+    },
+    {
+     "t": 0.397,
+     "d": 0.24,
+     "texto": "every"
+    },
+    {
+     "t": 0.637,
+     "d": 0.349,
+     "texto": "pointer"
+    },
+    {
+     "t": 0.998,
+     "d": 0.385,
+     "texto": "morphs"
+    },
+    {
+     "t": 1.394,
+     "d": 0.168,
+     "texto": "into"
+    },
+    {
+     "t": 1.575,
+     "d": 0.072,
+     "texto": "the"
+    },
+    {
+     "t": 1.659,
+     "d": 0.421,
+     "texto": "next"
+    }
+   ],
+   "marcas": {}
+  },
+  "fim-cursores": {
+   "fala": "Free, in Desktop Glow.",
+   "arquivo": "narracao/setup-cursores-en/fim-cursores.mp3",
+   "duracao": 2.496,
+   "assinatura": "928176611a4b6f37",
+   "palavras": [
+    {
+     "t": 0.12,
+     "d": 0.385,
+     "texto": "Free"
+    },
+    {
+     "t": 0.986,
+     "d": 0.18,
+     "texto": "in"
+    },
+    {
+     "t": 1.166,
+     "d": 0.565,
+     "texto": "Desktop"
+    },
+    {
+     "t": 1.743,
+     "d": 0.409,
+     "texto": "Glow"
+    }
+   ],
+   "marcas": {}
+  }
+ }
+}

@@ -1,0 +1,225 @@
+{
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "cenas": {
+  "fundovivo-nome": {
+   "fala": "Fundo Vivo. Papel de parede animado e leve.",
+   "arquivo": "narracao/setup-fundovivo-pt/fundovivo-nome.mp3",
+   "duracao": 3.552,
+   "assinatura": "8496c011ecc6f8f3",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.472,
+     "texto": "Fundo"
+    },
+    {
+     "t": 0.52,
+     "d": 0.425,
+     "texto": "Vivo"
+    },
+    {
+     "t": 1.262,
+     "d": 0.46,
+     "texto": "Papel"
+    },
+    {
+     "t": 1.722,
+     "d": 0.083,
+     "texto": "de"
+    },
+    {
+     "t": 1.804,
+     "d": 0.377,
+     "texto": "parede"
+    },
+    {
+     "t": 2.182,
+     "d": 0.554,
+     "texto": "animado"
+    },
+    {
+     "t": 2.736,
+     "d": 0.035,
+     "texto": "e"
+    },
+    {
+     "t": 2.771,
+     "d": 0.46,
+     "texto": "leve"
+    }
+   ],
+   "marcas": {}
+  },
+  "fundo-galeria": {
+   "fala": "Dez fundos próprios, e mais os seus vídeos, imagens e páginas.",
+   "arquivo": "narracao/setup-fundovivo-pt/fundo-galeria.mp3",
+   "duracao": 4.32,
+   "assinatura": "9795fc854985a36f",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.354,
+     "texto": "Dez"
+    },
+    {
+     "t": 0.402,
+     "d": 0.377,
+     "texto": "fundos"
+    },
+    {
+     "t": 0.779,
+     "d": 0.495,
+     "texto": "próprios"
+    },
+    {
+     "t": 1.487,
+     "d": 0.047,
+     "texto": "e"
+    },
+    {
+     "t": 1.534,
+     "d": 0.259,
+     "texto": "mais"
+    },
+    {
+     "t": 1.793,
+     "d": 0.118,
+     "texto": "os"
+    },
+    {
+     "t": 1.911,
+     "d": 0.224,
+     "texto": "seus"
+    },
+    {
+     "t": 2.135,
+     "d": 0.413,
+     "texto": "vídeos"
+    },
+    {
+     "t": 2.689,
+     "d": 0.531,
+     "texto": "imagens"
+    },
+    {
+     "t": 3.22,
+     "d": 0.106,
+     "texto": "e"
+    },
+    {
+     "t": 3.326,
+     "d": 0.649,
+     "texto": "páginas"
+    }
+   ],
+   "marcas": {}
+  },
+  "fundo-pausa": {
+   "fala": "E pausa quando um jogo toma a tela.",
+   "arquivo": "narracao/setup-fundovivo-pt/fundo-pausa.mp3",
+   "duracao": 2.328,
+   "assinatura": "45077846b676751a",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.094,
+     "texto": "E"
+    },
+    {
+     "t": 0.142,
+     "d": 0.507,
+     "texto": "pausa"
+    },
+    {
+     "t": 0.649,
+     "d": 0.212,
+     "texto": "quando"
+    },
+    {
+     "t": 0.862,
+     "d": 0.047,
+     "texto": "um"
+    },
+    {
+     "t": 0.909,
+     "d": 0.354,
+     "texto": "jogo"
+    },
+    {
+     "t": 1.262,
+     "d": 0.295,
+     "texto": "toma"
+    },
+    {
+     "t": 1.557,
+     "d": 0.059,
+     "texto": "a"
+    },
+    {
+     "t": 1.616,
+     "d": 0.366,
+     "texto": "tela"
+    }
+   ],
+   "marcas": {}
+  },
+  "fundo-biblioteca": {
+   "fala": "Escolha, clique, pronto.",
+   "arquivo": "narracao/setup-fundovivo-pt/fundo-biblioteca.mp3",
+   "duracao": 2.088,
+   "assinatura": "2b90e0c90f8d4899",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.601,
+     "texto": "Escolha"
+    },
+    {
+     "t": 0.826,
+     "d": 0.354,
+     "texto": "clique"
+    },
+    {
+     "t": 1.357,
+     "d": 0.401,
+     "texto": "pronto"
+    }
+   ],
+   "marcas": {}
+  },
+  "fim-fundovivo": {
+   "fala": "De graça, no Desktop Glow.",
+   "arquivo": "narracao/setup-fundovivo-pt/fim-fundovivo.mp3",
+   "duracao": 2.472,
+   "assinatura": "07884749f3c35bfd",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.2,
+     "texto": "De"
+    },
+    {
+     "t": 0.248,
+     "d": 0.495,
+     "texto": "graça"
+    },
+    {
+     "t": 0.968,
+     "d": 0.118,
+     "texto": "no"
+    },
+    {
+     "t": 1.086,
+     "d": 0.731,
+     "texto": "Desktop"
+    },
+    {
+     "t": 1.817,
+     "d": 0.33,
+     "texto": "Glow"
+    }
+   ],
+   "marcas": {}
+  }
+ }
+}

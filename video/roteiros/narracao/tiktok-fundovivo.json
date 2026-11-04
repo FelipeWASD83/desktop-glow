@@ -1,0 +1,309 @@
+{
+ "voz": "en-US-AvaMultilingualNeural",
+ "cenas": {
+  "fundovivo-gancho": {
+   "fala": "Live wallpapers, without the weight.",
+   "arquivo": "narracao/tiktok-fundovivo/fundovivo-gancho.mp3",
+   "duracao": 2.568,
+   "assinatura": "5baec9aa67bad16a",
+   "palavras": [
+    {
+     "t": 0.06,
+     "d": 0.361,
+     "texto": "Live"
+    },
+    {
+     "t": 0.433,
+     "d": 0.721,
+     "texto": "wallpapers"
+    },
+    {
+     "t": 1.358,
+     "d": 0.361,
+     "texto": "without"
+    },
+    {
+     "t": 1.731,
+     "d": 0.072,
+     "texto": "the"
+    },
+    {
+     "t": 1.803,
+     "d": 0.397,
+     "texto": "weight"
+    }
+   ],
+   "marcas": {}
+  },
+  "fundo-galeria": {
+   "fala": "Ten wallpapers of its own, plus your videos, pictures and web pages.",
+   "arquivo": "narracao/tiktok-fundovivo/fundo-galeria.mp3",
+   "duracao": 4.704,
+   "assinatura": "f1d05953dea8ec25",
+   "palavras": [
+    {
+     "t": 0.096,
+     "d": 0.252,
+     "texto": "Ten"
+    },
+    {
+     "t": 0.349,
+     "d": 0.529,
+     "texto": "wallpapers"
+    },
+    {
+     "t": 0.889,
+     "d": 0.06,
+     "texto": "of"
+    },
+    {
+     "t": 0.95,
+     "d": 0.108,
+     "texto": "its"
+    },
+    {
+     "t": 1.07,
+     "d": 0.337,
+     "texto": "own"
+    },
+    {
+     "t": 1.562,
+     "d": 0.24,
+     "texto": "plus"
+    },
+    {
+     "t": 1.815,
+     "d": 0.108,
+     "texto": "your"
+    },
+    {
+     "t": 1.935,
+     "d": 0.541,
+     "texto": "videos"
+    },
+    {
+     "t": 2.837,
+     "d": 0.541,
+     "texto": "pictures"
+    },
+    {
+     "t": 3.389,
+     "d": 0.168,
+     "texto": "and"
+    },
+    {
+     "t": 3.558,
+     "d": 0.192,
+     "texto": "web"
+    },
+    {
+     "t": 3.762,
+     "d": 0.589,
+     "texto": "pages"
+    }
+   ],
+   "marcas": {}
+  },
+  "fundo-monitores": {
+   "fala": "One wallpaper per monitor.",
+   "arquivo": "narracao/tiktok-fundovivo/fundo-monitores.mp3",
+   "duracao": 1.872,
+   "assinatura": "f6c9d4bb59960f55",
+   "palavras": [
+    {
+     "t": 0.084,
+     "d": 0.264,
+     "texto": "One"
+    },
+    {
+     "t": 0.349,
+     "d": 0.505,
+     "texto": "wallpaper"
+    },
+    {
+     "t": 0.865,
+     "d": 0.132,
+     "texto": "per"
+    },
+    {
+     "t": 1.01,
+     "d": 0.493,
+     "texto": "monitor"
+    }
+   ],
+   "marcas": {}
+  },
+  "fundo-pausa": {
+   "fala": "And it pauses when a game takes over.",
+   "arquivo": "narracao/tiktok-fundovivo/fundo-pausa.mp3",
+   "duracao": 2.664,
+   "assinatura": "fd9190b04cbb7186",
+   "palavras": [
+    {
+     "t": 0.084,
+     "d": 0.264,
+     "texto": "And"
+    },
+    {
+     "t": 0.469,
+     "d": 0.096,
+     "texto": "it"
+    },
+    {
+     "t": 0.577,
+     "d": 0.505,
+     "texto": "pauses"
+    },
+    {
+     "t": 1.094,
+     "d": 0.108,
+     "texto": "when"
+    },
+    {
+     "t": 1.214,
+     "d": 0.072,
+     "texto": "a"
+    },
+    {
+     "t": 1.298,
+     "d": 0.337,
+     "texto": "game"
+    },
+    {
+     "t": 1.647,
+     "d": 0.264,
+     "texto": "takes"
+    },
+    {
+     "t": 1.923,
+     "d": 0.397,
+     "texto": "over"
+    }
+   ],
+   "marcas": {}
+  },
+  "fundo-numeros": {
+   "fala": "A Full HD video takes under one and a half percent of a single core.",
+   "arquivo": "narracao/tiktok-fundovivo/fundo-numeros.mp3",
+   "duracao": 4.56,
+   "assinatura": "b481545011d39efa",
+   "palavras": [
+    {
+     "t": 0.084,
+     "d": 0.096,
+     "texto": "A"
+    },
+    {
+     "t": 0.192,
+     "d": 0.409,
+     "texto": "Full"
+    },
+    {
+     "t": 0.649,
+     "d": 0.325,
+     "texto": "HD"
+    },
+    {
+     "t": 0.974,
+     "d": 0.361,
+     "texto": "video"
+    },
+    {
+     "t": 1.346,
+     "d": 0.325,
+     "texto": "takes"
+    },
+    {
+     "t": 1.731,
+     "d": 0.264,
+     "texto": "under"
+    },
+    {
+     "t": 2.007,
+     "d": 0.24,
+     "texto": "one"
+    },
+    {
+     "t": 2.248,
+     "d": 0.084,
+     "texto": "and"
+    },
+    {
+     "t": 2.344,
+     "d": 0.036,
+     "texto": "a"
+    },
+    {
+     "t": 2.392,
+     "d": 0.312,
+     "texto": "half"
+    },
+    {
+     "t": 2.716,
+     "d": 0.445,
+     "texto": "percent"
+    },
+    {
+     "t": 3.245,
+     "d": 0.084,
+     "texto": "of"
+    },
+    {
+     "t": 3.341,
+     "d": 0.06,
+     "texto": "a"
+    },
+    {
+     "t": 3.413,
+     "d": 0.397,
+     "texto": "single"
+    },
+    {
+     "t": 3.81,
+     "d": 0.397,
+     "texto": "core"
+    }
+   ],
+   "marcas": {}
+  },
+  "fecho-fundovivo": {
+   "fala": "Living Wallpaper. Free, in Desktop Glow.",
+   "arquivo": "narracao/tiktok-fundovivo/fecho-fundovivo.mp3",
+   "duracao": 3.456,
+   "assinatura": "eee99e778c9a946d",
+   "palavras": [
+    {
+     "t": 0.072,
+     "d": 0.264,
+     "texto": "Living"
+    },
+    {
+     "t": 0.349,
+     "d": 0.661,
+     "texto": "Wallpaper"
+    },
+    {
+     "t": 1.418,
+     "d": 0.385,
+     "texto": "Free"
+    },
+    {
+     "t": 2.007,
+     "d": 0.156,
+     "texto": "in"
+    },
+    {
+     "t": 2.175,
+     "d": 0.517,
+     "texto": "Desktop"
+    },
+    {
+     "t": 2.704,
+     "d": 0.421,
+     "texto": "Glow"
+    }
+   ],
+   "marcas": {}
+  }
+ }
+}

@@ -11,52 +11,62 @@
   "legenda": false,
   "voz": {
     "nome": "en-US-AvaMultilingualNeural",
-    "velocidade": "+0%"
+    "velocidade": "+4%"
   },
   "trilha": {
-    "volume": 0.32,
+    "volume": 0,
     "sobVoz": 0
   },
   "cenas": [
     {
       "id": "gancho-todos",
-      "segundos": 3.4
+      "segundos": 3.0,
+      "fala": "Make Windows look like this."
     },
     {
       "id": "ilha-musica",
-      "segundos": 3.2
+      "segundos": 3.2,
+      "fala": "Your music, live, with the cover, the controls and a visualizer."
     },
     {
-      "id": "ilha-alertas",
-      "segundos": 3.0
+      "id": "ilha-placar",
+      "segundos": 3.4,
+      "fala": "In a competitive game, the pill becomes the live score."
     },
     {
       "id": "relogio-mostrador",
-      "segundos": 3.2
+      "segundos": 3.2,
+      "fala": "Day, date, time and weather, right on your desktop."
     },
     {
       "id": "relogio-musica",
-      "segundos": 2.8
+      "segundos": 3.0,
+      "fala": "And what is playing now, with bars that follow the sound."
     },
     {
       "id": "fundo-galeria",
-      "segundos": 3.2
+      "segundos": 3.6,
+      "fala": "Ten wallpapers of its own, plus your videos, pictures and web pages."
     },
     {
       "id": "fundo-monitores",
-      "segundos": 3.0
+      "segundos": 3.0,
+      "fala": "One wallpaper per monitor."
     },
     {
       "id": "cursor-esquemas",
-      "segundos": 2.6
+      "segundos": 2.6,
+      "fala": "Black or white, outlined in the opposite color."
     },
     {
       "id": "cursor-morfo",
-      "segundos": 3.0
+      "segundos": 3.0,
+      "fala": "And every pointer morphs into the next."
     },
     {
       "id": "fecho-todos",
-      "segundos": 4.0
+      "segundos": 4.0,
+      "fala": "Desktop Glow. One installer, four apps, free. Desktop Glow dot com."
     }
   ]
 }

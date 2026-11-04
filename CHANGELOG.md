@@ -2,6 +2,10 @@
 
 ## 1.3.0 (03/11/2026)
 
+**Novo**
+- Site do pacote em desktopglow.com (ainda não publicado): os quatro apps com os vídeos deles, como instalar, dúvidas e o botão de baixar o setup mais novo. Em inglês ou português, seguindo o idioma do navegador.
+- Os vídeos dos apps agora são narrados (em inglês e em português) e sem música de fundo, com as novidades de cada app: o placar ao vivo, os downloads da Steam e o clima na ilha, as barras novas do relógio e os dez fundos do Fundo Vivo. Entrou o vídeo horizontal dos quatro apps em português.
+
 **Mudou**
 - O pacote agora se chama **Desktop Glow** (era Pacote Windows Bonito). O setup baixado é sempre `DesktopGlow-Setup.exe`, e em Configurações > Aplicativos ele aparece como Desktop Glow.
 - Com o Windows em inglês, o setup mostra os nomes dos apps em inglês (Island, Mond Clock, Living Wallpaper, Island Cursors), inclusive nos atalhos do Menu Iniciar e da área de trabalho. Reinstalar no outro idioma troca os atalhos, sem deixar os antigos.

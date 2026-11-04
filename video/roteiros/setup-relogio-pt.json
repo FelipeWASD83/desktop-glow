@@ -7,32 +7,36 @@
   "formatos": [
     "16x9"
   ],
-  "capa": 1.4,
+  "capa": 2.0,
   "legenda": false,
   "voz": {
-    "nome": "en-US-AvaMultilingualNeural",
-    "velocidade": "+0%"
+    "nome": "pt-BR-ThalitaMultilingualNeural",
+    "velocidade": "+6%"
   },
   "trilha": {
-    "volume": 0.32,
+    "volume": 0,
     "sobVoz": 0
   },
   "cenas": [
     {
       "id": "relogio-nome",
-      "segundos": 2.6
+      "segundos": 2.8,
+      "fala": "Relógio Mond. Um relógio de área de trabalho no estilo Mond."
     },
     {
       "id": "relogio-mostrador",
-      "segundos": 3.0
+      "segundos": 3.2,
+      "fala": "Dia, data, hora e clima, direto na área de trabalho."
     },
     {
       "id": "relogio-musica",
-      "segundos": 3.0
+      "segundos": 3.0,
+      "fala": "E o que está tocando, com barras que seguem o som."
     },
     {
       "id": "fim-relogio",
-      "segundos": 2.6
+      "segundos": 3.0,
+      "fala": "De graça, no Desktop Glow."
     }
   ]
 }

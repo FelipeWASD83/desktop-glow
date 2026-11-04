@@ -1,0 +1,412 @@
+{
+ "voz": "en-US-AvaMultilingualNeural",
+ "cenas": {
+  "ilha-gancho": {
+   "fala": "Windows never had a Dynamic Island. Until now.",
+   "arquivo": "narracao/tiktok-ilha/ilha-gancho.mp3",
+   "duracao": 3.816,
+   "assinatura": "f4a8d09295a639e5",
+   "palavras": [
+    {
+     "t": 0.072,
+     "d": 0.433,
+     "texto": "Windows"
+    },
+    {
+     "t": 0.517,
+     "d": 0.445,
+     "texto": "never"
+    },
+    {
+     "t": 0.974,
+     "d": 0.325,
+     "texto": "had"
+    },
+    {
+     "t": 1.382,
+     "d": 0.072,
+     "texto": "a"
+    },
+    {
+     "t": 1.466,
+     "d": 0.493,
+     "texto": "Dynamic"
+    },
+    {
+     "t": 1.971,
+     "d": 0.481,
+     "texto": "Island"
+    },
+    {
+     "t": 2.788,
+     "d": 0.288,
+     "texto": "Until"
+    },
+    {
+     "t": 3.089,
+     "d": 0.385,
+     "texto": "now"
+    }
+   ],
+   "marcas": {}
+  },
+  "ilha-musica": {
+   "fala": "Your music, live, with the cover, the controls and a visualizer.",
+   "arquivo": "narracao/tiktok-ilha/ilha-musica.mp3",
+   "duracao": 4.896,
+   "assinatura": "8abbdb3c251fb1e0",
+   "palavras": [
+    {
+     "t": 0.072,
+     "d": 0.108,
+     "texto": "Your"
+    },
+    {
+     "t": 0.192,
+     "d": 0.517,
+     "texto": "music"
+    },
+    {
+     "t": 0.925,
+     "d": 0.493,
+     "texto": "live"
+    },
+    {
+     "t": 1.767,
+     "d": 0.108,
+     "texto": "with"
+    },
+    {
+     "t": 1.875,
+     "d": 0.084,
+     "texto": "the"
+    },
+    {
+     "t": 1.971,
+     "d": 0.433,
+     "texto": "cover"
+    },
+    {
+     "t": 2.548,
+     "d": 0.072,
+     "texto": "the"
+    },
+    {
+     "t": 2.632,
+     "d": 0.661,
+     "texto": "controls"
+    },
+    {
+     "t": 3.438,
+     "d": 0.264,
+     "texto": "and"
+    },
+    {
+     "t": 3.75,
+     "d": 0.048,
+     "texto": "a"
+    },
+    {
+     "t": 3.81,
+     "d": 0.733,
+     "texto": "visualizer"
+    }
+   ],
+   "marcas": {}
+  },
+  "ilha-placar": {
+   "fala": "In a competitive game, the pill becomes the live score.",
+   "arquivo": "narracao/tiktok-ilha/ilha-placar.mp3",
+   "duracao": 3.576,
+   "assinatura": "6bad9509d3ae61a6",
+   "palavras": [
+    {
+     "t": 0.084,
+     "d": 0.084,
+     "texto": "In"
+    },
+    {
+     "t": 0.18,
+     "d": 0.048,
+     "texto": "a"
+    },
+    {
+     "t": 0.24,
+     "d": 0.481,
+     "texto": "competitive"
+    },
+    {
+     "t": 0.733,
+     "d": 0.337,
+     "texto": "game"
+    },
+    {
+     "t": 1.502,
+     "d": 0.096,
+     "texto": "the"
+    },
+    {
+     "t": 1.611,
+     "d": 0.337,
+     "texto": "pill"
+    },
+    {
+     "t": 1.959,
+     "d": 0.397,
+     "texto": "becomes"
+    },
+    {
+     "t": 2.356,
+     "d": 0.096,
+     "texto": "the"
+    },
+    {
+     "t": 2.464,
+     "d": 0.3,
+     "texto": "live"
+    },
+    {
+     "t": 2.776,
+     "d": 0.457,
+     "texto": "score"
+    }
+   ],
+   "marcas": {}
+  },
+  "ilha-downloads": {
+   "fala": "Steam downloads, at a glance.",
+   "arquivo": "narracao/tiktok-ilha/ilha-downloads.mp3",
+   "duracao": 2.304,
+   "assinatura": "e8ec5d5b47d0e95d",
+   "palavras": [
+    {
+     "t": 0.084,
+     "d": 0.397,
+     "texto": "Steam"
+    },
+    {
+     "t": 0.493,
+     "d": 0.673,
+     "texto": "downloads"
+    },
+    {
+     "t": 1.19,
+     "d": 0.096,
+     "texto": "at"
+    },
+    {
+     "t": 1.286,
+     "d": 0.048,
+     "texto": "a"
+    },
+    {
+     "t": 1.346,
+     "d": 0.613,
+     "texto": "glance"
+    }
+   ],
+   "marcas": {}
+  },
+  "ilha-clima": {
+   "fala": "It even tells you when the sky changes.",
+   "arquivo": "narracao/tiktok-ilha/ilha-clima.mp3",
+   "duracao": 2.568,
+   "assinatura": "3e33937d1ad4d34d",
+   "palavras": [
+    {
+     "t": 0.06,
+     "d": 0.084,
+     "texto": "It"
+    },
+    {
+     "t": 0.216,
+     "d": 0.228,
+     "texto": "even"
+    },
+    {
+     "t": 0.457,
+     "d": 0.349,
+     "texto": "tells"
+    },
+    {
+     "t": 0.817,
+     "d": 0.132,
+     "texto": "you"
+    },
+    {
+     "t": 0.962,
+     "d": 0.12,
+     "texto": "when"
+    },
+    {
+     "t": 1.082,
+     "d": 0.072,
+     "texto": "the"
+    },
+    {
+     "t": 1.166,
+     "d": 0.325,
+     "texto": "sky"
+    },
+    {
+     "t": 1.502,
+     "d": 0.697,
+     "texto": "changes"
+    }
+   ],
+   "marcas": {}
+  },
+  "ilha-menu": {
+   "fala": "Open it, and everything running waits at its side.",
+   "arquivo": "narracao/tiktok-ilha/ilha-menu.mp3",
+   "duracao": 3.144,
+   "assinatura": "6f750af60da683a3",
+   "palavras": [
+    {
+     "t": 0.096,
+     "d": 0.252,
+     "texto": "Open"
+    },
+    {
+     "t": 0.349,
+     "d": 0.156,
+     "texto": "it"
+    },
+    {
+     "t": 0.745,
+     "d": 0.156,
+     "texto": "and"
+    },
+    {
+     "t": 1.046,
+     "d": 0.469,
+     "texto": "everything"
+    },
+    {
+     "t": 1.526,
+     "d": 0.288,
+     "texto": "running"
+    },
+    {
+     "t": 1.827,
+     "d": 0.3,
+     "texto": "waits"
+    },
+    {
+     "t": 2.139,
+     "d": 0.072,
+     "texto": "at"
+    },
+    {
+     "t": 2.224,
+     "d": 0.12,
+     "texto": "its"
+    },
+    {
+     "t": 2.344,
+     "d": 0.445,
+     "texto": "side"
+    }
+   ],
+   "marcas": {}
+  },
+  "ilha-numeros": {
+   "fala": "Two hundred and fifty frames per second, with almost no CPU.",
+   "arquivo": "narracao/tiktok-ilha/ilha-numeros.mp3",
+   "duracao": 4.008,
+   "assinatura": "6f489c60ec4aab6d",
+   "palavras": [
+    {
+     "t": 0.084,
+     "d": 0.18,
+     "texto": "Two"
+    },
+    {
+     "t": 0.276,
+     "d": 0.337,
+     "texto": "hundred"
+    },
+    {
+     "t": 0.625,
+     "d": 0.12,
+     "texto": "and"
+    },
+    {
+     "t": 0.757,
+     "d": 0.276,
+     "texto": "fifty"
+    },
+    {
+     "t": 1.046,
+     "d": 0.349,
+     "texto": "frames"
+    },
+    {
+     "t": 1.406,
+     "d": 0.12,
+     "texto": "per"
+    },
+    {
+     "t": 1.538,
+     "d": 0.409,
+     "texto": "second"
+    },
+    {
+     "t": 2.175,
+     "d": 0.18,
+     "texto": "with"
+    },
+    {
+     "t": 2.368,
+     "d": 0.373,
+     "texto": "almost"
+    },
+    {
+     "t": 2.752,
+     "d": 0.204,
+     "texto": "no"
+    },
+    {
+     "t": 2.969,
+     "d": 0.697,
+     "texto": "CPU"
+    }
+   ],
+   "marcas": {}
+  },
+  "fecho-ilha": {
+   "fala": "Island. Free, in Desktop Glow.",
+   "arquivo": "narracao/tiktok-ilha/fecho-ilha.mp3",
+   "duracao": 3.12,
+   "assinatura": "6f690287a4d7c97f",
+   "palavras": [
+    {
+     "t": 0.084,
+     "d": 0.481,
+     "texto": "Island"
+    },
+    {
+     "t": 0.974,
+     "d": 0.409,
+     "texto": "Free"
+    },
+    {
+     "t": 1.587,
+     "d": 0.168,
+     "texto": "in"
+    },
+    {
+     "t": 1.767,
+     "d": 0.565,
+     "texto": "Desktop"
+    },
+    {
+     "t": 2.332,
+     "d": 0.445,
+     "texto": "Glow"
+    }
+   ],
+   "marcas": {}
+  }
+ }
+}

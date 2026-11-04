@@ -1,12 +1,12 @@
-// The Relógio Mond, redrawn for the videos to the measure of its own --captura (1550 x 520 at 125 %): day in Anurati,
-// date and time in Quicksand with wide tracking, the weather line, and the music block (336 DIP wide, always narrower
+// The Relógio Mond, redrawn for the videos to the measure of its own --captura (1550 x 520 at 125 %): day in Quicksand Light
+// (the clock's fallback: its Anurati is for personal use only), date and time in Quicksand with wide tracking, the weather line, and the music block (336 DIP wide, always narrower
 // than the clock) with the cover, title, progress and the bars. Here the time ticks and the bars move.
 import {useCurrentFrame} from 'remotion';
 import {LINGUA, T} from '../textos';
 import {COR, FONTE_DIA, FONTE_TITULO} from '../tema';
 import {Capa} from './Ilha';
 
-const DIAS = {en: ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'], pt: ['DOMINGO', 'SEGUNDA', 'TERCA', 'QUARTA', 'QUINTA', 'SEXTA', 'SABADO']};
+const DIAS = {en: ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'], pt: ['DOMINGO', 'SEGUNDA', 'TERÇA', 'QUARTA', 'QUINTA', 'SEXTA', 'SÁBADO']};
 const MESES = {
   en: ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'],
   pt: ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO', 'NOVEMBRO', 'DEZEMBRO'],
@@ -31,7 +31,7 @@ export const MostradorMond: React.FC<{
   );
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', color: COR.texto}}>
-      <div style={{fontFamily: FONTE_DIA, fontSize: 100 * s, letterSpacing: '0.3em', marginRight: '-0.3em', lineHeight: 1, textShadow: sombra, whiteSpace: 'nowrap'}}>{dia}</div>
+      <div style={{fontFamily: FONTE_DIA, fontWeight: 300, fontSize: 96 * s, letterSpacing: '0.38em', marginRight: '-0.38em', lineHeight: 1, textShadow: sombra, whiteSpace: 'nowrap'}}>{dia}</div>
       <div style={{height: 26 * s}} />
       {linha(dataTexto, 28)}
       <div style={{height: 6 * s}} />
@@ -76,13 +76,33 @@ const Seta: React.FC<{escala: number; invertida?: boolean}> = ({escala, invertid
   <div style={{width: 0, height: 0, borderTop: `${8 * escala}px solid transparent`, borderBottom: `${8 * escala}px solid transparent`, [invertida ? 'borderRight' : 'borderLeft']: `${11 * escala}px solid #fff`}} />
 );
 
-// 56 bars like the clock's default, 14 DIP high, louder in the bass: a spectrum, not a waveform
-const BarrasMond: React.FC<{frame: number; escala: number}> = ({frame, escala}) => (
-  <div style={{display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', height: 16 * escala, marginTop: 18 * escala}}>
-    {Array.from({length: 56}, (_, i) => {
-      const grave = 1 - i / 70;
-      const v = Math.max(0.12, grave * (0.45 + 0.55 * Math.abs(Math.sin(frame * 0.19 + i * 0.47) * Math.cos(frame * 0.07 + i * 0.13))));
-      return <div key={i} style={{width: 3.4 * escala, height: 16 * escala * v, borderRadius: 2 * escala, background: '#fff'}} />;
-    })}
-  </div>
-);
+// The clock's bars since 1.4.1: 56 thin white bars (56 % of the step) standing on the bottom, each with a peak dot
+// that holds 0.35 s and falls 0.9 per second; neighbours blend 1-2-1, like the clock's Visualizador. Height 36 DIP.
+const NIVEL = (q: number, i: number) => {
+  const grave = 1 - i / 70;
+  return Math.max(0.08, grave * (0.4 + 0.6 * Math.abs(Math.sin(q * 0.19 + i * 0.47) * Math.cos(q * 0.07 + i * 0.13))));
+};
+const SUAVE = (q: number, i: number) => (NIVEL(q, Math.max(0, i - 1)) + 2 * NIVEL(q, i) + NIVEL(q, Math.min(55, i + 1))) / 4;
+const PICO = (q: number, i: number) => {
+  // a pure function of the frame: the highest of the last second, minus what it has fallen since it was hit
+  let p = 0;
+  for (let k = 0; k <= 30; k++) p = Math.max(p, SUAVE(q - k, i) - 0.9 * Math.max(0, k / 30 - 0.35));
+  return p;
+};
+const BarrasMond: React.FC<{frame: number; escala: number}> = ({frame, escala}) => {
+  const alto = 36 * escala;
+  return (
+    <div style={{display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', height: alto, marginTop: 8 * escala}}>
+      {Array.from({length: 56}, (_, i) => {
+        const v = SUAVE(frame, i);
+        const pico = PICO(frame, i);
+        return (
+          <div key={i} style={{position: 'relative', width: 3.4 * escala, height: alto}}>
+            <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: alto * v, borderRadius: 1.5 * escala, background: '#fff'}} />
+            <div style={{position: 'absolute', left: 0, right: 0, bottom: alto * pico + 2 * escala, height: 2 * escala, borderRadius: escala, background: '#fff'}} />
+          </div>
+        );
+      })}
+    </div>
+  );
+};

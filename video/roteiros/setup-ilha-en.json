@@ -7,32 +7,36 @@
   "formatos": [
     "16x9"
   ],
-  "capa": 1.4,
+  "capa": 2.0,
   "legenda": false,
   "voz": {
     "nome": "en-US-AvaMultilingualNeural",
-    "velocidade": "+0%"
+    "velocidade": "+4%"
   },
   "trilha": {
-    "volume": 0.32,
+    "volume": 0,
     "sobVoz": 0
   },
   "cenas": [
     {
       "id": "ilha-nome",
-      "segundos": 2.6
+      "segundos": 2.8,
+      "fala": "Island. The Dynamic Island, now on Windows."
     },
     {
       "id": "ilha-musica",
-      "segundos": 3.0
+      "segundos": 3.2,
+      "fala": "Your music, live, with the cover, the controls and a visualizer."
     },
     {
-      "id": "ilha-alertas",
-      "segundos": 3.0
+      "id": "ilha-placar",
+      "segundos": 3.4,
+      "fala": "In a competitive game, the pill becomes the live score."
     },
     {
       "id": "fim-ilha",
-      "segundos": 2.6
+      "segundos": 3.0,
+      "fala": "Free, in Desktop Glow."
     }
   ]
 }

@@ -7,40 +7,46 @@
   "formatos": [
     "9x16"
   ],
-  "capa": 1.8,
+  "capa": 3.0,
   "legenda": false,
   "voz": {
     "nome": "en-US-AvaMultilingualNeural",
-    "velocidade": "+0%"
+    "velocidade": "+4%"
   },
   "trilha": {
-    "volume": 0.32,
+    "volume": 0,
     "sobVoz": 0
   },
   "cenas": [
     {
       "id": "fundovivo-gancho",
-      "segundos": 3.0
+      "segundos": 3.0,
+      "fala": "Live wallpapers, without the weight."
     },
     {
       "id": "fundo-galeria",
-      "segundos": 3.4
+      "segundos": 3.6,
+      "fala": "Ten wallpapers of its own, plus your videos, pictures and web pages."
     },
     {
       "id": "fundo-monitores",
-      "segundos": 3.2
+      "segundos": 3.0,
+      "fala": "One wallpaper per monitor."
     },
     {
       "id": "fundo-pausa",
-      "segundos": 3.6
+      "segundos": 3.6,
+      "fala": "And it pauses when a game takes over."
     },
     {
       "id": "fundo-numeros",
-      "segundos": 3.2
+      "segundos": 3.4,
+      "fala": "A Full HD video takes under one and a half percent of a single core."
     },
     {
       "id": "fecho-fundovivo",
-      "segundos": 3.4
+      "segundos": 3.4,
+      "fala": "Living Wallpaper. Free, in Desktop Glow."
     }
   ]
 }

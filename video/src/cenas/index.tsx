@@ -1,11 +1,11 @@
 // Each scene id a script can use points to its component. The same scene works in both formats and both languages;
-// the 14 scripts in roteiros/ pick and order them.
+// the scripts in roteiros/ pick and order them.
 import {APPS, type App} from '../tema';
 import {Gancho, GanchoTodos, Nome} from './Aberturas';
 import {CursorEsquemas, CursorMorfo, CursorOcupado} from './Cursores';
 import {Fecho, FechoTodos, Fim} from './Fechos';
 import {FundoBiblioteca, FundoGaleria, FundoMonitores, FundoNumeros, FundoPausa} from './FundoVivo';
-import {IlhaAlertas, IlhaGravar, IlhaMenu, IlhaMusica, IlhaNumeros, IlhaTimer} from './Ilha';
+import {IlhaAlertas, IlhaClima, IlhaDownloads, IlhaGravar, IlhaMenu, IlhaMusica, IlhaNumeros, IlhaPlacar, IlhaTimer} from './Ilha';
 import {RelogioDetalhes, RelogioMostrador, RelogioMusica} from './Relogio';
 
 const porApp = (prefixo: string, Componente: React.FC<{app: App}>) =>
@@ -24,6 +24,9 @@ export const CENAS: Record<string, React.FC> = {
   'ilha-alertas': IlhaAlertas,
   'ilha-menu': IlhaMenu,
   'ilha-numeros': IlhaNumeros,
+  'ilha-placar': IlhaPlacar,
+  'ilha-downloads': IlhaDownloads,
+  'ilha-clima': IlhaClima,
   'relogio-mostrador': RelogioMostrador,
   'relogio-musica': RelogioMusica,
   'relogio-detalhes': RelogioDetalhes,

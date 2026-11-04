@@ -1,0 +1,211 @@
+{
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "cenas": {
+  "ilha-nome": {
+   "fala": "Ilha. A Dynamic Island, agora no Windows.",
+   "arquivo": "narracao/setup-ilha-pt/ilha-nome.mp3",
+   "duracao": 3.336,
+   "assinatura": "083706ca3c68624a",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.153,
+     "texto": "Ilha"
+    },
+    {
+     "t": 0.519,
+     "d": 0.106,
+     "texto": "A"
+    },
+    {
+     "t": 0.625,
+     "d": 0.601,
+     "texto": "Dynamic"
+    },
+    {
+     "t": 1.226,
+     "d": 0.519,
+     "texto": "Island"
+    },
+    {
+     "t": 1.922,
+     "d": 0.401,
+     "texto": "agora"
+    },
+    {
+     "t": 2.323,
+     "d": 0.106,
+     "texto": "no"
+    },
+    {
+     "t": 2.429,
+     "d": 0.566,
+     "texto": "Windows"
+    }
+   ],
+   "marcas": {}
+  },
+  "ilha-musica": {
+   "fala": "Sua música ao vivo, com a capa, os controles e o visualizador.",
+   "arquivo": "narracao/setup-ilha-pt/ilha-musica.mp3",
+   "duracao": 4.152,
+   "assinatura": "339439d6f4c6e2cb",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.236,
+     "texto": "Sua"
+    },
+    {
+     "t": 0.284,
+     "d": 0.413,
+     "texto": "música"
+    },
+    {
+     "t": 0.696,
+     "d": 0.106,
+     "texto": "ao"
+    },
+    {
+     "t": 0.803,
+     "d": 0.425,
+     "texto": "vivo"
+    },
+    {
+     "t": 1.369,
+     "d": 0.13,
+     "texto": "com"
+    },
+    {
+     "t": 1.498,
+     "d": 0.083,
+     "texto": "a"
+    },
+    {
+     "t": 1.581,
+     "d": 0.425,
+     "texto": "capa"
+    },
+    {
+     "t": 2.194,
+     "d": 0.083,
+     "texto": "os"
+    },
+    {
+     "t": 2.277,
+     "d": 0.649,
+     "texto": "controles"
+    },
+    {
+     "t": 2.925,
+     "d": 0.177,
+     "texto": "e"
+    },
+    {
+     "t": 3.102,
+     "d": 0.035,
+     "texto": "o"
+    },
+    {
+     "t": 3.138,
+     "d": 0.696,
+     "texto": "visualizador"
+    }
+   ],
+   "marcas": {}
+  },
+  "ilha-placar": {
+   "fala": "No jogo competitivo, a pílula vira o placar ao vivo.",
+   "arquivo": "narracao/setup-ilha-pt/ilha-placar.mp3",
+   "duracao": 3.672,
+   "assinatura": "7af7b12eeb2c26bc",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.141,
+     "texto": "No"
+    },
+    {
+     "t": 0.189,
+     "d": 0.33,
+     "texto": "jogo"
+    },
+    {
+     "t": 0.52,
+     "d": 0.861,
+     "texto": "competitivo"
+    },
+    {
+     "t": 1.546,
+     "d": 0.106,
+     "texto": "a"
+    },
+    {
+     "t": 1.652,
+     "d": 0.495,
+     "texto": "pílula"
+    },
+    {
+     "t": 2.147,
+     "d": 0.295,
+     "texto": "vira"
+    },
+    {
+     "t": 2.442,
+     "d": 0.035,
+     "texto": "o"
+    },
+    {
+     "t": 2.477,
+     "d": 0.354,
+     "texto": "placar"
+    },
+    {
+     "t": 2.831,
+     "d": 0.118,
+     "texto": "ao"
+    },
+    {
+     "t": 2.949,
+     "d": 0.401,
+     "texto": "vivo"
+    }
+   ],
+   "marcas": {}
+  },
+  "fim-ilha": {
+   "fala": "De graça, no Desktop Glow.",
+   "arquivo": "narracao/setup-ilha-pt/fim-ilha.mp3",
+   "duracao": 2.472,
+   "assinatura": "07884749f3c35bfd",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.2,
+     "texto": "De"
+    },
+    {
+     "t": 0.248,
+     "d": 0.495,
+     "texto": "graça"
+    },
+    {
+     "t": 0.968,
+     "d": 0.118,
+     "texto": "no"
+    },
+    {
+     "t": 1.086,
+     "d": 0.731,
+     "texto": "Desktop"
+    },
+    {
+     "t": 1.817,
+     "d": 0.33,
+     "texto": "Glow"
+    }
+   ],
+   "marcas": {}
+  }
+ }
+}

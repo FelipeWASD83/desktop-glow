@@ -36,7 +36,8 @@ export const TopoDaTela: React.FC<{
   estados: Estado[];
   escalaIlha: number;
   angulo: {x: number; y: number; z?: number};
-}> = ({largura, altura, fundo = 'fireflies', estados, escalaIlha, angulo}) => (
+  aoLado?: React.ReactNode; // what floats at the right of the pill, one under the other (the menu balls of 4.0)
+}> = ({largura, altura, fundo = 'fireflies', estados, escalaIlha, angulo, aoLado}) => (
   <Painel3D largura={largura} altura={altura} angulo={angulo}>
     <div style={{position: 'absolute', inset: 0}}>
       <FundoVivo nome={fundo} largura={largura} altura={altura} />
@@ -44,7 +45,10 @@ export const TopoDaTela: React.FC<{
     {/* a little darker at the top, the way the ilha sits on a bright wallpaper */}
     <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,.35), transparent 45%)'}} />
     <div style={{position: 'absolute', left: 0, right: 0, top: 12 * escalaIlha, display: 'flex', justifyContent: 'center'}}>
-      <Pilula estados={estados} escala={escalaIlha} />
+      <div style={{position: 'relative'}}>
+        <Pilula estados={estados} escala={escalaIlha} />
+        {aoLado && <div style={{position: 'absolute', left: '100%', top: 0, marginLeft: 10 * escalaIlha, display: 'flex', flexDirection: 'column', gap: 8 * escalaIlha}}>{aoLado}</div>}
+      </div>
     </div>
   </Painel3D>
 );

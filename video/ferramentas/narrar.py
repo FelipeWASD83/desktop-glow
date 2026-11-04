@@ -35,7 +35,7 @@ except ImportError:
         sys.exit(subprocess.call([str(VENV), __file__, *sys.argv[1:]]))
     sys.exit("Falta o edge-tts. Rode: python -m venv .venv  e  .venv\\Scripts\\pip install edge-tts==7.3.1")
 
-PASTA = RAIZ / "public" / "narracao"
+PASTA_TODAS = RAIZ / "public" / "narracao"
 GERADO = RAIZ / "src" / "narracao.gerado.json"
 MARCA = re.compile(r"\{([a-z0-9_]+)\}")
 
@@ -119,10 +119,10 @@ def duracao(arq: Path) -> float:
     return float(saida.strip())
 
 
-async def narrar(cena: str, fala: str, voz: str, velocidade: str, antigo: dict | None, forcar: bool) -> dict:
+async def narrar(pasta: Path, cena: str, fala: str, voz: str, velocidade: str, antigo: dict | None, forcar: bool) -> dict:
     texto, palavras = separar(fala)
     assinatura = hashlib.sha1(f"{voz}|{velocidade}|{fala}".encode("utf-8")).hexdigest()[:16]
-    arq = PASTA / f"{cena}.mp3"
+    arq = pasta / f"{cena}.mp3"
     if antigo and antigo.get("assinatura") == assinatura and arq.exists() and not forcar:
         return antigo
     for tentativa in range(4):  # o serviço às vezes devolve vazio: tenta de novo
@@ -153,7 +153,7 @@ async def narrar(cena: str, fala: str, voz: str, velocidade: str, antigo: dict |
     if faltam:
         ditas = " ".join(b["texto"] for b in limites)
         raise RuntimeError(f"{cena}: não achei na fala as marcas {faltam}. A voz disse: {ditas}")
-    return {"fala": fala, "arquivo": f"narracao/{cena}.mp3", "duracao": round(duracao(arq), 3),
+    return {"fala": fala, "arquivo": f"narracao/{pasta.name}/{cena}.mp3", "duracao": round(duracao(arq), 3),
             "assinatura": assinatura, "palavras": limites, "marcas": marcas}
 
 
@@ -161,7 +161,9 @@ async def main():
     forcar = "--forcar" in sys.argv
     r = roteiro()
     voz, velocidade = r["voz"]["nome"], r["voz"]["velocidade"]
-    PASTA.mkdir(parents=True, exist_ok=True)
+    # one folder per script (desktop-glow keeps several scripts that share scene ids in two languages)
+    pasta = PASTA_TODAS / slug(r["titulo"])
+    pasta.mkdir(parents=True, exist_ok=True)
     antigos = {}
     if GERADO.exists():
         antigos = json.loads(GERADO.read_text(encoding="utf-8")).get("cenas", {})
@@ -169,9 +171,9 @@ async def main():
     for c in r["cenas"]:
         if not c.get("fala"):
             continue
-        cenas[c["id"]] = await narrar(c["id"], c["fala"], voz, velocidade, antigos.get(c["id"]), forcar)
+        cenas[c["id"]] = await narrar(pasta, c["id"], c["fala"], voz, velocidade, antigos.get(c["id"]), forcar)
         print(f"ok {c['id']:16} {cenas[c['id']]['duracao']:5.2f} s", flush=True)
-    for velho in PASTA.glob("*.mp3"):  # fala de cena que saiu do roteiro
+    for velho in pasta.glob("*.mp3"):  # fala de cena que saiu do roteiro
         if velho.stem not in cenas:
             velho.unlink()
     GERADO.write_text(json.dumps({"voz": voz, "cenas": cenas}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

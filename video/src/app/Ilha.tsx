@@ -263,3 +263,113 @@ export const Central: React.FC<{volume: number}> = ({volume}) => {
     </div>
   );
 };
+
+// ---- since ilha 3.x / 4.0: the live score of a competitive game, Steam downloads, weather changes and the menu balls
+
+export const AZUL_TIME = '#5ea4ff';
+export const LARANJA_TIME = '#ffb340';
+
+// the score pill: two team marks, the score and the round clock (made-up match, no game's branding)
+export const PlacarCompacto: React.FC<{nos: number; eles: number; relogio: string}> = ({nos, eles, relogio}) => (
+  <div style={{display: 'flex', alignItems: 'center', gap: 12, width: 220}}>
+    <div style={{width: 10, height: 10, borderRadius: 3, background: AZUL_TIME}} />
+    <span style={{fontSize: 16, fontWeight: 700, fontVariantNumeric: 'tabular-nums'}}>{nos}</span>
+    <span style={{fontSize: 13, color: COR.textoSuave}}>:</span>
+    <span style={{fontSize: 16, fontWeight: 700, fontVariantNumeric: 'tabular-nums'}}>{eles}</span>
+    <div style={{width: 10, height: 10, borderRadius: 3, background: LARANJA_TIME}} />
+    <span style={{marginLeft: 'auto', fontSize: 14, fontWeight: 600, color: COR.textoSuave, fontVariantNumeric: 'tabular-nums'}}>{relogio}</span>
+  </div>
+);
+
+export const PlacarExpandido: React.FC<{nos: number; eles: number; relogio: string; abates: number}> = ({nos, eles, relogio, abates}) => (
+  <div style={{width: 340, display: 'flex', flexDirection: 'column', gap: 12}}>
+    <div style={{display: 'flex', justifyContent: 'space-between', fontSize: 12, color: COR.textoSuave}}>
+      <span>{T('tela.partida')}</span>
+      <span style={{fontVariantNumeric: 'tabular-nums'}}>{relogio}</span>
+    </div>
+    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 22}}>
+      <div style={{width: 16, height: 16, borderRadius: 5, background: AZUL_TIME}} />
+      <span style={{fontSize: 46, fontWeight: 700, fontVariantNumeric: 'tabular-nums', lineHeight: 1}}>{nos}</span>
+      <span style={{fontSize: 30, color: COR.textoSuave}}>:</span>
+      <span style={{fontSize: 46, fontWeight: 700, fontVariantNumeric: 'tabular-nums', lineHeight: 1}}>{eles}</span>
+      <div style={{width: 16, height: 16, borderRadius: 5, background: LARANJA_TIME}} />
+    </div>
+    <div style={{display: 'flex', justifyContent: 'space-around', fontSize: 13}}>
+      <span>
+        <span style={{color: COR.textoSuave}}>K / D </span>
+        <b style={{fontVariantNumeric: 'tabular-nums'}}>{abates} / 9</b>
+      </span>
+      <span>
+        <span style={{color: COR.textoSuave}}>Ping </span>
+        <b style={{color: VERDE}}>18 ms</b>
+      </span>
+    </div>
+  </div>
+);
+
+// a Steam download: the game's square, the percentage and a bar
+export const Download: React.FC<{valor: number; largo?: boolean}> = ({valor, largo = false}) => (
+  <div style={{display: 'flex', alignItems: 'center', gap: 12, width: largo ? 320 : 230}}>
+    <div style={{width: largo ? 44 : 22, height: largo ? 44 : 22, borderRadius: largo ? 10 : 6, flexShrink: 0, background: 'linear-gradient(150deg, #4f7cff, #9a5bff)'}} />
+    <div style={{flex: 1, display: 'flex', flexDirection: 'column', gap: largo ? 8 : 0}}>
+      {largo && (
+        <div style={{display: 'flex', justifyContent: 'space-between', fontSize: 13}}>
+          <span style={{fontWeight: 600}}>{T('tela.download')}</span>
+          <span style={{color: COR.textoSuave}}>48 MB/s</span>
+        </div>
+      )}
+      <div style={{height: largo ? 6 : 4, borderRadius: 3, background: 'rgba(255,255,255,.2)'}}>
+        <div style={{width: `${(valor * 100).toFixed(2)}%`, height: '100%', borderRadius: 3, background: valor >= 1 ? VERDE : '#fff'}} />
+      </div>
+    </div>
+    <span style={{fontSize: 14, fontWeight: 600, fontVariantNumeric: 'tabular-nums', color: valor >= 1 ? VERDE : '#fff'}}>{valor >= 1 ? '✓' : `${Math.floor(valor * 100)}%`}</span>
+  </div>
+);
+
+const NUVEM = 'M7 17h10a4 4 0 0 0 .5-7.97A6 6 0 0 0 6.1 10.2 3.5 3.5 0 0 0 7 17z';
+export const Clima: React.FC = () => {
+  const f = useCurrentFrame();
+  return (
+    <div style={{display: 'flex', alignItems: 'center', gap: 12, width: 240}}>
+      <div style={{position: 'relative', width: 24, height: 26}}>
+        <Icone d={NUVEM} tamanho={24} />
+        {[0, 1, 2].map((i) => {
+          // three drops falling under the cloud, looping every 18 frames
+          const y = ((f + i * 6) % 18) / 18;
+          return <div key={i} style={{position: 'absolute', left: 6 + i * 6, top: 18 + y * 8, width: 2, height: 5, borderRadius: 1, background: AZUL_TIME, opacity: 1 - y}} />;
+        })}
+      </div>
+      <span style={{fontSize: 14, fontWeight: 600}}>{T('tela.chuva')}</span>
+      <span style={{marginLeft: 'auto', fontSize: 14, fontWeight: 600, color: COR.textoSuave}}>18°</span>
+    </div>
+  );
+};
+
+// the balls next to the open menu (4.0.0): one per activity running, each with its own shadow and border
+export const Bolinha: React.FC<{tipo: 'musica' | 'timer' | 'download'; escala: number; inicio: number}> = ({tipo, escala, inicio}) => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const p = spring({frame: f - inicio, fps, config: MOLA});
+  const lado = 46 * escala;
+  return (
+    <div
+      style={{
+        width: lado,
+        height: lado,
+        borderRadius: '50%',
+        background: '#000',
+        boxShadow: `0 ${8 * escala}px ${22 * escala}px rgba(0,0,0,.55), inset 0 0 0 ${escala}px rgba(255,255,255,.14)`,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transform: `scale(${p}) translateX(${(1 - p) * -30 * escala}px)`,
+      }}
+    >
+      <div style={{transform: `scale(${escala})`, display: 'flex'}}>
+        {tipo === 'musica' && <Capa tamanho={26} raio={13} />}
+        {tipo === 'timer' && <Anel valor={0.62} tamanho={26} cor={LARANJA} espessura={3} />}
+        {tipo === 'download' && <Anel valor={0.48} tamanho={26} cor="#fff" espessura={3} />}
+      </div>
+    </div>
+  );
+};

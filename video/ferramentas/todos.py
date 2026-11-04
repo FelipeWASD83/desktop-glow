@@ -1,11 +1,13 @@
 """Renders the pack's videos, one script of roteiros/ at a time (the model's tools read src/roteiro.json).
 
-    python ferramentas/todos.py                    # all 14
+    python ferramentas/todos.py                    # all of them
     python ferramentas/todos.py setup-ilha-en      # only these (names of roteiros/*.json, without .json)
     python ferramentas/todos.py --folhas           # only the contact sheets, quadros/folha-<name>.jpg
 
-For each one: copies the script to src/roteiro.json, makes its music track at its length (sons.py), renders with
-entregar.py (TikTok ones with the "social" preset, the rest "youtube") and, for the setup-* ones, also writes the
+For each one: copies the script to src/roteiro.json, brings back its narration (roteiros/narracao/<name>.json, the
+timings of each spoken line; the mp3s live in public/narracao/<name>/), runs narrar.py for what changed, makes the
+sound effects (sons.py), renders with entregar.py (TikTok ones with the "social" preset, the rest "youtube") with no
+music track (his rule since 03/11/2026: no background track in the videos) and, for the setup-* ones, also writes the
 light copy the installer plays: saida/setup/<app>-<lang>.mp4 (720p) and .jpg (poster). Ends with
 src/roteiro.json back on youtube-todos, the one the Studio opens.
 """
@@ -18,6 +20,8 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 ROTEIROS = RAIZ / "roteiros"
 ATIVO = RAIZ / "src" / "roteiro.json"
+NARRACAO_ATIVA = RAIZ / "src" / "narracao.gerado.json"
+NARRACOES = ROTEIROS / "narracao"
 SAIDA = RAIZ / "saida"
 SETUP = SAIDA / "setup"
 PY = sys.executable
@@ -35,9 +39,24 @@ def slug(texto: str) -> str:
     return s(texto)
 
 
-def um(nome: str, so_folha: bool):
+def ativar(nome: str, narrar: bool):
+    """Makes this script the active one, with its own narration timings."""
     r = json.loads((ROTEIROS / f"{nome}.json").read_text(encoding="utf-8"))
     shutil.copy(ROTEIROS / f"{nome}.json", ATIVO)
+    guardada = NARRACOES / f"{nome}.json"
+    if guardada.exists():
+        shutil.copy(guardada, NARRACAO_ATIVA)
+    else:
+        NARRACAO_ATIVA.write_text(json.dumps({"voz": r["voz"]["nome"], "cenas": {}}) + "\n", encoding="utf-8")
+    if narrar:
+        rodar("ferramentas/narrar.py")
+        NARRACOES.mkdir(exist_ok=True)
+        shutil.copy(NARRACAO_ATIVA, guardada)
+    return r
+
+
+def um(nome: str, so_folha: bool):
+    r = ativar(nome, narrar=True)
     formato = r["formatos"][0]
     if so_folha:
         rodar("ferramentas/quadros.py", formato, "15")
@@ -45,7 +64,7 @@ def um(nome: str, so_folha: bool):
         return
     rodar("ferramentas/sons.py")
     preset = "social" if formato == "9x16" else "youtube"
-    rodar("ferramentas/entregar.py", formato, "--preset", preset)
+    rodar("ferramentas/entregar.py", formato, "--preset", preset, "--sem-trilha")
     if nome.startswith("setup-"):
         SETUP.mkdir(parents=True, exist_ok=True)
         base = f"{slug(r['titulo'])}-{formato}"
@@ -63,12 +82,20 @@ def um(nome: str, so_folha: bool):
 def main():
     so_folha = "--folhas" in sys.argv
     nomes = [a for a in sys.argv[1:] if not a.startswith("--")] or sorted(p.stem for p in ROTEIROS.glob("*.json"))
+    if "--so-narrar" in sys.argv:  # only the voices, to hear them before rendering anything
+        try:
+            for nome in nomes:
+                print(f"==== {nome}", flush=True)
+                ativar(nome, narrar=True)
+        finally:
+            ativar("youtube-todos", narrar=False)
+        return
     try:
         for nome in nomes:
             print(f"==== {nome}", flush=True)
             um(nome, so_folha)
     finally:
-        shutil.copy(ROTEIROS / "youtube-todos.json", ATIVO)
+        ativar("youtube-todos", narrar=False)
 
 
 if __name__ == "__main__":

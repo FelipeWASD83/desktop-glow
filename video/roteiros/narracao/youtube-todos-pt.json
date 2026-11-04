@@ -1,0 +1,545 @@
+{
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "cenas": {
+  "gancho-todos": {
+   "fala": "Deixe o Windows assim.",
+   "arquivo": "narracao/youtube-todos-pt/gancho-todos.mp3",
+   "duracao": 1.632,
+   "assinatura": "1558fec4804fa25a",
+   "palavras": [
+    {
+     "t": 0.047,
+     "d": 0.342,
+     "texto": "Deixe"
+    },
+    {
+     "t": 0.389,
+     "d": 0.083,
+     "texto": "o"
+    },
+    {
+     "t": 0.472,
+     "d": 0.354,
+     "texto": "Windows"
+    },
+    {
+     "t": 0.825,
+     "d": 0.483,
+     "texto": "assim"
+    }
+   ],
+   "marcas": {}
+  },
+  "ilha-musica": {
+   "fala": "Sua música ao vivo, com a capa, os controles e o visualizador.",
+   "arquivo": "narracao/youtube-todos-pt/ilha-musica.mp3",
+   "duracao": 4.152,
+   "assinatura": "339439d6f4c6e2cb",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.236,
+     "texto": "Sua"
+    },
+    {
+     "t": 0.284,
+     "d": 0.413,
+     "texto": "música"
+    },
+    {
+     "t": 0.696,
+     "d": 0.106,
+     "texto": "ao"
+    },
+    {
+     "t": 0.803,
+     "d": 0.425,
+     "texto": "vivo"
+    },
+    {
+     "t": 1.369,
+     "d": 0.13,
+     "texto": "com"
+    },
+    {
+     "t": 1.498,
+     "d": 0.083,
+     "texto": "a"
+    },
+    {
+     "t": 1.581,
+     "d": 0.425,
+     "texto": "capa"
+    },
+    {
+     "t": 2.194,
+     "d": 0.083,
+     "texto": "os"
+    },
+    {
+     "t": 2.277,
+     "d": 0.649,
+     "texto": "controles"
+    },
+    {
+     "t": 2.925,
+     "d": 0.177,
+     "texto": "e"
+    },
+    {
+     "t": 3.102,
+     "d": 0.035,
+     "texto": "o"
+    },
+    {
+     "t": 3.138,
+     "d": 0.696,
+     "texto": "visualizador"
+    }
+   ],
+   "marcas": {}
+  },
+  "ilha-placar": {
+   "fala": "No jogo competitivo, a pílula vira o placar ao vivo.",
+   "arquivo": "narracao/youtube-todos-pt/ilha-placar.mp3",
+   "duracao": 3.672,
+   "assinatura": "7af7b12eeb2c26bc",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.141,
+     "texto": "No"
+    },
+    {
+     "t": 0.189,
+     "d": 0.33,
+     "texto": "jogo"
+    },
+    {
+     "t": 0.52,
+     "d": 0.861,
+     "texto": "competitivo"
+    },
+    {
+     "t": 1.546,
+     "d": 0.106,
+     "texto": "a"
+    },
+    {
+     "t": 1.652,
+     "d": 0.495,
+     "texto": "pílula"
+    },
+    {
+     "t": 2.147,
+     "d": 0.295,
+     "texto": "vira"
+    },
+    {
+     "t": 2.442,
+     "d": 0.035,
+     "texto": "o"
+    },
+    {
+     "t": 2.477,
+     "d": 0.354,
+     "texto": "placar"
+    },
+    {
+     "t": 2.831,
+     "d": 0.118,
+     "texto": "ao"
+    },
+    {
+     "t": 2.949,
+     "d": 0.401,
+     "texto": "vivo"
+    }
+   ],
+   "marcas": {}
+  },
+  "relogio-mostrador": {
+   "fala": "Dia, data, hora e clima, direto na área de trabalho.",
+   "arquivo": "narracao/youtube-todos-pt/relogio-mostrador.mp3",
+   "duracao": 3.96,
+   "assinatura": "8b226f4bbe6f5da2",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.483,
+     "texto": "Dia"
+    },
+    {
+     "t": 0.767,
+     "d": 0.46,
+     "texto": "data"
+    },
+    {
+     "t": 1.439,
+     "d": 0.236,
+     "texto": "hora"
+    },
+    {
+     "t": 1.675,
+     "d": 0.047,
+     "texto": "e"
+    },
+    {
+     "t": 1.722,
+     "d": 0.354,
+     "texto": "clima"
+    },
+    {
+     "t": 2.277,
+     "d": 0.424,
+     "texto": "direto"
+    },
+    {
+     "t": 2.701,
+     "d": 0.083,
+     "texto": "na"
+    },
+    {
+     "t": 2.784,
+     "d": 0.295,
+     "texto": "área"
+    },
+    {
+     "t": 3.079,
+     "d": 0.106,
+     "texto": "de"
+    },
+    {
+     "t": 3.185,
+     "d": 0.448,
+     "texto": "trabalho"
+    }
+   ],
+   "marcas": {}
+  },
+  "relogio-musica": {
+   "fala": "E o que está tocando, com barras que seguem o som.",
+   "arquivo": "narracao/youtube-todos-pt/relogio-musica.mp3",
+   "duracao": 3.024,
+   "assinatura": "eda7c93e1284b7e2",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.083,
+     "texto": "E"
+    },
+    {
+     "t": 0.13,
+     "d": 0.047,
+     "texto": "o"
+    },
+    {
+     "t": 0.178,
+     "d": 0.059,
+     "texto": "que"
+    },
+    {
+     "t": 0.237,
+     "d": 0.2,
+     "texto": "está"
+    },
+    {
+     "t": 0.437,
+     "d": 0.554,
+     "texto": "tocando"
+    },
+    {
+     "t": 1.121,
+     "d": 0.2,
+     "texto": "com"
+    },
+    {
+     "t": 1.321,
+     "d": 0.377,
+     "texto": "barras"
+    },
+    {
+     "t": 1.699,
+     "d": 0.118,
+     "texto": "que"
+    },
+    {
+     "t": 1.817,
+     "d": 0.46,
+     "texto": "seguem"
+    },
+    {
+     "t": 2.277,
+     "d": 0.047,
+     "texto": "o"
+    },
+    {
+     "t": 2.324,
+     "d": 0.377,
+     "texto": "som"
+    }
+   ],
+   "marcas": {}
+  },
+  "fundo-galeria": {
+   "fala": "Dez fundos próprios, e mais os seus vídeos, imagens e páginas.",
+   "arquivo": "narracao/youtube-todos-pt/fundo-galeria.mp3",
+   "duracao": 4.32,
+   "assinatura": "9795fc854985a36f",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.354,
+     "texto": "Dez"
+    },
+    {
+     "t": 0.402,
+     "d": 0.377,
+     "texto": "fundos"
+    },
+    {
+     "t": 0.779,
+     "d": 0.495,
+     "texto": "próprios"
+    },
+    {
+     "t": 1.487,
+     "d": 0.047,
+     "texto": "e"
+    },
+    {
+     "t": 1.534,
+     "d": 0.259,
+     "texto": "mais"
+    },
+    {
+     "t": 1.793,
+     "d": 0.118,
+     "texto": "os"
+    },
+    {
+     "t": 1.911,
+     "d": 0.224,
+     "texto": "seus"
+    },
+    {
+     "t": 2.135,
+     "d": 0.413,
+     "texto": "vídeos"
+    },
+    {
+     "t": 2.689,
+     "d": 0.531,
+     "texto": "imagens"
+    },
+    {
+     "t": 3.22,
+     "d": 0.106,
+     "texto": "e"
+    },
+    {
+     "t": 3.326,
+     "d": 0.649,
+     "texto": "páginas"
+    }
+   ],
+   "marcas": {}
+  },
+  "fundo-monitores": {
+   "fala": "Um fundo para cada monitor.",
+   "arquivo": "narracao/youtube-todos-pt/fundo-monitores.mp3",
+   "duracao": 1.992,
+   "assinatura": "b8da7526f800c285",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.141,
+     "texto": "Um"
+    },
+    {
+     "t": 0.189,
+     "d": 0.472,
+     "texto": "fundo"
+    },
+    {
+     "t": 0.661,
+     "d": 0.236,
+     "texto": "para"
+    },
+    {
+     "t": 0.897,
+     "d": 0.342,
+     "texto": "cada"
+    },
+    {
+     "t": 1.239,
+     "d": 0.425,
+     "texto": "monitor"
+    }
+   ],
+   "marcas": {}
+  },
+  "cursor-esquemas": {
+   "fala": "Preto ou branco, com contorno na cor oposta.",
+   "arquivo": "narracao/youtube-todos-pt/cursor-esquemas.mp3",
+   "duracao": 2.976,
+   "assinatura": "2b00537368a299fe",
+   "palavras": [
+    {
+     "t": 0.047,
+     "d": 0.307,
+     "texto": "Preto"
+    },
+    {
+     "t": 0.354,
+     "d": 0.118,
+     "texto": "ou"
+    },
+    {
+     "t": 0.472,
+     "d": 0.436,
+     "texto": "branco"
+    },
+    {
+     "t": 1.038,
+     "d": 0.141,
+     "texto": "com"
+    },
+    {
+     "t": 1.179,
+     "d": 0.531,
+     "texto": "contorno"
+    },
+    {
+     "t": 1.71,
+     "d": 0.165,
+     "texto": "na"
+    },
+    {
+     "t": 1.875,
+     "d": 0.212,
+     "texto": "cor"
+    },
+    {
+     "t": 2.087,
+     "d": 0.554,
+     "texto": "oposta"
+    }
+   ],
+   "marcas": {}
+  },
+  "cursor-morfo": {
+   "fala": "E cada ponteiro se transforma no próximo.",
+   "arquivo": "narracao/youtube-todos-pt/cursor-morfo.mp3",
+   "duracao": 2.664,
+   "assinatura": "789e0edfd0177f1b",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.106,
+     "texto": "E"
+    },
+    {
+     "t": 0.154,
+     "d": 0.283,
+     "texto": "cada"
+    },
+    {
+     "t": 0.437,
+     "d": 0.554,
+     "texto": "ponteiro"
+    },
+    {
+     "t": 0.991,
+     "d": 0.153,
+     "texto": "se"
+    },
+    {
+     "t": 1.145,
+     "d": 0.59,
+     "texto": "transforma"
+    },
+    {
+     "t": 1.734,
+     "d": 0.094,
+     "texto": "no"
+    },
+    {
+     "t": 1.829,
+     "d": 0.507,
+     "texto": "próximo"
+    }
+   ],
+   "marcas": {}
+  },
+  "fecho-todos": {
+   "fala": "Desktop Glow. Um instalador, quatro apps, de graça. Desktop Glow ponto com.",
+   "arquivo": "narracao/youtube-todos-pt/fecho-todos.mp3",
+   "duracao": 6.336,
+   "assinatura": "ae11cbfe8cb7465d",
+   "palavras": [
+    {
+     "t": 0.083,
+     "d": 0.554,
+     "texto": "Desktop"
+    },
+    {
+     "t": 0.637,
+     "d": 0.413,
+     "texto": "Glow"
+    },
+    {
+     "t": 1.368,
+     "d": 0.189,
+     "texto": "Um"
+    },
+    {
+     "t": 1.557,
+     "d": 0.66,
+     "texto": "instalador"
+    },
+    {
+     "t": 2.417,
+     "d": 0.413,
+     "texto": "quatro"
+    },
+    {
+     "t": 2.83,
+     "d": 0.377,
+     "texto": "apps"
+    },
+    {
+     "t": 3.361,
+     "d": 0.153,
+     "texto": "de"
+    },
+    {
+     "t": 3.514,
+     "d": 0.46,
+     "texto": "graça"
+    },
+    {
+     "t": 4.305,
+     "d": 0.755,
+     "texto": "Desktop"
+    },
+    {
+     "t": 5.06,
+     "d": 0.283,
+     "texto": "Glow"
+    },
+    {
+     "t": 5.343,
+     "d": 0.389,
+     "texto": "ponto"
+    },
+    {
+     "t": 5.732,
+     "d": 0.271,
+     "texto": "com."
+    }
+   ],
+   "marcas": {}
+  }
+ }
+}

@@ -15,26 +15,34 @@ const NOMES: Record<Fundo, {en: string; pt: string}> = {
   'rainy-night': {en: 'Rainy night', pt: 'Noite de chuva'},
   snowfall: {en: 'Snow on the mountains', pt: 'Neve nas montanhas'},
   fireflies: {en: 'Fireflies at dusk', pt: 'Vaga-lumes no crepúsculo'},
-  pulse: {en: 'Pulse, reacts to sound', pt: 'Pulso, reage ao som'},
+  pulse: {en: 'Pulse', pt: 'Pulso'},
+  'aurora-curtain': {en: 'Aurora curtain', pt: 'Cortina boreal'},
+  'dusk-layers': {en: 'Dusk layers', pt: 'Camadas do entardecer'},
+  'night-tide': {en: 'Night tide', pt: 'Maré noturna'},
+  'northern-lights': {en: 'Northern lights', pt: 'Aurora boreal'},
+  'sound-cube': {en: 'Sound cube', pt: 'Cubo sonoro'},
+  sparks: {en: 'Sparks', pt: 'Faíscas'},
 };
 
-// four live wallpapers on a ring that turns in 3D
+// the ten wallpapers that come with the app, on a ring that turns in 3D
 export const FundoGaleria: React.FC = () => {
   const f = useCurrentFrame();
   const {entra, sai} = useCena();
   const {v, visual} = useLado();
-  const fundos: Fundo[] = ['rainy-night', 'snowfall', 'fireflies', 'pulse'];
+  const fundos: Fundo[] = ['northern-lights', 'night-tide', 'sound-cube', 'rainy-night', 'sparks', 'aurora-curtain', 'snowfall', 'dusk-layers', 'pulse', 'fireflies'];
   const w = v ? 640 : 620;
   const h = (w * 9) / 16;
-  const raio = v ? 760 : 760;
+  // ten cards make the whole ring: 36 degrees apart, the radius that keeps neighbours from touching
+  const raio = v ? 1100 : 1060;
   // cards 48 degrees apart on a wide ring pushed back by its radius: the one in front is at its real size and its
   // neighbours show on both sides; the ring sweeps from the first card to the last
-  const passo = 48;
-  const giro = chave(f, [[entra, 20], [sai, -passo * 3 - 10]], 'suave');
+  const passo = 36;
+  const giro = chave(f, [[entra, 14], [sai, -passo * 4 - 6]], 'suave');
   return (
     <Layout
       app="fundovivo"
       titulo={T('fundo.galeria')}
+      sub={T('fundo.galeria.sub')}
       visual={
         <div style={{position: 'absolute', left: visual.x, top: visual.y, width: visual.w, height: visual.h, perspective: 2000}}>
           <div style={{position: 'absolute', left: visual.w / 2, top: visual.h / 2, transformStyle: 'preserve-3d', transform: `translateZ(${-raio}px) rotateX(-6deg) rotateY(${giro}deg)`}}>

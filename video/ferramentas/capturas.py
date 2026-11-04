@@ -35,7 +35,7 @@ ANIMADOS = ["busy", "working", "link", "text", "move", "help", "precision", "una
 
 
 def fundo_vivo_home() -> dict:
-    home = Path(tempfile.gettempdir()) / "pacote-video-fundovivo"
+    home = Path(tempfile.gettempdir()) / "desktopglow-video-fundovivo"
     (home / "roaming").mkdir(parents=True, exist_ok=True)
     # no Wallpaper Engine library in the pictures: only the app's own examples
     (home / "roaming" / "config.json").write_text(json.dumps({"scanWallpaperEngine": False}), encoding="utf-8")
@@ -52,7 +52,7 @@ def fundos():
             continue
         quadros = pasta / f"_{vivo.stem}"
         quadros.mkdir(exist_ok=True)
-        extra = ["0", "som"] if vivo.stem == "pulse" else []  # the sound-reactive one gets a made-up spectrum
+        extra = ["0", "som"]  # a made-up spectrum: the ones that react to sound (pulse, cube, aurora...) show it
         for i in range(SEGUNDOS * FPS):
             png = quadros / f"{i:04d}.png"
             if png.exists():
@@ -168,7 +168,7 @@ def anurati():
 
 
 if __name__ == "__main__":
-    anurati()
+    # no anurati() since 03/11/2026: the videos are public and the font is for personal use only (Quicksand instead)
     cursores()
     biblioteca()
     fundos()

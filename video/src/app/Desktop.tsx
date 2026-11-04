@@ -7,7 +7,8 @@ import {DATA_DO_VIDEO} from '../textos';
 import {Pilula, type Estado} from './Ilha';
 import {MostradorMond} from './Relogio';
 
-export type Fundo = 'rainy-night' | 'snowfall' | 'fireflies' | 'pulse';
+// the ten examples that come with Fundo Vivo 2.9
+export type Fundo = 'rainy-night' | 'snowfall' | 'fireflies' | 'pulse' | 'aurora-curtain' | 'dusk-layers' | 'night-tide' | 'northern-lights' | 'sound-cube' | 'sparks';
 
 // a looping wallpaper: 4 s of the example, played over and over
 export const FundoVivo: React.FC<{nome: Fundo; largura: number; altura: number; pausado?: number}> = ({nome, largura, altura, pausado}) => {

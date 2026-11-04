@@ -1,0 +1,196 @@
+{
+ "voz": "en-US-AvaMultilingualNeural",
+ "cenas": {
+  "fundovivo-nome": {
+   "fala": "Living Wallpaper. Live wallpapers that stay light.",
+   "arquivo": "narracao/setup-fundovivo-en/fundovivo-nome.mp3",
+   "duracao": 3.552,
+   "assinatura": "f8b1af1763043725",
+   "palavras": [
+    {
+     "t": 0.048,
+     "d": 0.264,
+     "texto": "Living"
+    },
+    {
+     "t": 0.312,
+     "d": 0.673,
+     "texto": "Wallpaper"
+    },
+    {
+     "t": 1.358,
+     "d": 0.325,
+     "texto": "Live"
+    },
+    {
+     "t": 1.695,
+     "d": 0.637,
+     "texto": "wallpapers"
+    },
+    {
+     "t": 2.344,
+     "d": 0.216,
+     "texto": "that"
+    },
+    {
+     "t": 2.572,
+     "d": 0.252,
+     "texto": "stay"
+    },
+    {
+     "t": 2.837,
+     "d": 0.373,
+     "texto": "light"
+    }
+   ],
+   "marcas": {}
+  },
+  "fundo-galeria": {
+   "fala": "Ten wallpapers of its own, plus your videos, pictures and web pages.",
+   "arquivo": "narracao/setup-fundovivo-en/fundo-galeria.mp3",
+   "duracao": 4.704,
+   "assinatura": "f1d05953dea8ec25",
+   "palavras": [
+    {
+     "t": 0.096,
+     "d": 0.252,
+     "texto": "Ten"
+    },
+    {
+     "t": 0.349,
+     "d": 0.529,
+     "texto": "wallpapers"
+    },
+    {
+     "t": 0.889,
+     "d": 0.06,
+     "texto": "of"
+    },
+    {
+     "t": 0.95,
+     "d": 0.108,
+     "texto": "its"
+    },
+    {
+     "t": 1.07,
+     "d": 0.337,
+     "texto": "own"
+    },
+    {
+     "t": 1.562,
+     "d": 0.24,
+     "texto": "plus"
+    },
+    {
+     "t": 1.815,
+     "d": 0.108,
+     "texto": "your"
+    },
+    {
+     "t": 1.935,
+     "d": 0.541,
+     "texto": "videos"
+    },
+    {
+     "t": 2.837,
+     "d": 0.541,
+     "texto": "pictures"
+    },
+    {
+     "t": 3.389,
+     "d": 0.168,
+     "texto": "and"
+    },
+    {
+     "t": 3.558,
+     "d": 0.192,
+     "texto": "web"
+    },
+    {
+     "t": 3.762,
+     "d": 0.589,
+     "texto": "pages"
+    }
+   ],
+   "marcas": {}
+  },
+  "fundo-pausa": {
+   "fala": "And it pauses when a game takes over.",
+   "arquivo": "narracao/setup-fundovivo-en/fundo-pausa.mp3",
+   "duracao": 2.664,
+   "assinatura": "fd9190b04cbb7186",
+   "palavras": [
+    {
+     "t": 0.084,
+     "d": 0.264,
+     "texto": "And"
+    },
+    {
+     "t": 0.469,
+     "d": 0.096,
+     "texto": "it"
+    },
+    {
+     "t": 0.577,
+     "d": 0.505,
+     "texto": "pauses"
+    },
+    {
+     "t": 1.094,
+     "d": 0.108,
+     "texto": "when"
+    },
+    {
+     "t": 1.214,
+     "d": 0.072,
+     "texto": "a"
+    },
+    {
+     "t": 1.298,
+     "d": 0.337,
+     "texto": "game"
+    },
+    {
+     "t": 1.647,
+     "d": 0.264,
+     "texto": "takes"
+    },
+    {
+     "t": 1.923,
+     "d": 0.397,
+     "texto": "over"
+    }
+   ],
+   "marcas": {}
+  },
+  "fim-fundovivo": {
+   "fala": "Free, in Desktop Glow.",
+   "arquivo": "narracao/setup-fundovivo-en/fim-fundovivo.mp3",
+   "duracao": 2.496,
+   "assinatura": "928176611a4b6f37",
+   "palavras": [
+    {
+     "t": 0.12,
+     "d": 0.385,
+     "texto": "Free"
+    },
+    {
+     "t": 0.986,
+     "d": 0.18,
+     "texto": "in"
+    },
+    {
+     "t": 1.166,
+     "d": 0.565,
+     "texto": "Desktop"
+    },
+    {
+     "t": 1.743,
+     "d": 0.409,
+     "texto": "Glow"
+    }
+   ],
+   "marcas": {}
+  }
+ }
+}

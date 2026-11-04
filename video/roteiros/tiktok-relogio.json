@@ -7,36 +7,41 @@
   "formatos": [
     "9x16"
   ],
-  "capa": 1.8,
+  "capa": 3.0,
   "legenda": false,
   "voz": {
     "nome": "en-US-AvaMultilingualNeural",
-    "velocidade": "+0%"
+    "velocidade": "+4%"
   },
   "trilha": {
-    "volume": 0.32,
+    "volume": 0,
     "sobVoz": 0
   },
   "cenas": [
     {
       "id": "relogio-gancho",
-      "segundos": 3.0
+      "segundos": 3.0,
+      "fala": "Your desktop is missing something."
     },
     {
       "id": "relogio-mostrador",
-      "segundos": 3.4
+      "segundos": 3.2,
+      "fala": "Day, date, time and weather, right on your desktop."
     },
     {
       "id": "relogio-musica",
-      "segundos": 3.4
+      "segundos": 3.0,
+      "fala": "And what is playing now, with bars that follow the sound."
     },
     {
       "id": "relogio-detalhes",
-      "segundos": 3.6
+      "segundos": 3.6,
+      "fala": "Made to stay out of the way."
     },
     {
       "id": "fecho-relogio",
-      "segundos": 3.4
+      "segundos": 3.4,
+      "fala": "Mond Clock. Free, in Desktop Glow."
     }
   ]
 }

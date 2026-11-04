@@ -1,0 +1,206 @@
+{
+ "voz": "en-US-AvaMultilingualNeural",
+ "cenas": {
+  "relogio-nome": {
+   "fala": "Mond Clock. A desktop clock in the Mond style.",
+   "arquivo": "narracao/setup-relogio-en/relogio-nome.mp3",
+   "duracao": 3.768,
+   "assinatura": "cf99a4fc02f2dfa9",
+   "palavras": [
+    {
+     "t": 0.06,
+     "d": 0.421,
+     "texto": "Mond"
+    },
+    {
+     "t": 0.493,
+     "d": 0.505,
+     "texto": "Clock"
+    },
+    {
+     "t": 1.382,
+     "d": 0.084,
+     "texto": "A"
+    },
+    {
+     "t": 1.478,
+     "d": 0.529,
+     "texto": "desktop"
+    },
+    {
+     "t": 2.019,
+     "d": 0.349,
+     "texto": "clock"
+    },
+    {
+     "t": 2.38,
+     "d": 0.084,
+     "texto": "in"
+    },
+    {
+     "t": 2.476,
+     "d": 0.06,
+     "texto": "the"
+    },
+    {
+     "t": 2.548,
+     "d": 0.312,
+     "texto": "Mond"
+    },
+    {
+     "t": 2.861,
+     "d": 0.541,
+     "texto": "style"
+    }
+   ],
+   "marcas": {}
+  },
+  "relogio-mostrador": {
+   "fala": "Day, date, time and weather, right on your desktop.",
+   "arquivo": "narracao/setup-relogio-en/relogio-mostrador.mp3",
+   "duracao": 3.6,
+   "assinatura": "93fade5231c486e3",
+   "palavras": [
+    {
+     "t": 0.072,
+     "d": 0.288,
+     "texto": "Day"
+    },
+    {
+     "t": 0.373,
+     "d": 0.397,
+     "texto": "date"
+    },
+    {
+     "t": 1.01,
+     "d": 0.481,
+     "texto": "time"
+    },
+    {
+     "t": 1.575,
+     "d": 0.108,
+     "texto": "and"
+    },
+    {
+     "t": 1.695,
+     "d": 0.349,
+     "texto": "weather"
+    },
+    {
+     "t": 2.284,
+     "d": 0.168,
+     "texto": "right"
+    },
+    {
+     "t": 2.452,
+     "d": 0.096,
+     "texto": "on"
+    },
+    {
+     "t": 2.56,
+     "d": 0.096,
+     "texto": "your"
+    },
+    {
+     "t": 2.656,
+     "d": 0.589,
+     "texto": "desktop"
+    }
+   ],
+   "marcas": {}
+  },
+  "relogio-musica": {
+   "fala": "And what is playing now, with bars that follow the sound.",
+   "arquivo": "narracao/setup-relogio-en/relogio-musica.mp3",
+   "duracao": 2.976,
+   "assinatura": "e2ed765dbc86aa11",
+   "palavras": [
+    {
+     "t": 0.084,
+     "d": 0.144,
+     "texto": "And"
+    },
+    {
+     "t": 0.24,
+     "d": 0.12,
+     "texto": "what"
+    },
+    {
+     "t": 0.373,
+     "d": 0.12,
+     "texto": "is"
+    },
+    {
+     "t": 0.505,
+     "d": 0.3,
+     "texto": "playing"
+    },
+    {
+     "t": 0.817,
+     "d": 0.276,
+     "texto": "now"
+    },
+    {
+     "t": 1.118,
+     "d": 0.18,
+     "texto": "with"
+    },
+    {
+     "t": 1.298,
+     "d": 0.361,
+     "texto": "bars"
+    },
+    {
+     "t": 1.671,
+     "d": 0.144,
+     "texto": "that"
+    },
+    {
+     "t": 1.815,
+     "d": 0.252,
+     "texto": "follow"
+    },
+    {
+     "t": 2.079,
+     "d": 0.084,
+     "texto": "the"
+    },
+    {
+     "t": 2.163,
+     "d": 0.469,
+     "texto": "sound"
+    }
+   ],
+   "marcas": {}
+  },
+  "fim-relogio": {
+   "fala": "Free, in Desktop Glow.",
+   "arquivo": "narracao/setup-relogio-en/fim-relogio.mp3",
+   "duracao": 2.496,
+   "assinatura": "928176611a4b6f37",
+   "palavras": [
+    {
+     "t": 0.12,
+     "d": 0.385,
+     "texto": "Free"
+    },
+    {
+     "t": 0.986,
+     "d": 0.18,
+     "texto": "in"
+    },
+    {
+     "t": 1.166,
+     "d": 0.565,
+     "texto": "Desktop"
+    },
+    {
+     "t": 1.743,
+     "d": 0.409,
+     "texto": "Glow"
+    }
+   ],
+   "marcas": {}
+  }
+ }
+}

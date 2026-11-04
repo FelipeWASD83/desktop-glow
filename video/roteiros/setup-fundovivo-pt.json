@@ -7,36 +7,41 @@
   "formatos": [
     "16x9"
   ],
-  "capa": 1.4,
+  "capa": 2.0,
   "legenda": false,
   "voz": {
-    "nome": "en-US-AvaMultilingualNeural",
-    "velocidade": "+0%"
+    "nome": "pt-BR-ThalitaMultilingualNeural",
+    "velocidade": "+6%"
   },
   "trilha": {
-    "volume": 0.32,
+    "volume": 0,
     "sobVoz": 0
   },
   "cenas": [
     {
       "id": "fundovivo-nome",
-      "segundos": 2.6
+      "segundos": 2.8,
+      "fala": "Fundo Vivo. Papel de parede animado e leve."
     },
     {
       "id": "fundo-galeria",
-      "segundos": 3.0
+      "segundos": 3.6,
+      "fala": "Dez fundos próprios, e mais os seus vídeos, imagens e páginas."
     },
     {
       "id": "fundo-pausa",
-      "segundos": 3.2
+      "segundos": 3.6,
+      "fala": "E pausa quando um jogo toma a tela."
     },
     {
       "id": "fundo-biblioteca",
-      "segundos": 2.6
+      "segundos": 3.0,
+      "fala": "Escolha, clique, pronto."
     },
     {
       "id": "fim-fundovivo",
-      "segundos": 2.6
+      "segundos": 3.0,
+      "fala": "De graça, no Desktop Glow."
     }
   ]
 }

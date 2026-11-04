@@ -3,8 +3,9 @@
 import {continueRender, delayRender, staticFile} from 'remotion';
 import roteiro from './roteiro.json';
 
-// Local fonts: Quicksand (OFL, the clock's and Fundo Vivo's) and the Anurati the clock draws its day with. The Anurati
-// is free for personal use only, so it never goes to git: ferramentas/capturas.py copies it into public/gerado/.
+// Local fonts: Quicksand (OFL, the clock's and Fundo Vivo's). The clock draws its day in Anurati, which is free for
+// personal use only: the videos are public, so since 03/11/2026 the day uses the clock's own fallback, Quicksand Light
+// with wider spacing.
 const carregar = (familia: string, arquivo: string, peso: number) => {
   if (typeof FontFace === 'undefined') return;
   const espera = delayRender(`font ${familia} ${peso}`);
@@ -24,11 +25,10 @@ carregar('Quicksand', 'fontes/Quicksand-Light.ttf', 300);
 carregar('Quicksand', 'fontes/Quicksand-Regular.ttf', 400);
 carregar('Quicksand', 'fontes/Quicksand-Medium.ttf', 500);
 carregar('Quicksand', 'fontes/Quicksand-Bold.ttf', 700);
-carregar('Anurati', 'gerado/fontes/Anurati-Regular.otf', 400);
 
 export const FONTE_TITULO = 'Quicksand, "Segoe UI Variable Display", "Segoe UI", sans-serif';
 export const FONTE_APOIO = '"Segoe UI Variable Text", "Segoe UI", sans-serif';
-export const FONTE_DIA = 'Anurati, Quicksand, sans-serif';
+export const FONTE_DIA = 'Quicksand, sans-serif';
 
 export type App = 'ilha' | 'relogio' | 'fundovivo' | 'cursores';
 export const APPS: App[] = ['ilha', 'relogio', 'fundovivo', 'cursores'];

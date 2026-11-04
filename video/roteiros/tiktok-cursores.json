@@ -7,36 +7,41 @@
   "formatos": [
     "9x16"
   ],
-  "capa": 1.6,
+  "capa": 3.0,
   "legenda": false,
   "voz": {
     "nome": "en-US-AvaMultilingualNeural",
-    "velocidade": "+0%"
+    "velocidade": "+4%"
   },
   "trilha": {
-    "volume": 0.32,
+    "volume": 0,
     "sobVoz": 0
   },
   "cenas": [
     {
       "id": "cursores-gancho",
-      "segundos": 2.8
+      "segundos": 2.8,
+      "fala": "Your cursor deserves better."
     },
     {
       "id": "cursor-esquemas",
-      "segundos": 3.0
+      "segundos": 2.6,
+      "fala": "Black or white, outlined in the opposite color."
     },
     {
       "id": "cursor-morfo",
-      "segundos": 3.6
+      "segundos": 3.0,
+      "fala": "And every pointer morphs into the next."
     },
     {
       "id": "cursor-ocupado",
-      "segundos": 3.2
+      "segundos": 3.0,
+      "fala": "Even waiting looks good."
     },
     {
       "id": "fecho-cursores",
-      "segundos": 3.4
+      "segundos": 3.4,
+      "fala": "Island Cursors. Free, in Desktop Glow."
     }
   ]
 }

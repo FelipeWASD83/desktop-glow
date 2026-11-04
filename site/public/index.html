@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Desktop Glow: four free apps that make Windows glow</title>
+  <meta name="description" content="A Dynamic Island at the top of the screen, a clock on the desktop, living wallpapers and matching pointers. Four free, open source apps for Windows, in one installer.">
+  <meta property="og:title" content="Desktop Glow">
+  <meta property="og:description" content="Four free apps that make Windows glow, in one installer.">
+  <meta property="og:image" content="https://desktopglow.com/media/hero.jpg">
+  <meta property="og:url" content="https://desktopglow.com/">
+  <meta name="theme-color" content="#f2f2f7">
+  <link rel="icon" href="img/ilha.png">
+  <link rel="preload" href="fonts/Quicksand-Medium.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#apps" data-t="skip">Skip to the apps</a>
+
+  <!-- the menu is the island itself: a black pill that grows on a spring and shows the download once the top is gone -->
+  <header class="island" id="island" aria-label="Desktop Glow">
+    <a class="island-mark" href="#top">
+      <span class="island-dot" aria-hidden="true"></span>
+      <span>Desktop Glow</span>
+    </a>
+    <nav class="island-links" aria-label="Sections">
+      <a href="#ilha" data-t="nav.apps">Apps</a>
+      <a href="#install" data-t="nav.install">Install</a>
+      <a href="#faq" data-t="nav.faq">FAQ</a>
+    </nav>
+    <button class="island-lang" id="lang" type="button" aria-label="Português">PT</button>
+    <a class="island-get js-download" href="https://github.com/FelipeWASD83/desktop-glow/releases/latest/download/DesktopGlow-Setup.exe" data-t="nav.get" tabindex="-1">Download</a>
+  </header>
+
+  <main id="top">
+    <!-- 1. hero, light -->
+    <section class="band light hero">
+      <div class="wrap hero-head">
+        <h1 class="hero-title" data-t="hero.title" data-html>Make Windows <span class="glow">glow.</span></h1>
+        <div class="hero-side">
+          <p class="lead" data-t="hero.lead">An island at the top of the screen, a clock on the desktop, wallpapers that move and pointers that match. Four free apps, one installer.</p>
+          <div class="actions">
+            <a class="btn btn-solid js-download" href="https://github.com/FelipeWASD83/desktop-glow/releases/latest/download/DesktopGlow-Setup.exe">
+              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>
+              <span data-t="hero.download">Download for Windows</span>
+            </a>
+            <a class="btn btn-line" href="https://github.com/FelipeWASD83/desktop-glow" data-t="hero.source">Source on GitHub</a>
+          </div>
+          <p class="meta js-release" data-t="hero.meta">Version 1.3.0 · 107 MB · Windows 11, 64-bit</p>
+        </div>
+      </div>
+      <div class="wrap">
+        <figure class="frame frame-hero">
+          <video class="js-video" muted loop playsinline preload="metadata"
+            data-en="media/hero-en.mp4" data-pt="media/hero-pt.mp4" poster="media/hero.jpg"></video>
+          <button class="sound" type="button" aria-pressed="false" data-t-label="sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="off" d="M16 9l6 6m0-6l-6 6"/></svg></button>
+        </figure>
+      </div>
+    </section>
+
+    <div id="apps"></div>
+
+    <!-- 2. island, dark -->
+    <section class="band dark app" id="ilha" style="--app: #8f86ff">
+      <div class="wrap app-grid">
+        <div class="app-text">
+          <img class="app-icon" src="img/ilha.png" alt="" width="96" height="96">
+          <h2 data-t="ilha.name">Island</h2>
+          <p class="lead" data-t="ilha.lead">The Dynamic Island, now on Windows. A black pill at the top of the screen that grows into whatever is happening.</p>
+          <ul class="chips">
+            <li data-t="ilha.c1">Music with cover, controls and visualizer</li>
+            <li data-t="ilha.c2">Live score of your competitive game</li>
+            <li data-t="ilha.c3">Timer, pomodoro and screen recorder</li>
+            <li data-t="ilha.c4">Steam downloads, weather and focus modes</li>
+            <li data-t="ilha.c5">Hides itself in full screen and in matches</li>
+          </ul>
+          <a class="more" href="https://github.com/FelipeWASD83/ilha" data-t="more">Its own repository</a>
+        </div>
+        <figure class="frame">
+          <video class="js-video" muted loop playsinline preload="none"
+            data-en="media/ilha-en.mp4" data-pt="media/ilha-pt.mp4" data-poster-en="media/ilha-en.jpg" data-poster-pt="media/ilha-pt.jpg"></video>
+          <button class="sound" type="button" aria-pressed="false" data-t-label="sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="off" d="M16 9l6 6m0-6l-6 6"/></svg></button>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 3. clock, light -->
+    <section class="band light app flip" id="relogio" style="--app: #5f78d8">
+      <div class="wrap app-grid">
+        <div class="app-text">
+          <img class="app-icon" src="img/relogio.png" alt="" width="96" height="96">
+          <h2 data-t="relogio.name">Mond Clock</h2>
+          <p class="lead" data-t="relogio.lead">A desktop clock in the Mond style: day, date, time and weather in the middle of your wallpaper, with the song that is playing under it.</p>
+          <ul class="chips">
+            <li data-t="relogio.c1">Sound bars that follow the music</li>
+            <li data-t="relogio.c2">Hover the cover to pause or skip</li>
+            <li data-t="relogio.c3">Weather for your city</li>
+            <li data-t="relogio.c4">Stays visible on Win + D</li>
+          </ul>
+          <a class="more" href="https://github.com/FelipeWASD83/relogio-mond" data-t="more">Its own repository</a>
+        </div>
+        <figure class="frame">
+          <video class="js-video" muted loop playsinline preload="none"
+            data-en="media/relogio-en.mp4" data-pt="media/relogio-pt.mp4" data-poster-en="media/relogio-en.jpg" data-poster-pt="media/relogio-pt.jpg"></video>
+          <button class="sound" type="button" aria-pressed="false" data-t-label="sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="off" d="M16 9l6 6m0-6l-6 6"/></svg></button>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 4. living wallpaper, dark -->
+    <section class="band dark app" id="fundovivo" style="--app: #ff8f70">
+      <div class="wrap app-grid">
+        <div class="app-text">
+          <img class="app-icon" src="img/fundovivo.png" alt="" width="96" height="96">
+          <h2 data-t="fundovivo.name">Living Wallpaper</h2>
+          <p class="lead" data-t="fundovivo.lead">Animated wallpapers that stay light: one per monitor, decoded on the graphics card, and nothing running when nobody is looking.</p>
+          <ul class="chips">
+            <li data-t="fundovivo.c1">Ten wallpapers of its own, some moving with the sound</li>
+            <li data-t="fundovivo.c2">Your videos, pictures and web pages</li>
+            <li data-t="fundovivo.c3">Pauses when a game takes the screen</li>
+            <li data-t="fundovivo.c4">Reads the video and web wallpapers you have in Wallpaper Engine</li>
+          </ul>
+          <a class="more" href="https://github.com/FelipeWASD83/fundo-vivo" data-t="more">Its own repository</a>
+        </div>
+        <figure class="frame">
+          <video class="js-video" muted loop playsinline preload="none"
+            data-en="media/fundovivo-en.mp4" data-pt="media/fundovivo-pt.mp4" data-poster-en="media/fundovivo-en.jpg" data-poster-pt="media/fundovivo-pt.jpg"></video>
+          <button class="sound" type="button" aria-pressed="false" data-t-label="sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="off" d="M16 9l6 6m0-6l-6 6"/></svg></button>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 5. cursors, light -->
+    <section class="band light app flip" id="cursores" style="--app: #1f9e86">
+      <div class="wrap app-grid">
+        <div class="app-text">
+          <img class="app-icon" src="img/cursores.png" alt="" width="96" height="96">
+          <h2 data-t="cursores.name">Island Cursors</h2>
+          <p class="lead" data-t="cursores.lead">Pointers that match the island, in black or white with an outline in the opposite color.</p>
+          <ul class="chips">
+            <li data-t="cursores.c1">Every pointer morphs into the next</li>
+            <li data-t="cursores.c2">Busy and working animated at 60 fps</li>
+            <li data-t="cursores.c3">Sharp at every Windows pointer size</li>
+            <li data-t="cursores.c4">Your old pointers come back on uninstall</li>
+          </ul>
+          <a class="more" href="https://github.com/FelipeWASD83/ilha-cursors" data-t="more">Its own repository</a>
+        </div>
+        <figure class="frame">
+          <video class="js-video" muted loop playsinline preload="none"
+            data-en="media/cursores-en.mp4" data-pt="media/cursores-pt.mp4" data-poster-en="media/cursores-en.jpg" data-poster-pt="media/cursores-pt.jpg"></video>
+          <button class="sound" type="button" aria-pressed="false" data-t-label="sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/><path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="off" d="M16 9l6 6m0-6l-6 6"/></svg></button>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 6. install, dark -->
+    <section class="band dark install" id="install">
+      <div class="wrap install-grid">
+        <div>
+          <h2 data-t="install.title">One installer, your way.</h2>
+          <p class="lead" data-t="install.lead">Pick the apps, choose how each one starts, and it is done in a few seconds. It installs for you only, with no administrator.</p>
+          <a class="btn btn-solid btn-light js-download" href="https://github.com/FelipeWASD83/desktop-glow/releases/latest/download/DesktopGlow-Setup.exe">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>
+            <span data-t="hero.download">Download for Windows</span>
+          </a>
+          <p class="meta js-release" data-t="hero.meta">Version 1.3.0 · 107 MB · Windows 11, 64-bit</p>
+        </div>
+        <ol class="steps">
+          <li>
+            <h3 data-t="step1.title">Pick what to install</h3>
+            <p data-t="step1.text">The four apps come on; click a card to leave one out.</p>
+          </li>
+          <li>
+            <h3 data-t="step2.title">Make it yours</h3>
+            <p data-t="step2.text">Open with Windows, the island floating or docked, 24 or 12 hour clock, the weather city, black or white pointers.</p>
+          </li>
+          <li>
+            <h3 data-t="step3.title">Install</h3>
+            <p data-t="step3.text">If something is missing (.NET 10, Python, WebView2), the setup gets it through winget. Each app then updates itself from its own releases.</p>
+          </li>
+        </ol>
+        <div class="note">
+          <h3 data-t="note.title">If Windows warns you</h3>
+          <p data-t="note.text">The setup is not signed, so SmartScreen may show "Windows protected your PC": click More info, then Run anyway. With Smart App Control turned on, Windows may refuse unsigned apps altogether.</p>
+          <p class="note-sha"><a href="https://github.com/FelipeWASD83/desktop-glow/releases/latest" data-t="note.sha">Check the SHA-256 on the release page</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. faq, light -->
+    <section class="band light faq" id="faq">
+      <div class="wrap faq-grid">
+        <h2 data-t="faq.title">Questions</h2>
+        <div class="faq-list">
+          <details>
+            <summary data-t="faq.q1">Is it free?</summary>
+            <p data-t="faq.a1">Yes. The four apps and the installer are open source under the MIT license. If you want to help, the GitHub Sponsors button is at the bottom of the page.</p>
+          </details>
+          <details>
+            <summary data-t="faq.q2">Will it slow down my games?</summary>
+            <p data-t="faq.a2">The wallpaper pauses when a game takes the screen, the island hides in competitive matches and full screen video, and the clock stops its sound bars when something covers it.</p>
+          </details>
+          <details>
+            <summary data-t="faq.q3">Which Windows does it need?</summary>
+            <p data-t="faq.a3">Windows 11, 64-bit. Windows 10 may work, but it is not tested.</p>
+          </details>
+          <details>
+            <summary data-t="faq.q4">What language is it in?</summary>
+            <p data-t="faq.a4">English and Portuguese, following your Windows. You can switch the island and the clock in the setup.</p>
+          </details>
+          <details>
+            <summary data-t="faq.q5">How do I remove it?</summary>
+            <p data-t="faq.a5">Settings, Apps, Desktop Glow, Uninstall. You pick what to remove; your old pointers come back and each app keeps its settings in case you install again.</p>
+          </details>
+          <details>
+            <summary data-t="faq.q6">Can I install only one app?</summary>
+            <p data-t="faq.a6">Yes. Turn the others off on the first screen. Running the setup again later adds or updates the rest.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 8. footer, dark -->
+  <footer class="band dark foot">
+    <div class="wrap foot-grid">
+      <div>
+        <p class="foot-mark">Desktop Glow</p>
+        <p class="foot-small" data-t="foot.made">Made by Felipe, in the open. MIT license.</p>
+        <a class="sponsor" href="https://github.com/sponsors/FelipeWASD83">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+          <span data-t="foot.sponsor">Sponsor on GitHub</span>
+        </a>
+      </div>
+      <ul class="foot-links">
+        <li><a href="https://github.com/FelipeWASD83/desktop-glow">desktop-glow</a></li>
+        <li><a href="https://github.com/FelipeWASD83/ilha">ilha</a></li>
+        <li><a href="https://github.com/FelipeWASD83/relogio-mond">relogio-mond</a></li>
+        <li><a href="https://github.com/FelipeWASD83/fundo-vivo">fundo-vivo</a></li>
+        <li><a href="https://github.com/FelipeWASD83/ilha-cursors">ilha-cursors</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
