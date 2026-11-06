@@ -8,14 +8,15 @@ namespace DesktopGlowSetup.Core;
 /// "Open first, with priority": a Task Scheduler task per app that starts it at the person's logon, ahead of the
 /// Run queue Windows lets out bit by bit after sign-in, at priority 2 (above normal; a task's default is 7, below
 /// normal). Made with schtasks from an XML, as the person, with no administrator (checked on 02/11/2026). The Run entry
-/// stays: the three apps refuse a second copy, so the one the queue opens later just closes.
+/// stays: the apps refuse a second copy, so the one the queue opens later just closes. Gear Hub 1.0.0 is the exception:
+/// its second copy asks the first to show its window, even with --tray (to be fixed in gear-hub, see CLAUDE.md).
 /// </summary>
 public static class Priority
 {
     public const int Level = 2;
 
     // the apps that start with Windows, by their Run value name
-    public static readonly string[] RunNames = { "Ilha", "RelogioMond", "FundoVivo" };
+    public static readonly string[] RunNames = { "Ilha", "RelogioMond", "FundoVivo", "GearHub" };
 
     public static string TaskName(string runName) => (Paths.Sandbox ? "Desktop Glow Sandbox - " : "Desktop Glow - ") + Label(runName);
 
@@ -23,6 +24,7 @@ public static class Priority
     {
         "RelogioMond" => "Relogio Mond",
         "FundoVivo" => "Fundo Vivo",
+        "GearHub" => "Gear Hub",
         _ => runName,
     };
 

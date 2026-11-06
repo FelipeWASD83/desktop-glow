@@ -33,6 +33,7 @@ public static class SelfTest
         Test("priority: command split and task XML", PriorityTask);
         Test("text: every key exists in both languages", TextKeys);
         Test("shortcut names: one per language, both removable", ShortcutNamesBothLanguages);
+        Test("components: five, each with its own key, folder and icon", ComponentsDistinct);
 
         try { Directory.Delete(temp, true); } catch { }
         lines.Add(failed == 0 ? "all passed" : $"{failed} failed");
@@ -42,14 +43,28 @@ public static class SelfTest
 
     static void ShortcutNamesBothLanguages()
     {
-        foreach (var c in new[] { ComponentId.Ilha, ComponentId.Relogio, ComponentId.FundoVivo })
+        foreach (var c in new[] { ComponentId.Ilha, ComponentId.Relogio, ComponentId.FundoVivo, ComponentId.GearHub })
         {
             string pt = Names.ShortcutName(c, false)!, en = Names.ShortcutName(c, true)!;
             Check(pt != en, $"{c}: same shortcut name in both languages");
             Check(Names.ShortcutNames(c).Count() == 2, $"{c}: uninstall does not look for both names");
         }
         Check(Names.ShortcutName(ComponentId.FundoVivo, true) == "Living Wallpaper.lnk", "English name of the Fundo Vivo shortcut");
+        Check(Names.ShortcutName(ComponentId.GearHub, false) == "Central de Periféricos.lnk" && Names.ShortcutName(ComponentId.GearHub, true) == "Gear Hub.lnk", "Gear Hub shortcut names");
+        Check(Names.RunValue(ComponentId.GearHub) == "GearHub" && Priority.RunNames.Contains("GearHub") && Priority.Label("GearHub") == "Gear Hub", "Gear Hub Run value and priority task");
         Check(Names.ShortcutNames(ComponentId.Cursors).Any() == false, "cursors have no shortcut");
+    }
+
+    static void ComponentsDistinct()
+    {
+        Check(Components.All.Length == 5, "five components");
+        Check(Components.All.Select(Components.Key).Distinct().Count() == 5, "keys repeat");
+        Check(Components.All.Select(Components.Folder).Distinct(StringComparer.OrdinalIgnoreCase).Count() == 5, "folders repeat");
+        Check(Components.All.Select(Components.Icon).Distinct().Count() == 5, "icons repeat");
+        Check(Components.Key(ComponentId.GearHub) == "gearhub" && Components.Folder(ComponentId.GearHub).EndsWith(@"\Programs\GearHub", StringComparison.OrdinalIgnoreCase), "Gear Hub key and folder");
+        var o = new InstallOptions();
+        o.Set(ComponentId.GearHub, false);
+        Check(!o.Wants(ComponentId.GearHub) && o.Wants(ComponentId.Cursors), "turning Gear Hub off touched another app");
     }
 
     static void Check(bool condition, string what)

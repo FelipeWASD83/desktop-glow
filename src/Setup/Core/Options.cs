@@ -1,10 +1,10 @@
 namespace DesktopGlowSetup.Core;
 
-public enum ComponentId { Ilha, Relogio, FundoVivo, Cursors }
+public enum ComponentId { Ilha, Relogio, FundoVivo, Cursors, GearHub }
 
 public static class Components
 {
-    public static readonly ComponentId[] All = { ComponentId.Ilha, ComponentId.Relogio, ComponentId.FundoVivo, ComponentId.Cursors };
+    public static readonly ComponentId[] All = { ComponentId.Ilha, ComponentId.Relogio, ComponentId.FundoVivo, ComponentId.Cursors, ComponentId.GearHub };
 
     /// <summary>The folder name inside the payload zip and the key in its manifest and in installed.json.</summary>
     public static string Key(ComponentId c) => c switch
@@ -12,6 +12,7 @@ public static class Components
         ComponentId.Ilha => "ilha",
         ComponentId.Relogio => "relogio",
         ComponentId.FundoVivo => "fundovivo",
+        ComponentId.GearHub => "gearhub",
         _ => "cursors",
     };
 
@@ -20,6 +21,7 @@ public static class Components
         ComponentId.Ilha => Paths.Ilha,
         ComponentId.Relogio => Paths.Relogio,
         ComponentId.FundoVivo => Paths.FundoVivo,
+        ComponentId.GearHub => Paths.GearHub,
         _ => Paths.Cursors,
     };
 
@@ -28,6 +30,7 @@ public static class Components
         ComponentId.Ilha => "ilha",
         ComponentId.Relogio => "relogio",
         ComponentId.FundoVivo => "fundovivo",
+        ComponentId.GearHub => "gearhub",
         _ => "cursores",
     };
 
@@ -36,6 +39,7 @@ public static class Components
         ComponentId.Ilha => new[] { Prerequisite.DesktopRuntime },
         ComponentId.Relogio => new[] { Prerequisite.DesktopRuntime, Prerequisite.Python },
         ComponentId.FundoVivo => new[] { Prerequisite.DesktopRuntime, Prerequisite.WebView2 },
+        ComponentId.GearHub => new[] { Prerequisite.DesktopRuntime },
         _ => Array.Empty<Prerequisite>(),
     };
 }
@@ -47,6 +51,7 @@ public sealed class InstallOptions
     public bool Relogio { get; set; } = true;
     public bool FundoVivo { get; set; } = true;
     public bool Cursors { get; set; } = true;
+    public bool GearHub { get; set; } = true;
 
     public bool IlhaStartup { get; set; } = true;
     /// <summary>false = floating a little below the top edge (the ilha's default); true = glued to the edge, like a notch.</summary>
@@ -64,13 +69,15 @@ public sealed class InstallOptions
 
     public bool FundoVivoStartup { get; set; } = true;
 
+    public bool GearHubStartup { get; set; } = true;
+
     public bool StartMenu { get; set; } = true;
     public bool DesktopShortcuts { get; set; }
     public bool LaunchWhenDone { get; set; } = true;
     public bool InstallMissing { get; set; } = true;
     /// <summary>The apps that start with Windows also get a logon task that opens them first, above normal priority.</summary>
     public bool Priority { get; set; } = true;
-    /// <summary>The language of the ilha and the clock: "auto" follows Windows, "pt" or "en" fix it.</summary>
+    /// <summary>The language of the ilha, the clock and Gear Hub: "auto" follows Windows, "pt" or "en" fix it.</summary>
     public string AppLanguage { get; set; } = "auto";
 
     public bool Wants(ComponentId c) => c switch
@@ -78,6 +85,7 @@ public sealed class InstallOptions
         ComponentId.Ilha => Ilha,
         ComponentId.Relogio => Relogio,
         ComponentId.FundoVivo => FundoVivo,
+        ComponentId.GearHub => GearHub,
         _ => Cursors,
     };
 
@@ -88,6 +96,7 @@ public sealed class InstallOptions
             case ComponentId.Ilha: Ilha = on; break;
             case ComponentId.Relogio: Relogio = on; break;
             case ComponentId.FundoVivo: FundoVivo = on; break;
+            case ComponentId.GearHub: GearHub = on; break;
             default: Cursors = on; break;
         }
     }

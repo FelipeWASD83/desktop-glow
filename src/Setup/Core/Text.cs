@@ -28,6 +28,7 @@ public static class Text
         ["app.relogio"] = ("Relógio Mond", "Mond Clock"),
         ["app.fundovivo"] = ("Fundo Vivo", "Living Wallpaper"),
         ["app.cursors"] = ("Cursores da Ilha", "Island Cursors"),
+        ["app.gearhub"] = ("Central de Periféricos", "Gear Hub"),
 
         ["desc.ilha"] = ("A Dynamic Island no topo da tela: música, placar do jogo ao vivo, timer, clima e avisos.",
             "A Dynamic Island at the top of the screen: music, live game score, timer, weather and alerts."),
@@ -37,6 +38,8 @@ public static class Text
             "A light animated wallpaper, one per monitor: video, picture, web page and ten of its own."),
         ["desc.cursors"] = ("Ponteiros preto ou branco, com contorno, e cada um se transforma no outro com a mola da ilha.",
             "Black or white pointers with an outline, each one morphing into the next with the island's spring."),
+        ["desc.gearhub"] = ("Teclado, mouse, headset, memória, controles e webcam de marcas diferentes, configurados num lugar só.",
+            "Keyboard, mouse, headset, memory, controllers and webcam from different brands, set up in one place."),
 
         ["prereq.DesktopRuntime"] = (".NET 10", ".NET 10"),
         ["prereq.Python"] = ("Python", "Python"),
@@ -54,8 +57,8 @@ public static class Text
         ["win.close"] = ("Fechar", "Close"),
 
         ["welcome.title"] = ("Desktop Glow", "Desktop Glow"),
-        ["welcome.sub"] = ("A ilha, o relógio, os cursores e o fundo animado, instalados de uma vez.",
-            "The island, the clock, the cursors and the living wallpaper, installed in one go."),
+        ["welcome.sub"] = ("A ilha, o relógio, os cursores, o fundo animado e a central dos periféricos, instalados de uma vez.",
+            "The island, the clock, the cursors, the living wallpaper and the gear hub, installed in one go."),
         ["welcome.foot"] = ("Versão {0}  ·  instala só para você, sem pedir administrador",
             "Version {0}  ·  installs for you only, no administrator needed"),
 
@@ -72,7 +75,8 @@ public static class Text
         ["opt.sub"] = ("Dá para mudar tudo isso depois, dentro de cada app.", "You can change all of this later inside each app."),
         ["opt.startup"] = ("Abrir junto com o Windows", "Open when Windows starts"),
         ["opt.startupSub"] = ("Começa sozinho quando você entra no PC", "Starts by itself when you sign in"),
-        ["opt.ilhaPos"] = ("Posição", "Position"),
+        ["opt.gearStartupSub"] = ("Começa escondido na bandeja quando você entra no PC", "Starts hidden in the tray when you sign in"),
+        ["opt.ilhaPos"] =("Posição", "Position"),
         ["opt.ilhaPosSub"] = ("Flutuando um pouco abaixo da borda, como no iPhone, ou colada no topo",
             "Floating a little below the edge, like on the iPhone, or glued to the top"),
         ["opt.floating"] = ("Flutuando", "Floating"),
@@ -109,7 +113,8 @@ public static class Text
         ["final.priority"] = ("Abrir primeiro, com prioridade", "Open first, with priority"),
         ["final.prioritySub"] = ("Os apps que abrem com o Windows saem na frente dos outros programas e ganham mais CPU",
             "The apps that open with Windows start ahead of the other programs, with more CPU"),
-        ["final.lang"] = ("Idioma da ilha e do relógio", "Language of the island and the clock"),
+        ["final.lang"] = ("Idioma dos apps", "Language of the apps"),
+        ["final.langSub"] = ("Ilha, relógio e Central de Periféricos", "Island, clock and Gear Hub"),
         ["lang.auto"] = ("Do Windows", "Windows"),
         ["lang.pt"] = ("Português", "Português"),
         ["lang.en"] = ("English", "English"),
@@ -158,7 +163,7 @@ public static class Text
         ["broken.sub"] = ("O instalador não achou os apps dentro dele. Baixe o arquivo de novo.",
             "The setup could not find the apps inside it. Download the file again."),
 
-        ["island.selected"] = ("{0} de 4", "{0} of 4"),
+        ["island.selected"] = ("{0} de {1}", "{0} of {1}"),
         ["island.options"] = ("Opções", "Options"),
         ["island.ready"] = ("Pronto para instalar", "Ready to install"),
         ["video.sound"] = ("Ligar ou desligar o som", "Sound on or off"),

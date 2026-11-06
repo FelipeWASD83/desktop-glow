@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.5.0 (06/11/2026)
+
+**Novo**
+- Quinto app no pacote: a **Central de Periféricos** (Gear Hub em inglês), para configurar teclado, mouse, headset, memória, controles e webcam de marcas diferentes num lugar só. Ganha cartão na escolha, a opção de abrir com o Windows (escondida na bandeja), atalho no Menu Iniciar, a tarefa de "Abrir primeiro, com prioridade" e sai inteira na desinstalação, sem apagar as configurações dela.
+- A escolha do idioma em "Últimos detalhes" passa a valer também para a Central de Periféricos.
+
+**Mudou**
+- Com cinco apps, os cartões de "O que instalar" e do desinstalador rolam: o quinto fica logo abaixo dos outros quatro.
+- Traz a Ilha 4.2.0.
+- A Central de Periféricos ainda não tem vídeo na tela de instalação: enquanto ela instala, passam os vídeos dos outros apps escolhidos.
+
 ## 1.4.0 (04/11/2026)
 
 **Novo**

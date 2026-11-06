@@ -17,7 +17,7 @@ public sealed class PayloadManifest
 }
 
 /// <summary>
-/// The four apps travel as one zip glued after the end of the setup's own executable:
+/// The five apps travel as one zip glued after the end of the setup's own executable:
 /// [setup exe][zip][zip length, 8 bytes][magic, 8 bytes]. The bytes before the zip are exactly the executable that
 /// ferramentas\build.ps1 checked against Smart App Control, and that is what becomes Uninstall.exe.
 /// </summary>

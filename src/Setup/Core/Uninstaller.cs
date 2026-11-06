@@ -4,7 +4,7 @@ namespace DesktopGlowSetup.Core;
 
 /// <summary>
 /// Takes away what this pack installed, and only that: Run entries and shortcuts are removed only when they point
-/// into our folders. The apps' settings stay (~\.ilha, the clock's dados\, %APPDATA%\FundoVivo) for a reinstall.
+/// into our folders. The apps' settings stay (~\.ilha, the clock's dados\, %APPDATA%\FundoVivo, ~\.gear-hub) for a reinstall.
 /// </summary>
 public sealed class Uninstaller
 {
@@ -68,6 +68,7 @@ public sealed class Uninstaller
             case ComponentId.Ilha: Processes.CloseIlha(); break;
             case ComponentId.Relogio: Processes.CloseRelogio(); break;
             case ComponentId.FundoVivo: Processes.CloseFundoVivo(); break;
+            case ComponentId.GearHub: Processes.CloseGearHub(); break;
             default:
                 var manifest = Json.Read<CursorManifest>(Path.Combine(folder, Cursors.ManifestName));
                 if (manifest != null)

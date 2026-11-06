@@ -29,6 +29,17 @@ public static class Processes
         WaitOrKill(open, 3000);
     }
 
+    /// <summary>GearHub.exe --quit signals the running copy (one per PC, mutex GearHub.Instance) and waits up to 5 s for it.</summary>
+    public static void CloseGearHub()
+    {
+        if (Paths.Sandbox) return;
+        var open = Process.GetProcessesByName("GearHub");
+        if (open.Length == 0) return;
+        string? exe = ImagePath(open[0].Id);
+        if (exe != null) RunAndWait(exe, "--quit", 8000);
+        WaitOrKill(open, 3000);
+    }
+
     /// <summary>The clock is dotnet.exe running RelogioMond.dll, started by pythonw running iniciar.pyw.
     /// RelogioMond.dll --quit (1.5.0, same name as the Fundo Vivo's) closes it like the tray's Quit; older
     /// versions do not know it, so whatever is still running after a few seconds is killed.</summary>

@@ -19,7 +19,7 @@ public static class Screenshots
             if (payload != null)
             {
                 var install = Open(new MainWindow(payload, Mode.Install));
-                foreach (string s in new[] { "welcome", "pick", "options", "options-mid", "options-end", "final", "progress", "done", "done-error" })
+                foreach (string s in new[] { "welcome", "pick", "pick-end", "options", "options-mid", "options-end", "final", "progress", "done", "done-error" })
                     Save(install, s, Path.Combine(folder, $"{lang}-{s}.png"));
                 install.Close();
             }

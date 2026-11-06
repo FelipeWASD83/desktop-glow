@@ -81,6 +81,7 @@ Check 'ilha installed' (Test-Path "$local\Ilha\Ilha.exe")
 Check 'clock installed' (Test-Path "$local\RelogioMond\iniciar.pyw")
 Check 'Fundo Vivo NOT installed (card off)' (-not (Test-Path "$local\FundoVivo"))
 Check 'cursors installed' (Test-Path "$box\home\.ilha-cursors\white\arrow.cur")
+Check 'gear hub installed' (Test-Path "$local\GearHub\GearHub.exe")
 $arrow = (Get-Item -LiteralPath "$regRoot\Control Panel\Cursors").GetValue('Arrow', $null, 'DoNotExpandEnvironmentNames')
 Check 'white scheme applied' ($arrow -like '*\white\arrow.cur')
 
@@ -92,10 +93,10 @@ Click $win 'Desinstalar'
 Click $win 'Fechar' 60000
 $p.WaitForExit(10000) | Out-Null
 Check 'uninstaller closed with exit 0' ($p.HasExited -and $p.ExitCode -eq 0)
-Check 'everything removed' (-not (Test-Path "$local\Ilha") -and -not (Test-Path "$local\RelogioMond\app") -and -not (Test-Path "$box\home\.ilha-cursors"))
+Check 'everything removed' (-not (Test-Path "$local\Ilha") -and -not (Test-Path "$local\RelogioMond\app") -and -not (Test-Path "$box\home\.ilha-cursors") -and -not (Test-Path "$local\GearHub"))
 
 Remove-Item $regRoot -Recurse -Force -ErrorAction SilentlyContinue
 # the sandbox logon tasks are real tasks: never leave one behind for the next sign-in
 $ErrorActionPreference = 'Continue'  # schtasks says "not found" on stderr
-foreach ($n in @('Ilha', 'Relogio Mond', 'Fundo Vivo')) { schtasks /delete /tn "Desktop Glow Sandbox - $n" /f 2>$null | Out-Null }
+foreach ($n in @('Ilha', 'Relogio Mond', 'Fundo Vivo', 'Gear Hub')) { schtasks /delete /tn "Desktop Glow Sandbox - $n" /f 2>$null | Out-Null }
 Write-Host $(if ($failed -eq 0) { 'UI test: all passed' } else { "UI test: $failed failed" })

@@ -1,6 +1,6 @@
 # Desktop Glow
 
-Um instalador só para quatro apps que deixam o Windows com a cara da ilha (até a 1.2.2 se chamava Pacote Windows
+Um instalador só para cinco apps que deixam o Windows com a cara da ilha (até a 1.2.2 se chamava Pacote Windows
 Bonito). Site: [desktopglow.com](https://desktopglow.com).
 
 | App | O que é |
@@ -9,6 +9,7 @@ Bonito). Site: [desktopglow.com](https://desktopglow.com).
 | [Relógio Mond](https://github.com/FelipeWASD83/relogio-mond) (Mond Clock) | Dia, data, hora, clima e a música tocando com as barras do som, no meio da área de trabalho |
 | [Fundo Vivo](https://github.com/FelipeWASD83/fundo-vivo) (Living Wallpaper) | Papel de parede animado e leve, um por monitor (vídeo, imagem, página web e dez fundos próprios) |
 | [Cursores da Ilha](https://github.com/FelipeWASD83/ilha-cursors) (Island Cursors) | Ponteiros preto ou branco, com contorno, que se transformam um no outro |
+| [Central de Periféricos](https://github.com/FelipeWASD83/gear-hub) (Gear Hub) | Teclado, mouse, headset, memória, controles e webcam de marcas diferentes, configurados num lugar só e no visual da ilha |
 
 ## Como usar
 
@@ -18,9 +19,10 @@ inglês, inclusive nos atalhos.
 
 1. **O que instalar:** clique nos cartões para ligar ou desligar cada app.
 2. **Do seu jeito:** abrir com o Windows, ilha flutuando ou colada no topo, relógio em 24 h ou 12 h, clima e a
-   cidade dele, esquema de cursor (preto, branco ou só deixar na lista de Ponteiros).
-3. **Últimos detalhes:** atalhos no Menu Iniciar e na área de trabalho, abrir os apps ao terminar, idioma da ilha e do
-   relógio. Se faltar alguma coisa no PC (.NET 10, Python, WebView2), o setup avisa e instala pelo winget.
+   cidade dele, esquema de cursor (preto, branco ou só deixar na lista de Ponteiros). A Central de Periféricos, se
+   abrir com o Windows, começa escondida na bandeja.
+3. **Últimos detalhes:** atalhos no Menu Iniciar e na área de trabalho, abrir os apps ao terminar, idioma da ilha, do
+   relógio e da Central de Periféricos. Se faltar alguma coisa no PC (.NET 10, Python, WebView2), o setup avisa e instala pelo winget.
 4. **Instalar.** Enquanto instala (e depois, na tela de "Tudo pronto"), passa um vídeo curto de cada app escolhido,
    mudo; o botão no canto do vídeo liga o som.
 
@@ -38,7 +40,8 @@ voltam a ser os de antes, e as configurações de cada app ficam guardadas caso 
 
 - Windows 10 ou 11, 64 bits.
 - Para o relógio: Python 3.10 ou mais novo (o setup instala o 3.13 se não tiver).
-- Para a ilha, o relógio e o Fundo Vivo: .NET 10 Desktop Runtime (o setup instala se não tiver).
+- Para a ilha, o relógio, o Fundo Vivo e a Central de Periféricos: .NET 10 Desktop Runtime (o setup instala se não tiver).
+- A Central de Periféricos é feita para o Windows 11 (22H2 ou mais novo).
 
 **Smart App Control:** o setup não é assinado. Com o Smart App Control ligado, o Windows pode recusar abrir ele.
 
@@ -48,8 +51,8 @@ voltam a ser os de antes, e as configurações de cada app ficam guardadas caso 
 powershell -ExecutionPolicy Bypass -File ferramentas\build.ps1
 ```
 
-Junta os quatro apps pelo pacote de release de cada um (o `ferramentas\publicar-versao.ps1 -SoGerar` das pastas vizinhas
-`ilha`, `relogio-mond`, `fundo-vivo` e `ilha-cursors`), compila a janela e gera `dist\DesktopGlow-Setup.exe` com o
+Junta os cinco apps pelo pacote de release de cada um (o `ferramentas\publicar-versao.ps1 -SoGerar` das pastas vizinhas
+`ilha`, `relogio-mond`, `fundo-vivo`, `ilha-cursors` e `gear-hub`), compila a janela e gera `dist\DesktopGlow-Setup.exe` com o
 `SHA256.txt`. Precisa do .NET SDK 10 e do Python com Pillow. Detalhes em `CLAUDE.md`.
 
 ## Vídeos e site

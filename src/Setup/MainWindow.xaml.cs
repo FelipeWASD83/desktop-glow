@@ -147,6 +147,9 @@ public partial class MainWindow : Window, IProgressSink
                     _o.CityLabel = Geocoding.Coordinates(lat, lon);
                 }
             }
+            if (File.Exists(Paths.GearHubConfig) && JsonNode.Parse(File.ReadAllText(Paths.GearHubConfig)) is JsonObject gear
+                && gear["startWithWindows"] is JsonValue g && g.TryGetValue(out bool gearStart))
+                _o.GearHubStartup = gearStart;
             var reg = new UserRegistry();
             if (Cursors.InUse(reg, Paths.Cursors))
                 _o.CursorScheme = (reg.Get(Cursors.CursorsKey, "Arrow") as string)?.Contains(@"\white\", StringComparison.OrdinalIgnoreCase) == true ? "white" : "black";
@@ -306,7 +309,7 @@ public partial class MainWindow : Window, IProgressSink
         {
             var tile = new StackPanel { Width = 150, Margin = new Thickness(6, 0, 6, 0) };
             tile.Children.Add(AppIcon(c, 84));
-            tile.Children.Add(new TextBlock { Text = Text.T("app." + Components.Key(c)), Style = Res("H2"), FontSize = 15, HorizontalAlignment = HorizontalAlignment.Center, Margin = new Thickness(0, 12, 0, 0) });
+            tile.Children.Add(new TextBlock { Text = Text.T("app." + Components.Key(c)), Style = Res("H2"), FontSize = 15, HorizontalAlignment = HorizontalAlignment.Center, TextAlignment = TextAlignment.Center, TextWrapping = TextWrapping.Wrap, Margin = new Thickness(0, 12, 0, 0) });
             var version = _payload?.Manifest.Components.GetValueOrDefault(Components.Key(c))?.Version;
             if (version != null) tile.Children.Add(new TextBlock { Text = version, Style = Res("Small"), HorizontalAlignment = HorizontalAlignment.Center, Margin = new Thickness(0, 2, 0, 0) });
             row.Children.Add(tile);
@@ -331,7 +334,7 @@ public partial class MainWindow : Window, IProgressSink
         DockPanel.SetDock(_prereqChips, Dock.Bottom);
         dock.Children.Add(_prereqChips);
 
-        var grid = new UniformGrid { Columns = 2, Rows = 2, Margin = new Thickness(-8, 18, -8, 0) };
+        var grid = new UniformGrid { Columns = 2 };
         foreach (var c in Components.All)
         {
             var info = _payload?.Manifest.Components.GetValueOrDefault(Components.Key(c));
@@ -343,8 +346,25 @@ public partial class MainWindow : Window, IProgressSink
             _cards[c] = card;
             grid.Children.Add(card);
         }
-        dock.Children.Add(grid);
+        dock.Children.Add(CardScroller(grid));
         return dock;
+    }
+
+    /// <summary>
+    /// Two columns of cards, and with five apps a third row: they scroll, fading out at both edges like the options.
+    /// </summary>
+    static ScrollViewer CardScroller(UniformGrid grid)
+    {
+        grid.Margin = new Thickness(-8, 4, 6, 18);
+        grid.VerticalAlignment = VerticalAlignment.Top;
+        var scroll = new ScrollViewer { Content = grid, VerticalScrollBarVisibility = ScrollBarVisibility.Auto, Margin = new Thickness(0, 12, -14, 0), Focusable = false };
+        var fade = new LinearGradientBrush { StartPoint = new Point(0, 0), EndPoint = new Point(0, 1) };
+        fade.GradientStops.Add(new GradientStop(Colors.Transparent, 0));
+        fade.GradientStops.Add(new GradientStop(Colors.Black, 0.02));
+        fade.GradientStops.Add(new GradientStop(Colors.Black, 0.93));
+        fade.GradientStops.Add(new GradientStop(Colors.Transparent, 1));
+        scroll.OpacityMask = fade;
+        return scroll;
     }
 
     void RefreshPick(bool animate)
@@ -353,7 +373,7 @@ public partial class MainWindow : Window, IProgressSink
         if (_page == PageId.Pick)
         {
             NextButton.IsEnabled = n > 0;
-            IsleTo(n == 0 ? IsleDot(Brush("Warn"), Text.T("pick.none")) : IsleIcons(_o.Selected, 18, Text.T("island.selected", n)), animate);
+            IsleTo(n == 0 ? IsleDot(Brush("Warn"), Text.T("pick.none")) : IsleIcons(_o.Selected, 18, Text.T("island.selected", n, Components.All.Length)), animate);
         }
         _prereqChips.Children.Clear();
         foreach (var p in _o.Selected.SelectMany(Components.Needs).Distinct())
@@ -433,6 +453,11 @@ public partial class MainWindow : Window, IProgressSink
         _fundoNote = new TextBlock { Style = Res("Small"), FontSize = 12.5, Margin = new Thickness(0, 12, 0, 6) };
         fundo.Add(_fundoNote);
         list.Children.Add(fundo.Root);
+
+        // gear hub
+        var gear = SectionFor(ComponentId.GearHub);
+        gear.Add(Row(Text.T("opt.startup"), Text.T("opt.gearStartupSub"), Switch(_o.GearHubStartup, v => _o.GearHubStartup = v)));
+        list.Children.Add(gear.Root);
 
         var scroll = new ScrollViewer { Content = list, VerticalScrollBarVisibility = ScrollBarVisibility.Auto, Margin = new Thickness(0, 18, -14, 0), Focusable = false };
         // the list fades out at both edges instead of being cut by a hard line
@@ -521,7 +546,7 @@ public partial class MainWindow : Window, IProgressSink
         general.Children.Add(Row(Text.T("final.desktop"), null, Switch(_o.DesktopShortcuts, v => _o.DesktopShortcuts = v)));
         general.Children.Add(Row(Text.T("final.launch"), null, Switch(_o.LaunchWhenDone, v => _o.LaunchWhenDone = v)));
         general.Children.Add(Row(Text.T("final.priority"), Text.T("final.prioritySub"), Switch(_o.Priority, v => _o.Priority = v)));
-        general.Children.Add(Row(Text.T("final.lang"), null,
+        general.Children.Add(Row(Text.T("final.lang"), Text.T("final.langSub"),
             Segment(new[] { (Text.T("lang.auto"), "auto"), ("PT", "pt"), ("EN", "en") }, _o.AppLanguage, v => _o.AppLanguage = v)));
         _missingSub = new TextBlock { Style = Res("Small"), Margin = new Thickness(0, 3, 0, 0) };
         var missingText = new StackPanel();
@@ -617,7 +642,7 @@ public partial class MainWindow : Window, IProgressSink
         var head = Header(Text.T("uninstall.title"), _state.Components.Count == 0 ? Text.T("uninstall.nothing") : Text.T("uninstall.sub"));
         DockPanel.SetDock(head, Dock.Top);
         dock.Children.Add(head);
-        var grid = new UniformGrid { Columns = 2, Margin = new Thickness(-8, 18, -8, 0), VerticalAlignment = VerticalAlignment.Top };
+        var grid = new UniformGrid { Columns = 2 };
         foreach (var c in Components.All.Where(_state.Has))
         {
             _toRemove.Add(c);
@@ -627,7 +652,7 @@ public partial class MainWindow : Window, IProgressSink
             _removeCards[c] = card;
             grid.Children.Add(card);
         }
-        dock.Children.Add(grid);
+        dock.Children.Add(CardScroller(grid));
         return dock;
     }
 
@@ -726,6 +751,11 @@ public partial class MainWindow : Window, IProgressSink
         {
             case "welcome": ShowPage(PageId.Welcome, true, false); break;
             case "pick": ShowPage(PageId.Pick, true, false); break;
+            case "pick-end":
+                ShowPage(PageId.Pick, true, false);
+                UpdateLayout();
+                FindChild<ScrollViewer>(_pages[PageId.Pick])?.ScrollToEnd();
+                break;
             case "options":
             case "options-mid":
             case "options-end":
@@ -739,19 +769,19 @@ public partial class MainWindow : Window, IProgressSink
             case "final": ShowPage(PageId.Final, true, false); break;
             case "progress":
                 _progressTitle.Text = Text.T("progress.title");
-                Rows(StepState.Done, StepState.Running, StepState.Waiting, StepState.Waiting);
+                Rows(StepState.Done, StepState.Running, StepState.Waiting, StepState.Waiting, StepState.Waiting);
                 ShowPage(PageId.Progress, true, false);
                 StartVideos(play: false);
                 IsleProgress(ComponentId.Relogio, animate: false);
                 ApplyOverall(0.46, Text.T("progress.installing", Text.T("app.relogio")), animate: false);
                 break;
             case "done":
-                Rows(StepState.Done, StepState.Done, StepState.Done, StepState.Done);
+                Rows(StepState.Done, StepState.Done, StepState.Done, StepState.Done, StepState.Done);
                 ShowPage(PageId.Progress, true, false);
                 Finish(false, _mode == Mode.Uninstall, animate: false);
                 break;
             case "done-error":
-                Rows(StepState.Done, StepState.Failed, StepState.Done, StepState.Done);
+                Rows(StepState.Done, StepState.Failed, StepState.Done, StepState.Done, StepState.Done);
                 _rows[ComponentId.Relogio].Set(StepState.Failed, Text.T("error.missing", Text.T("prereq.Python")), false);
                 ShowPage(PageId.Progress, true, false);
                 Finish(true, false, animate: false);
@@ -1018,8 +1048,8 @@ public partial class MainWindow : Window, IProgressSink
             Root.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
             Root.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
             Root.Children.Add(w.AppIcon(c, 38));
-            var text = new StackPanel { Margin = new Thickness(14, 0, 14, 0), VerticalAlignment = VerticalAlignment.Center };
-            text.Children.Add(new TextBlock { Text = Text.T("app." + Components.Key(c)), FontSize = 14.5, FontWeight = FontWeights.SemiBold });
+            var text = new StackPanel { Margin = new Thickness(14, 0, 8, 0), VerticalAlignment = VerticalAlignment.Center };
+            text.Children.Add(new TextBlock { Text = Text.T("app." + Components.Key(c)), FontSize = 14.5, FontWeight = FontWeights.SemiBold, TextTrimming = TextTrimming.CharacterEllipsis });
             text.Children.Add(_detail);
             Grid.SetColumn(text, 1);
             Root.Children.Add(text);

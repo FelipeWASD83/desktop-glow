@@ -24,6 +24,7 @@ public static class Names
         ComponentId.Ilha => "Ilha",
         ComponentId.Relogio => "RelogioMond",
         ComponentId.FundoVivo => "FundoVivo",
+        ComponentId.GearHub => "GearHub",
         _ => null,
     };
 
@@ -35,6 +36,7 @@ public static class Names
         ComponentId.Ilha => english ? "Island.lnk" : "Ilha.lnk",
         ComponentId.Relogio => english ? "Mond Clock.lnk" : "Relógio Mond.lnk",
         ComponentId.FundoVivo => english ? "Living Wallpaper.lnk" : "Fundo Vivo.lnk",
+        ComponentId.GearHub => english ? "Gear Hub.lnk" : "Central de Periféricos.lnk",
         _ => null,
     };
 
@@ -104,6 +106,7 @@ public sealed class Installer
                     case ComponentId.Ilha: InstallIlha(zip); break;
                     case ComponentId.Relogio: InstallRelogio(zip); break;
                     case ComponentId.FundoVivo: InstallFundoVivo(zip); break;
+                    case ComponentId.GearHub: InstallGearHub(zip); break;
                     default: InstallCursors(zip); break;
                 }
                 Installed.Add(c);
@@ -139,7 +142,7 @@ public sealed class Installer
 
     double Fraction() => _totalBytes <= 0 ? 0 : Math.Clamp((double)_doneBytes / _totalBytes, 0, 1);
 
-    // ---- the four components
+    // ---- the five components
 
     void InstallIlha(ZipArchive zip)
     {
@@ -190,6 +193,23 @@ public sealed class Installer
         string exe = Path.Combine(Paths.FundoVivo, "FundoVivo.exe");
         Startup(ComponentId.FundoVivo, _o.FundoVivoStartup, $"\"{exe}\" --engine");
         Shortcuts(ComponentId.FundoVivo, exe, "", Paths.FundoVivo, exe, Text.T("desc.fundovivo"));
+    }
+
+    void InstallGearHub(ZipArchive zip)
+    {
+        Processes.CloseGearHub();
+        // its settings, profiles, log and update state live in ~\.gear-hub, outside the folder
+        Extract(zip, "gearhub/", Paths.GearHub, keep: Array.Empty<string>());
+        Json.Merge(Paths.GearHubConfig, new Dictionary<string, JsonNode?>
+        {
+            ["startWithWindows"] = _o.GearHubStartup,
+            ["language"] = _o.AppLanguage,
+        });
+        string exe = Path.Combine(Paths.GearHub, "GearHub.exe");
+        // the same command the installed Gear Hub writes for itself when it opens
+        Startup(ComponentId.GearHub, _o.GearHubStartup, $"\"{exe}\" --tray");
+        string icon = Path.Combine(Paths.GearHub, "icone.ico");
+        Shortcuts(ComponentId.GearHub, exe, "", Paths.GearHub, File.Exists(icon) ? icon : exe, Text.T("desc.gearhub"));
     }
 
     void InstallCursors(ZipArchive zip)
@@ -246,6 +266,10 @@ public sealed class Installer
                     case ComponentId.FundoVivo:
                         // with no argument it starts the engine and opens the library to pick a wallpaper per monitor
                         Processes.Start(Path.Combine(Paths.FundoVivo, "FundoVivo.exe"), "", Paths.FundoVivo);
+                        break;
+                    case ComponentId.GearHub:
+                        // with no argument it opens its window (with --tray it would start hidden in the tray)
+                        Processes.Start(Path.Combine(Paths.GearHub, "GearHub.exe"), "", Paths.GearHub);
                         break;
                     case ComponentId.Relogio:
                         if (Prerequisites.FindPythonw() is string pythonw)

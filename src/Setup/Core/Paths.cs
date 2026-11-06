@@ -27,6 +27,9 @@ public static class Paths
     /// <summary>Same folder as ilha-cursors' install.py, so its --uninstall keeps working.</summary>
     public static string Cursors => Path.Combine(UserProfile, ".ilha-cursors");
     public static string IlhaConfig => Path.Combine(UserProfile, ".ilha", "config.json");
+    /// <summary>Gear Hub only writes its Run entry when it runs from exactly this folder (Paths.InstallDir in gear-hub).</summary>
+    public static string GearHub => Path.Combine(Programs, "GearHub");
+    public static string GearHubConfig => Path.Combine(UserProfile, ".gear-hub", "settings.json");
 
     public static string Pack => Path.Combine(Programs, "DesktopGlow");
     public static string Uninstaller => Path.Combine(Pack, "Uninstall.exe");

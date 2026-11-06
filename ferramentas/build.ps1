@@ -1,7 +1,7 @@
-# Builds the setup: gathers the four apps into one payload zip, compiles the setup window and glues the zip to it.
+# Builds the setup: gathers the five apps into one payload zip, compiles the setup window and glues the zip to it.
 # Output: dist\DesktopGlow-Setup.exe (the name the site links to; the version is inside it), SHA256.txt next to it.
 #
-# Usage: powershell -ExecutionPolicy Bypass -File ferramentas\build.ps1 [-Rebuild ilha,relogio,cursors,fundovivo] [-Attempts 15]
+# Usage: powershell -ExecutionPolicy Bypass -File ferramentas\build.ps1 [-Rebuild ilha,relogio,cursors,fundovivo,gearhub] [-Attempts 15]
 #
 # Each app comes from its own release package, the zip its ferramentas\publicar-versao.ps1 -SoGerar writes (the same
 # zip its in-app updater downloads from GitHub). They are cached in build\sources\<app> until the version changes or
@@ -69,7 +69,7 @@ if (Test-Path $payload) { Remove-Item $payload -Recurse -Force }
 New-Item -ItemType Directory -Force $payload | Out-Null
 $components = [ordered]@{}
 
-# ---- the four apps, each from its own release package (publicar-versao.ps1 -SoGerar, the format the clave started)
+# ---- the five apps, each from its own release package (publicar-versao.ps1 -SoGerar, the format the clave started)
 function Release-Zip([string]$name, [string]$dir, [string]$zipName, [string]$version) {
     $work = Join-Path $build "sources\$name"
     $zip = Join-Path $work $zipName
@@ -150,6 +150,16 @@ $dest = Expand-Package (Release-Zip 'cursors' $cDir "ilha-cursors-$cVersion.zip"
 foreach ($f in @('manifest.json', 'black', 'white')) { if (-not (Test-Path (Join-Path $dest $f))) { throw "cursors package without $f" } }
 $components['cursors'] = [ordered]@{ version = $cVersion; bytes = (Folder-Bytes $dest) }
 
+# gear hub: compiled from its last commit by its own script (stamp loop and --ping); GearHub-X.Y.Z.zip with the files
+# at the root. Framework-dependent .NET 10, so it needs the desktop runtime the setup installs through winget.
+$gDir = Join-Path $base 'gear-hub'
+$gVersion = App-Version $gDir (Csproj-Version (Join-Path $gDir 'src\GearHub\GearHub.csproj'))
+$gChangelog = Changelog-Version (Join-Path $gDir 'CHANGELOG.md')
+if ($gChangelog -ne $gVersion) { throw "gear-hub: CHANGELOG.md is at $gChangelog but versao.json says $gVersion." }
+$dest = Expand-Package (Release-Zip 'gearhub' $gDir "GearHub-$gVersion.zip" $gVersion) 'gearhub'
+foreach ($f in @('GearHub.exe', 'GearHub.dll', 'icone.ico', 'versao.json')) { if (-not (Test-Path (Join-Path $dest $f))) { throw "gear hub package without $f" } }
+$components['gearhub'] = [ordered]@{ version = $gVersion; bytes = (Folder-Bytes $dest) }
+
 # ---- the app videos the progress screen plays (video\ferramentas\todos.py writes them)
 $vSrc = Join-Path $root 'video\saida\setup'
 $vFiles = @(Get-ChildItem $vSrc -File -ErrorAction SilentlyContinue | Where-Object { $_.Extension -in '.mp4', '.jpg' })
@@ -158,6 +168,12 @@ if ($vFiles.Count -gt 0) {
     New-Item -ItemType Directory -Force $vDest | Out-Null
     $vFiles | Copy-Item -Destination $vDest
     Write-Host ("Videos: {0} files, {1:N1} MB" -f $vFiles.Count, (($vFiles | Measure-Object Length -Sum).Sum / 1MB))
+    # the names are Components.Icon in the setup; an app without its video is just skipped on the progress screen
+    foreach ($v in @('ilha', 'relogio', 'fundovivo', 'cursores', 'gearhub')) {
+        foreach ($lang in @('pt', 'en')) {
+            if (-not (Test-Path (Join-Path $vSrc "$v-$lang.mp4"))) { Write-Warning "No setup video $v-$lang.mp4: the progress screen plays the others." }
+        }
+    }
 } else {
     Write-Warning 'No setup videos in video\saida\setup: the progress screen will show the list only. Run python video\ferramentas\todos.py first.'
 }
@@ -176,7 +192,7 @@ try {
         [IO.Compression.ZipFileExtensions]::CreateEntryFromFile($archive, $file.FullName, $name, [IO.Compression.CompressionLevel]::Optimal) | Out-Null
     }
 } finally { $archive.Dispose() }
-Write-Host ("Payload: {0:N1} MB  (ilha {1}, fundo vivo {2}, relogio {3}, cursors {4})" -f ((Get-Item $zip).Length / 1MB), $ilhaVersion, $fvVersion, $rVersion, $cVersion)
+Write-Host ("Payload: {0:N1} MB  (ilha {1}, fundo vivo {2}, relogio {3}, cursors {4}, gear hub {5})" -f ((Get-Item $zip).Length / 1MB), $ilhaVersion, $fvVersion, $rVersion, $cVersion, $gVersion)
 
 # ---- setup window, stamped until Windows accepts it, then glued
 $project = Join-Path $root 'src\Setup\Setup.csproj'
