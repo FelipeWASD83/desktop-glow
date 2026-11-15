@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.1 (15/11/2026)
+
+**Mudou**
+- Traz a Ilha 4.5.0 (o cartão do limite do Claude explica quem atualiza o número) e a Central de Periféricos 1.4.0.
+
 ## 1.5.0 (06/11/2026)
 
 **Novo**
